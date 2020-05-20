@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ngx-theme-menu',
+  selector: 'app-theme-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })

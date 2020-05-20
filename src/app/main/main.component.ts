@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'ngx-theme-main',
+  selector: 'app-theme-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })

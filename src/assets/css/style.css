@@ -19,9 +19,9 @@
 
 -----------------------------------------------------------------------------------*/
 /*===========================
-      01.COMMON css 
+      01.COMMON css
 ===========================*/
-@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800|Open+Sans:300,400,600,700&amp;display=swap");
+@import url("font.css");
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
@@ -327,7 +327,7 @@ p {
         height: 50%; } }
 
 /*===========================
-      02.HEADER css 
+      02.HEADER css
 ===========================*/
 body.active {
   overflow: hidden; }
@@ -1497,7 +1497,7 @@ body.active {
           border-bottom-right-radius: 5px; } }
 
 /*===========================
-    03.HEADER BANNER css 
+    03.HEADER BANNER css
 ===========================*/
 .header-banner {
   height: 800px;
@@ -1976,7 +1976,7 @@ body.active {
           font-size: 14px; } }
 
 /*===========================
-      04.CATEGORY css 
+      04.CATEGORY css
 ===========================*/
 .category-title .title {
   font-size: 24px;
@@ -2150,7 +2150,7 @@ body.active {
       background-color: #ec7424; }
 
 /*===========================
-    05.CLASSIFED ADS css 
+    05.CLASSIFED ADS css
 ===========================*/
 .ads-bg {
   background-color: #f5f9ff; }
@@ -2205,7 +2205,7 @@ body.active {
         background-color: #21c87a; }
 
 /*===========================
-    06.ADS PRODUCT css 
+    06.ADS PRODUCT css
 ===========================*/
 .single-ads-product {
   background-color: #fff;
@@ -2332,7 +2332,7 @@ body.active {
       border-left: 1px solid #e8e8e8; } }
 
 /*===========================
-      07.LOCATION css 
+      07.LOCATION css
 ===========================*/
 .single-location {
   position: relative;
@@ -2402,7 +2402,7 @@ body.active {
     visibility: visible; }
 
 /*===========================
-      08.BRAND css 
+      08.BRAND css
 ===========================*/
 .brand-bg {
   background-color: #f5f9ff; }
@@ -2492,7 +2492,7 @@ body.active {
     margin-top: 15px; }
 
 /*===========================
-      09.BLOG css 
+      09.BLOG css
 ===========================*/
 .single-blog {
   -webkit-box-shadow: 0px 10px 30px 0px rgba(1, 1, 1, 0.03);
@@ -2645,7 +2645,7 @@ body.active {
     color: #ec7424; }
 
 /*===========================
-      10.FOOTER css 
+      10.FOOTER css
 ===========================*/
 .footer-area {
   background-color: #191a1a; }
@@ -3059,7 +3059,7 @@ body.active {
     -o-transform: scale(2);
     transform: scale(2); } }
 /*===========================
-      11.BANNER css 
+      11.BANNER css
 ===========================*/
 @media (max-width: 767px) {
   .banner-area {
@@ -3115,7 +3115,7 @@ body.active {
   color: #fff; }
 
 /*===========================
-      12.PRICING css 
+      12.PRICING css
 ===========================*/
 .single-pricing {
   -webkit-box-shadow: 0px 2px 30px 0px rgba(25, 26, 26, 0.08);
@@ -3187,7 +3187,7 @@ body.active {
     background-color: #ec7424; }
 
 /*===========================
-      13.COUNTER css 
+      13.COUNTER css
 ===========================*/
 .counter-area {
   position: relative; }
@@ -3265,7 +3265,7 @@ body.active {
     font-size: 16px; } }
 
 /*===========================
-      14.GET SEARCH css 
+      14.GET SEARCH css
 ===========================*/
 .get-search-area-bg {
   background-color: #f6f6f6; }
@@ -3523,7 +3523,7 @@ body.active {
         width: 100%; }
 
 /*===========================
-     15.PAGE BANNER css 
+     15.PAGE BANNER css
 ===========================*/
 .page-banner {
   position: relative;
@@ -3569,7 +3569,7 @@ body.active {
         font-size: 16px; } }
 
 /*===========================
-       16.ABOUT css 
+       16.ABOUT css
 ===========================*/
 .about-image {
   max-width: 510px; }
@@ -3647,7 +3647,7 @@ body.active {
       color: #6963ff; }
 
 /*===========================
-     17.HIW IT WORK css 
+     17.HIW IT WORK css
 ===========================*/
 .work-wrapper .work-col:nth-child(6n+1) .single-work .work-icon span {
   background-color: #6963ff; }
@@ -3734,7 +3734,7 @@ body.active {
   margin-top: 20px; }
 
 /*===========================
-     18.ADS SIDEBAR css 
+     18.ADS SIDEBAR css
 ===========================*/
 .ads-sidebar .sidebar-title {
   border: 1px solid rgba(1, 1, 1, 0.1);
@@ -3906,7 +3906,7 @@ body.active {
   color: #21c87a; }
 
 /*===========================
-     19.ADS PAGE css 
+     19.ADS PAGE css
 ===========================*/
 .ads-top-bar .list-grid-menu .nav li {
   margin-right: 25px; }
@@ -3957,7 +3957,7 @@ body.active {
   font-size: 14px; }
 
 /*===========================
-    20.ADS DETAILS PAGE css 
+    20.ADS DETAILS PAGE css
 ===========================*/
 .ads-details-image .details-image .single-details-image img {
   width: 100%; }
@@ -4390,7 +4390,7 @@ body.active {
       background-color: #6963ff; }
 
 /*===========================
-  21.SELLER AUTHOR LIST css 
+  21.SELLER AUTHOR LIST css
 ===========================*/
 .single-seller-author .seller-author-wrapper .author-image img {
   width: 80px;
@@ -4499,7 +4499,7 @@ body.active {
     line-height: 40px; }
 
 /*===========================
-       22.SIGN IN css 
+       22.SIGN IN css
 ===========================*/
 .sing-in-area {
   position: relative; }
@@ -4681,7 +4681,7 @@ body.active {
         padding-left: 0; } }
 
 /*===========================
-       23.FAQ css 
+       23.FAQ css
 ===========================*/
 .faq-accordion .accordion .card {
   margin-top: 20px;
@@ -4788,7 +4788,7 @@ body.active {
       color: #fff; }
 
 /*===========================
-    25.BLOG SIDEBAR css 
+    25.BLOG SIDEBAR css
 ===========================*/
 .blog-sidebar .sidebar-title {
   border: 1px solid rgba(1, 1, 1, 0.1);
@@ -4902,7 +4902,7 @@ body.active {
           border-color: #21c87a; }
 
 /*===========================
-    26.BLOG POST PAGE css 
+    26.BLOG POST PAGE css
 ===========================*/
 .sing-blog-post .blog-post-image img {
   width: 100%; }
@@ -5062,7 +5062,7 @@ body.active {
     transform: translate(-50%, -50%); }
 
 /*===========================
-    27.BLOG DETAILS css 
+    27.BLOG DETAILS css
 ===========================*/
 .blog-details-content img {
   width: 100%; }
@@ -5274,7 +5274,7 @@ body.active {
   padding-top: 45px; }
 
 /*===========================
-     28.CONTACT css 
+     28.CONTACT css
 ===========================*/
 #contact-map {
   height: 550px; }
@@ -5316,7 +5316,7 @@ body.active {
     padding-left: 10px; }
 
 /*===========================
-    29.PROFILE css 
+    29.PROFILE css
 ===========================*/
 .profile-sidebar-title {
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
@@ -5688,7 +5688,7 @@ body.active {
 /*=====  =====*/
 /*=====  =====*/
 /*===========================
-      30.AD POSTS css 
+      30.AD POSTS css
 ===========================*/
 .ad-posts-title {
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
