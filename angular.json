@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "divarHome": {
@@ -24,9 +24,33 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/jquery-ui.min.css",
+              "src/assets/css/fontawesome.min.css",
+              "src/assets/css/default.css",
+              "src/assets/css/bootstrap.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/vendor/jquery-1.12.4.min.js",
+              "src/assets/js/vendor/moderniz-3.6.0.min.js",
+              "src/assets/js/ajax-contact.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/main.js",
+              "src/assets/js/map-script.js",
+              "src/assets/js/menu_horizntal.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/validator.min.js",
+              "src/assets/js/wow.min.js"
+            ]
           },
           "configurations": {
             "production": {
