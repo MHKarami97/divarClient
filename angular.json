@@ -33,11 +33,10 @@
               "src/assets/css/fontawesome.min.css",
               "src/assets/css/default.css",
               "src/assets/css/bootstrap.min.css"
-
             ],
             "scripts": [
               "src/assets/js/vendor/jquery-1.12.4.min.js",
-              "src/assets/js/vendor/moderniz-3.6.0.min.js",
+              "src/assets/js/vendor/modernizr-3.6.0.min.js",
               "src/assets/js/ajax-contact.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery-ui.min.js",
@@ -45,7 +44,7 @@
               "src/assets/js/jquery.nice-select.min.js",
               "src/assets/js/main.js",
               "src/assets/js/map-script.js",
-              "src/assets/js/menu_horizntal.js",
+              "src/assets/js/menu_horizontal.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/slick.min.js",
               "src/assets/js/validator.min.js",
@@ -143,6 +142,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "divarHome"
+    }
+  },
+  "defaultProject": "divarHome",
+  "cli": {
+    "analytics": false
+  }
 }
