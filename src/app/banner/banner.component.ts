@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-theme-banner',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
 
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'fa']);
+  }
 }

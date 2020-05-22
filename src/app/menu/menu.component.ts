@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-theme-menu',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'fa']);
+  }
 }

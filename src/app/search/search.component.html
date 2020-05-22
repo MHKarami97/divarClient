@@ -5,11 +5,8 @@
      <form action="#">
        <div class="get-search-form search-form-bg d-flex flex-wrap">
          <div class="single-form">
-           <input type="text" placeholder="Looking For Classified -">
-         </div>
-         <div class="single-form">
            <select>
-             <option value="0">Select Location -</option>
+             <option value="0" disabled selected>{{ 'Search.City' | translate }}</option>
              <option value="1">Dhaka</option>
              <option value="2">Chittagong</option>
              <option value="3">Khulna</option>
@@ -21,9 +18,22 @@
            </select>
          </div>
          <div class="single-form">
-           <input type="text" placeholder="Enter Keyword Hare -">
-           <button><i class="fal fa-search"></i></button>
+           <select>
+             <option value="0" disabled selected>{{ 'Search.Location' | translate }}</option>
+             <option value="1">Dhaka</option>
+             <option value="2">Chittagong</option>
+             <option value="3">Khulna</option>
+             <option value="4">Rajshahi</option>
+             <option value="5">Dinajpur</option>
+             <option value="6">Rangpur</option>
+             <option value="7">Sylhet</option>
+             <option value="8">Sylhet</option>
+           </select>
          </div>
+          <div class="single-form">
+              <input type="text" placeholder="{{ 'Search.Text' | translate }}">
+            <button><i class="fal fa-search"></i></button>
+          </div>
        </div>
      </form>
    </div>

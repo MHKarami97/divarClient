@@ -1,0 +1,39 @@
+{
+  "Banner": {
+    "Title": "site title",
+    "More": "Search from over 2000+ Active Ads in 29+ Categories for Free"
+  },
+  "Search": {
+    "Location": "Select Location",
+    "Text": "Looking For ...",
+    "City": "Select City"
+  },
+  "Main": {
+    "Detail": "View Detail"
+  },
+  "Fotter": {
+    "About": "About Us",
+    "Link": "Links",
+    "Contact": "Contact Us",
+    "Help": "Help",
+    "Join": "Join Us",
+    "Question": "Questions",
+    "Communication": "Communication",
+    "Call": "Call",
+    "Phone": "09390709197",
+    "Message": "Message",
+    "Email": "mhkarami97@gmail.com",
+    "CopyWrite": "Copywright by MHKarami Allights Reserved"
+  },
+  "Header":{
+    "Follow":"Follow Us",
+    "SignIn":"Sign In"
+  },
+  "Menu": {
+    "About": "About Us",
+    "Home": "Home",
+    "Category": "Category",
+    "PostAd": "Post Free Ad",
+    "Contact":"Contact Us"
+  }
+}
