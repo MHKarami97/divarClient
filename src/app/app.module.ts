@@ -1,3 +1,5 @@
+import { SingleComponent } from './single/single.component';
+import { PageComponent } from './page/page.component';
 import { SearchComponent } from './search/search.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainComponent } from './main/main.component';
@@ -32,7 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     MainComponent,
     MenuComponent,
-    SearchComponent
+    SearchComponent,
+    PageComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,

@@ -25,15 +25,23 @@
     "Email": "mhkarami97@gmail.com",
     "CopyWrite": "Copywright by MHKarami Allights Reserved"
   },
-  "Header":{
-    "Follow":"Follow Us",
-    "SignIn":"Sign In"
+  "Header": {
+    "Follow": "Follow Us",
+    "SignIn": "Sign In"
   },
   "Menu": {
     "About": "About Us",
     "Home": "Home",
     "Category": "Category",
     "PostAd": "Post Free Ad",
-    "Contact":"Contact Us"
+    "Contact": "Contact Us"
+  },
+  "Single": {
+    "Share": "Share",
+    "Contact": "Get Contact Info",
+    "ShowPhone": "Show Phone Number",
+    "Seller": "Seller",
+    "Chat": "Start Chat",
+    "AboutSeller": "About"
   }
 }
