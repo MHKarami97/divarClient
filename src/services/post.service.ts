@@ -4,13 +4,14 @@ import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
 import { PostShort, Post } from 'src/models/post/post.module';
+import { Setting } from 'src/app/setting';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
 
-  apiUrl = 'post/';
+  apiUrl = Setting.baseAddress + 'posts/';
   error = new Subject<string>();
 
   constructor(private http: HttpClient) { }

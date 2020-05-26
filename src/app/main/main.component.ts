@@ -17,23 +17,25 @@ export class MainComponent implements OnInit {
     translate.addLangs(['en', 'fa']);
   }
 
-  ngOnInit() {
-    this.loadData();
-  }
-
-  loadData() {
+  ngOnInit(): void {
     this.loading = true;
     this.dataService.getShort().subscribe(
       results => {
         this.source = results.data;
         this.loading = false;
+        console.log(results);
+        console.log(this.source);
       },
       error => {
         this.error = error.message;
         this.onError();
       },
     );
-    this.loading = true;
+    this.loading = false;
+  }
+
+  loadData() {
+
   }
 
   onError() {

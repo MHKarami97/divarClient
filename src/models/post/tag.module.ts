@@ -1,3 +1,4 @@
-export class Tag extends Base {
+export class Tag {
+  public Id: number;
   public Name: string;
 }

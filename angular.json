@@ -28,11 +28,11 @@
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/style.css",
               "src/assets/css/slick.css",
-              "src/assets/css/nice-select.css",
               "src/assets/css/magnific-popup.css",
               "src/assets/css/jquery-ui.min.css",
               "src/assets/css/fontawesome.min.css",
-              "src/assets/css/default.css"
+              "src/assets/css/default.css",
+              "src/assets/css/nice-select.css"
             ],
             "scripts": [
               "src/assets/js/vendor/jquery-1.12.4.min.js",
