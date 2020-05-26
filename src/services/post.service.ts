@@ -23,8 +23,8 @@ export class PostService {
     };
   }
 
-  get(): Observable<Api<PostShort[]>> {
-    return this.http.get<Api<PostShort[]>>(this.apiUrl + 'get')
+  getShort(): Observable<Api<PostShort[]>> {
+    return this.http.get<Api<PostShort[]>>(this.apiUrl + 'getShort')
       .pipe(
         tap(),
         catchError(this.handleError('get', new Api<PostShort[]>()),

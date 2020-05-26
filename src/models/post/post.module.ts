@@ -19,4 +19,5 @@ export class PostShort extends Base {
   public StateName: string;
   public Time: string;
   public Image: string;
+  public Price: number;
 }
