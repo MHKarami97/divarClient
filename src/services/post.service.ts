@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
-import { PostShort, Post } from 'src/models/post/post.module';
+import { PostShort, Post, PostCreate } from 'src/models/post/post.module';
 import { Setting } from 'src/app/setting';
 
 @Injectable({
@@ -38,5 +38,12 @@ export class PostService {
       tap(),
       catchError(this.handleError<Api<Post>>(`getById id=${id}`)),
     );
+  }
+
+  create(product: PostCreate): Observable<Api<Post>> {
+    return this.http.post<Api<Post>>(this.apiUrl + 'create', product).pipe(
+      tap(),
+      catchError(this.handleError('get', new Api<Post>()),
+      ));
   }
 }

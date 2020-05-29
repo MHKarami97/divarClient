@@ -43,5 +43,11 @@
     "Seller": "Seller",
     "Chat": "Start Chat",
     "AboutSeller": "About"
+  },
+  "Profile": {
+    "Profile": "Profile",
+    "Text": "You can send and manage add by login",
+    "Phone": "Phone Number",
+    "LoginOrRegister": "Login Or Register"
   }
 }
