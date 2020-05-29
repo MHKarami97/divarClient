@@ -15,6 +15,17 @@ export class Post {
   public isFavorite: boolean;
 }
 
+export class PostCreate {
+  public title: string;
+  public categoryId: number;
+  public stateId: number;
+  public location: string;
+  public phone: string;
+  public price: string;
+  public images: Array<File>;
+  public tags: Tag[];
+}
+
 export class PostShort {
   public id: number;
   public title: string;
