@@ -1,0 +1,37 @@
+@import url("font-rtl.css");
+
+body,
+html,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "ISDN" !important;
+}
+
+.single-ads-product .product-content .location,
+.sub-title,
+.main-title,
+.main-title a,
+.price-rating,
+.footer-link,
+.footer-contact,
+.link-list {
+  direction: rtl;
+  text-align: right;
+}
+
+.single-ads-product .product-content .location i {
+  margin-left: 5px;
+}
+
+.footer-widget .footer-title::before {
+  right: 0;
+}
+
+.fal {
+  margin-left: 5px;
+}

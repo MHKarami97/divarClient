@@ -14,16 +14,21 @@ import { BannerComponent } from './banner/banner.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpBackend, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthGuard } from './auth-guard.service';
+import { HttpInterceptorService } from './http-interceptor.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+
+export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateHttpLoader {
+  return new TranslateHttpLoader(new HttpClient(httpBackend));
 }
 
 @NgModule({
@@ -52,18 +57,26 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'fa',
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useFactory: translateHttpLoaderFactory,
+        deps: [HttpBackend]
       }
-    })
+    }),
+    // TranslateModule.forRoot({
+    //   defaultLanguage: 'fa',
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: HttpLoaderFactory,
+    //     deps: [HttpClient]
+    //   }
+    // })
   ],
   providers: [
     AuthGuard,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpInterceptorService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

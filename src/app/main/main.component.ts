@@ -34,10 +34,6 @@ export class MainComponent implements OnInit {
     this.loading = false;
   }
 
-  loadData() {
-
-  }
-
   onError() {
     console.log(this.error);
   }

@@ -27,11 +27,13 @@
         <nav class="horizontalMenu">
           <ul class="horizontalMenu-list">
             <li class="active" aria-haspopup="false">
-              <a href="">{{ 'Menu.Home' | translate }}<i
-                  class="fal fa-chevron-down"></i></a>
+              <a href="">{{ 'Menu.Home' | translate }}</a>
             </li>
-            <li aria-haspopup="true"><a
-                href="">{{ 'Menu.About' | translate }}</a>
+            <li aria-haspopup="true"><a href="">{{ 'Menu.About' | translate }}</a>
+            </li>
+            <li aria-haspopup="true">
+              <a href="">{{ 'Menu.Contact' | translate }}<span class="wsarrow"></span>
+              </a>
             </li>
             <li class="position-static" aria-haspopup="true">
               <a href="#">{{ 'Menu.Category' | translate }}<i class="fal fa-chevron-down"></i></a>
@@ -40,77 +42,19 @@
                 <div class="container">
                   <div class="megamenu-content">
                     <div class="row">
-                      <ul class="link-list">
-                        <li class="title">Home pages</li>
-                        <li> <a href="">Home 01</a>
+                      <ul class="link-list" *ngFor="let item of source">
+                        <li class="title">{{item.name}}</li>
+                        <li *ngFor="let child of item.childCategories">
+                          <a href="">{{child.name}}</a>
                         </li>
-                        <li> <a href="">Home 02</a>
-                        </li>
-                        <li> <a href="">Home 03</a>
-                        </li>
-                        <li> <a href="">Home 04</a>
-                        </li>
-                        <li> <a href="">Home 05</a>
-                        </li>
-                      </ul>
-                      <ul class="link-list">
-                        <li class="title">Custom pages</li>
-                        <li> <a href="">Caategory</a>
-                        </li>
-                        <li> <a href="">Ads Grid</a>
-                        </li>
-                        <li> <a href="">Ads
-                            Left</a> </li>
-                        <li> <a href="">Ads
-                            Right</a> </li>
-                        <li> <a href="">Ads
-                            Details</a> </li>
-                      </ul>
-                      <ul class="link-list">
-                        <li> <a href="">Seller
-                            Author</a> </li>
-                        <li> <a href="">Seller
-                            Author List</a> </li>
-                        <li> <a href="">Pricing</a>
-                        </li>
-                        <li> <a href="">FAQ</a> </li>
-                        <li> <a href="">How It
-                            Work</a> </li>
-                      </ul>
-                      <ul class="link-list">
-                        <li class="title">User Pages</li>
-                        <li> <a href="">Dashboard</a>
-                        </li>
-                        <li> <a href="">Profile</a>
-                        </li>
-                        <li> <a href="">My Ads</a>
-                        </li>
-                        <li> <a href="">Favorite</a>
-                        </li>
-                        <li> <a href="">Manged</a>
-                        </li>
-                      </ul>
-                      <ul class="link-list">
-                        <li> <a href="">Payments</a>
-                        </li>
-                        <li> <a href="">Change
-                            Password</a> </li>
-                        <li> <a href="">Sign In</a>
-                        </li>
-                        <li> <a href="">Sign Up</a>
-                        </li>
-                        <li> <a href="">Ad Posts</a>
-                        </li>
-                        <li> <a href="#">Classifieds List</a> </li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
-            <li aria-haspopup="true"><a href="">{{ 'Menu.Contact' | translate }}<span class="wsarrow"></span></a></li>
-            <li aria-haspopup="true" class="d-lg-none"> <a class="main-btn"
-                href="">{{ 'Menu.PostAd' | translate }}</a> </li>
+            <li aria-haspopup="true" class="d-lg-none"> <a class="main-btn" href="">{{ 'Menu.PostAd' | translate }}</a>
+            </li>
           </ul>
         </nav>
 

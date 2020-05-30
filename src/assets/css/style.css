@@ -242,6 +242,9 @@ p {
   color: #798795; }
 
 /*===== All Pagination Style =====*/
+.pagination{
+  margin-bottom: 10px;
+}
 .seylon-pagination .pagination li {
   padding: 0 5px; }
   .seylon-pagination .pagination li a {

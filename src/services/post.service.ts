@@ -11,7 +11,7 @@ import { Setting } from 'src/app/setting';
 })
 export class PostService {
 
-  apiUrl = Setting.baseAddress + 'posts/';
+  apiUrl = 'posts/';
   error = new Subject<string>();
 
   constructor(private http: HttpClient) { }
