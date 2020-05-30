@@ -71,7 +71,7 @@
 
                     <div class="ads-details-contact-wrapper d-flex flex-wrap align-items-center mt-20">
                       <div class="contact-btn" (click)="onPhoneClick()">
-                        <a href="#">{{phone}}</a>
+                        <a>{{phone}}</a>
                         <p *ngIf="showPhoneText">{{ 'Single.ShowPhone' | translate }}</p>
                         <p *ngIf="!showPhoneText">{{ 'Single.NotShowPhone' | translate }}</p>
                         <i class="fal fa-phone"></i>
