@@ -309,7 +309,7 @@ p {
   background-color: #fff;
   z-index: 99999; }
   .preloader .load {
-    background-image: url(http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/preloader.gif);
+    background-image: url(/assets/images/preloader.gif);
     z-index: 5;
     position: absolute;
     top: 50%;
@@ -4742,7 +4742,7 @@ body.active {
   .faq-help::before {
     position: absolute;
     content: '';
-    background-image: url(http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/faq-bg.png);
+    background-image: url(/assets/images/faq-bg.png);
     background-size: contain;
     background-position: center center;
     width: 70%;
