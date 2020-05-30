@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'page',
+    path: 'page/:id',
     component: PageComponent,
   },
   {

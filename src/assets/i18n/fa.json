@@ -41,8 +41,9 @@
     "Contact": "اطلاعات تماس",
     "ShowPhone": "نمایش موبایل",
     "Seller": "فروشنده",
-    "Chat": "شورع چت",
-    "AboutSeller": "درباره"
+    "Chat": "شروع چت",
+    "AboutSeller": "درباره",
+    "NotShowPhone":"شماره تماس با فروشنده"
   },
   "Profile": {
     "Profile": "پروفایل",

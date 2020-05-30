@@ -19,7 +19,11 @@ h6 {
 .price-rating,
 .footer-link,
 .footer-contact,
-.link-list {
+.link-list,
+.ads-sidebar-title h4,
+.seller-author-wrapper,
+.ads-details-content,
+.seller-about {
   direction: rtl;
   text-align: right;
 }
@@ -34,4 +38,13 @@ h6 {
 
 .fal {
   margin-left: 5px;
+}
+
+.author-content,
+.ads-details-message {
+  margin-right: 5px;
+}
+
+.footer-area {
+  margin-top: 10px;
 }

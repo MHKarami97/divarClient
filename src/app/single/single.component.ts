@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Post } from 'src/models/post/post.module';
 
 @Component({
   selector: 'app-theme-single',
@@ -11,16 +11,20 @@ export class SingleComponent implements OnInit {
 
   loading = false;
   error = null;
+  phone = '939xxx';
+  showPhoneText = true;
+  @Input() item: Post;
 
-  constructor(private title: Title, public translate: TranslateService) {
+  constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'fa']);
   }
 
   ngOnInit(): void {
-    this.title.setTitle('');
+
   }
 
-  loadData() {
-
+  onPhoneClick() {
+    this.phone = this.item.phone;
+    this.showPhoneText = false;
   }
 }

@@ -46,14 +46,14 @@
             </div>
             <div class="col-md-5">
               <div class="ads-details-content mt-30">
-                <h4 class="title">Title</h4>
+                <h4 class="title">{{item.title}}</h4>
 
                 <div class="price-stock d-flex flex-wrap align-items-center">
-                  <p class="price">900 Price</p>
-                  <p class="stock">Time</p>
+                  <p class="price">{{item.price}}</p>
+                  <p class="stock">{{item.time}}</p>
                 </div>
 
-                <p class="text">More Info is Here</p>
+                <p class="text">{{item.categoryName}}</p>
 
                 <div class="ads-details-wrapper">
                   <div class="share">
@@ -70,9 +70,10 @@
                     <h6 class="title">{{ 'Single.Contact' | translate }} :</h6>
 
                     <div class="ads-details-contact-wrapper d-flex flex-wrap align-items-center mt-20">
-                      <div class="contact-btn">
-                        <a href="#">(+98) 123 000 XXXX</a>
-                        <p>{{ 'Single.ShowPhone' | translate }}</p>
+                      <div class="contact-btn" (click)="onPhoneClick()">
+                        <a href="#">{{phone}}</a>
+                        <p *ngIf="showPhoneText">{{ 'Single.ShowPhone' | translate }}</p>
+                        <p *ngIf="!showPhoneText">{{ 'Single.NotShowPhone' | translate }}</p>
                         <i class="fal fa-phone"></i>
                       </div>
 
@@ -110,11 +111,6 @@
                 <p>About</p>
               </div>
             </div>
-          </div>
-
-          <div class="sidebar-ads mt-30">
-            <a href="#"><img src="/assets/images/sidebar-ads.jpg"
-                alt="sidebar"></a>
           </div>
 
         </div>

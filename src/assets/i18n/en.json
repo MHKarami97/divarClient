@@ -42,7 +42,8 @@
     "ShowPhone": "Show Phone Number",
     "Seller": "Seller",
     "Chat": "Start Chat",
-    "AboutSeller": "About"
+    "AboutSeller": "About",
+    "NotShowPhone":"Phone To Call"
   },
   "Profile": {
     "Profile": "Profile",
