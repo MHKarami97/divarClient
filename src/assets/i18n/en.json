@@ -49,5 +49,13 @@
     "Text": "You can send and manage add by login",
     "Phone": "Phone Number",
     "LoginOrRegister": "Login Or Register"
+  },
+  "Add": {
+    "New": "New Ad",
+    "Text": "You can post ad as free",
+    "Phone": "Phone Number",
+    "Price": "Price",
+    "Agreed": "Agreed",
+    "Add": "Add"
   }
 }

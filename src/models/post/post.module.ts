@@ -9,7 +9,7 @@ export class Post {
   public time: string;
   public location: string;
   public phone: string;
-  public price: string;
+  public price: number;
   public images: Image[];
   public tags: Tag[];
   public isFavorite: boolean;
@@ -21,7 +21,7 @@ export class PostCreate {
   public stateId: number;
   public location: string;
   public phone: string;
-  public price: string;
+  public price: number;
   public images: Array<File>;
   public tags: Tag[];
 }
