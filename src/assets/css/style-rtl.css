@@ -23,7 +23,8 @@ h6 {
 .ads-sidebar-title h4,
 .seller-author-wrapper,
 .ads-details-content,
-.seller-about {
+.seller-about,
+.footer-copyright-text {
   direction: rtl;
   text-align: right;
 }
@@ -47,4 +48,21 @@ h6 {
 
 .footer-area {
   margin-top: 10px;
+}
+
+.horizontal-wrapper,
+.social,
+.get-search-form {
+  direction: rtl;
+}
+
+.go-top-area .go-top.active,
+.get-search-form .single-form button {
+  left: 10px;
+  right: auto !important;
+}
+
+input {
+  text-align: right;
+  direction: rtl;
 }
