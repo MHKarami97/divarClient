@@ -18,6 +18,7 @@ export class Post {
 export class PostCreate {
   public title: string;
   public categoryId: number;
+  public description: string;
   public stateId: number;
   public location: string;
   public phone: string;

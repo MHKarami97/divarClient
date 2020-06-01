@@ -23,25 +23,52 @@
               <div class="single-form mt-45">
                 <label>{{ 'Add.Title' | translate }}</label>
                 <input type="text" placeholder="title" [(ngModel)]="item.title" name="title" id="title" #type="ngModel"
-                  required>
+                  autocomplete="off" required>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Phone' | translate }}</label>
                 <input type="number" placeholder="939xxx" min="1000000000" max="99999999999" [(ngModel)]="item.phone"
-                  name="phone" id="phone" #type="ngModel" required>
+                  autocomplete="off" name="phone" id="phone" #type="ngModel" required>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Price' | translate }}</label>
-                <input type="number" placeholder="price" min="0" max="99999999999" [(ngModel)]="item.price" name="price"
-                  id="price" #type="ngModel" [disabled]="isChecked">
+                <input *ngIf="!isChecked" type="number" placeholder="price" min="0" max="99999999999"
+                  [(ngModel)]="item.price" name="price" id="price" #type="ngModel" autocomplete="off"
+                  [disabled]="isChecked">
 
                 <div class="form-checkbox mt-10">
                   <input type="checkbox" name="agreed" id="agreed" (change)="onCheckboxChange($event)">
                   <label for="agreed"></label>
                   <span>{{ 'Add.Agreed' | translate }}</span>
                 </div>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label>{{ 'Add.Description' | translate }}</label>
+                <textarea [(ngModel)]="item.description" name="description" id="description" #type="ngModel"
+                  required></textarea>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label>{{ 'Add.Images' | translate }}</label>
+                <file-upload [(ngModel)]="uploadedFiles" #fileInput="ngModel" name="uploadedFiles" fileslimit="4"
+                  accept=".jpg, .png, .jpeg" maxsize="7 MB" multiple="true">
+                  <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+                    <span *ngIf="isFileDragDropAvailable">فایل خود را انتخاب یا درگ کنید</span>
+                    <span *ngIf="!isFileDragDropAvailable">فایل خود را انتخاب کنید</span>
+                  </ng-template>
+                </file-upload>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label>{{ 'Add.Location' | translate }}</label>
+                <agm-map [latitude]='latitude' [longitude]='longitude'>
+                  <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                    (markerClick)="selectMarker($event)">
+                  </agm-marker>
+                </agm-map>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">

@@ -1,0 +1,56 @@
+<app-theme-header>
+</app-theme-header>
+
+<app-theme-banner>
+</app-theme-banner>
+
+<app-theme-search>
+</app-theme-search>
+
+<!--====== SING IN PART START ======-->
+
+<section class="sing-in-area pt-70">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="sing-in-form-area mt-45 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
+          <h4 class="sing-in-title"><i class="fal fa-sign-in-alt"></i>{{ 'Profile.Profile' | translate }}</h4>
+          <p class="text">{{ 'Profile.Text' | translate }}</p>
+
+          <div class="sing-in-form-wrapper">
+            <form (ngSubmit)="onAdd()" #form="ngForm">
+              <div class="single-form mt-45">
+                <label>{{ 'Profile.Email' | translate }}</label>
+                <input type="email" placeholder="email"
+                  [(ngModel)]="user.email" name="phoneNumber" id="phoneNumber" #type="ngModel" required>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label class="inline-block">{{ 'Profile.Password' | translate }} </label>
+                 <div class="form-forget mt-10 inline-block">
+                   <a href="#"> {{ 'Profile.ForgotPassword' | translate }}</a>
+                 </div>
+                <input type="password" placeholder="password"
+                  [(ngModel)]="user.password" name="password" id="password" #type="ngModel" required>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <button type="submit" class="main-btn"
+                  [disabled]="submitted || !form.valid">{{ 'Profile.LoginOrRegister' | translate }}</button>
+              </div> <!-- single-form -->
+            </form>
+            <div class="new-user text-center">
+              <p class="text">{{ 'Profile.NewUser' | translate }} <a
+                  routerLink="/signup">{{ 'Profile.Signup' | translate }}</a></p>
+            </div>
+          </div> <!-- sing in form wrapper -->
+        </div> <!-- sing in form areasing-in-form-area -->
+      </div>
+    </div> <!-- row -->
+  </div> <!-- container -->
+</section>
+
+<!--====== SING IN PART ENDS ======-->
+
+<app-theme-footer>
+</app-theme-footer>

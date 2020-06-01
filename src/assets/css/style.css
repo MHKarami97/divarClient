@@ -3534,7 +3534,7 @@ body.active {
   background: -o-linear-gradient(left, #0fa9d0 0%, #3fbd52 100%);
   background: linear-gradient(to right, #0fa9d0 0%, #3fbd52 100%);
   padding-top: 115px;
-  padding-bottom: 200px; }
+  padding-bottom: 150px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .page-banner {
       padding-top: 100px;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PostCreate, Post } from 'src/models/post/post.module';
 import { PostService } from 'src/services/post.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-theme-add',
@@ -15,13 +16,19 @@ export class AddComponent implements OnInit {
   source: Post = null;
   submitted = false;
   isChecked = false;
+  latitude = 35.6964895;
+  longitude = 51.0696315;
+  mapType = 'satellite';
+  selectedMarker;
+  public uploadedFiles: Array<File> = [];
   item: PostCreate = {
     categoryId: 0, images: null, location: null,
-    phone: null, price: 0, stateId: 0, tags: null, title: null
+    phone: null, price: null, stateId: 0, tags: null, title: null, description: null
   };
 
-  constructor(public translate: TranslateService, private dataService: PostService) {
+  constructor(public translate: TranslateService, private title: Title, private dataService: PostService) {
     translate.addLangs(['en', 'fa']);
+    this.title.setTitle('ثبت آگهی');
   }
 
   ngOnInit(): void {
@@ -52,5 +59,12 @@ export class AddComponent implements OnInit {
 
   onCheckboxChange(eve: any) {
     this.isChecked = !this.isChecked;
+  }
+
+  selectMarker(event) {
+    this.selectedMarker = {
+      lat: event.latitude,
+      lng: event.longitude
+    };
   }
 }

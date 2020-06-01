@@ -4,20 +4,46 @@
       <div class="header-top header-top-2">
         <div class="container">
           <div class="header-top-wrapper d-flex justify-content-center justify-content-md-between align-items-center">
-            <div class="header-top-left d-none d-md-block">
-            </div>
             <div class="header-top-right">
               <div class="header-follow d-flex align-items-center">
+                <ul class="header-login">
+                  <li><a routerLink="/login"><i
+                        class="fal fa-sign-in-alt"></i>{{ 'Header.SignIn' | translate }}</a></li>
+                </ul>
                 <ul class="social">
                   <li style="margin-left: 10px;"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                   <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                   <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                   <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                 </ul>
-               <ul class="header-login">
-                 <li><a href=""><i
-                       class="fal fa-sign-in-alt"></i>{{ 'Header.SignIn' | translate }}</a></li>
-               </ul>
+              </div>
+            </div>
+            <div class="header-top-left">
+              <div class="top-select">
+                <select>
+                  <option value="0" disabled selected>انتخاب موقعیت</option>
+                  <option value="1">Dhaka</option>
+                  <option value="2">Chittagong</option>
+                  <option value="3">Khulna</option>
+                  <option value="4">Rajshahi</option>
+                  <option value="5">Dinajpur</option>
+                  <option value="6">Rangpur</option>
+                  <option value="7">Sylhet</option>
+                  <option value="8">Sylhet</option>
+                </select>
+
+                <select>
+                  <option value="0" disabled selected>انتخاب محل</option>
+                  <option value="1">Dhaka</option>
+                  <option value="2">Chittagong</option>
+                  <option value="3">Khulna</option>
+                  <option value="4">Rajshahi</option>
+                  <option value="5">Dinajpur</option>
+                  <option value="6">Rangpur</option>
+                  <option value="7">Sylhet</option>
+                  <option value="8">Sylhet</option>
+                </select>
+
               </div>
             </div>
           </div>
@@ -25,7 +51,7 @@
       </div>
 
       <app-theme-menu>
-        </app-theme-menu>
+      </app-theme-menu>
 
     </section>
 

@@ -43,13 +43,21 @@
     "Seller": "Seller",
     "Chat": "Start Chat",
     "AboutSeller": "About",
-    "NotShowPhone":"Phone To Call"
+    "NotShowPhone": "Phone To Call"
   },
   "Profile": {
     "Profile": "Profile",
     "Text": "You can send and manage add by login",
     "Phone": "Phone Number",
-    "LoginOrRegister": "Login Or Register"
+    "LoginOrRegister": "Login Or Register",
+    "Email": "Email",
+    "Password": "Password",
+    "ForgotPassword": "Forgot Password",
+    "NewUser": "New User?",
+    "Signup": "Sign up",
+    "HaveAccount": "Have Account?",
+    "Login": "Login",
+    "PasswordVerify": "Verify Password"
   },
   "Add": {
     "New": "New Ad",
@@ -57,6 +65,10 @@
     "Phone": "Phone Number",
     "Price": "Price",
     "Agreed": "Agreed",
-    "Add": "Add"
+    "Add": "Add",
+    "Title": "Title",
+    "Description": "Decsription",
+    "Images": "Images",
+    "Location": "Location"
   }
 }

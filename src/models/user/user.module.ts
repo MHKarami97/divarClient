@@ -5,7 +5,14 @@ export class User {
 }
 
 export class UserCreate {
-  public phoneNumber: string;
+  public email: string;
+  public password: string;
+  public passwordVerify: string;
+}
+
+export class UserLogin {
+  public email: string;
+  public password: string;
 }
 
 export class UserValidateCreate {

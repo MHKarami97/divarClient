@@ -1,29 +1,32 @@
 <!--====== ADS GRID PART START ======-->
 
-<section class="ads-grid-page pt-70">
+<section class="ads-grid-page pt-10">
   <div class="container">
 
     <div class="tab-content pt-20" id="myTabContent">
-      <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
-        <div class="row" *ngIf="source">
 
-          <div class="col-lg-3 col-sm-6" *ngFor="let item of source">
-            <div class="single-ads-product mt-30">
-              <div class="product-image">
-                <img src="http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/ads-2.png" [alt]="item.title">
-              </div>
-              <div class="product-content">
-                <h6 class="sub-title">{{item.categoryName}}</h6>
-                <h4 class="main-title"><a href="#">{{item.title}}</a></h4>
-                <p class="location"><i class="far fa-map-marker-alt"></i>{{item.stateName}}</p>
-                <div class="price-rating d-flex justify-content-between">
-                  <p class="price">{{item.price}} ریال</p>
+      <div class="tab-content pt-20" id="myTabContent">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+          <div class="row" *ngIf="source">
+            <div class="col-lg-4" *ngFor="let item of source">
+              <div class="single-ads-product ads-product-list d-flex flex-wrap mt-30">
+                <div class="product-image">
+                  <img src="http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/ads-9.png"
+                    [alt]="item.title">
+                  <!-- <p class="stacker"> txt </p> -->
                 </div>
-                <a routerLink="page/{{item.id}}" class="main-btn main-btn-2">{{ 'Main.Detail' | translate }}</a>
+                <div class="product-content">
+                  <h6 class="sub-title">{{item.categoryName}}</h6>
+                  <h4 class="main-title"><a href="#">{{item.categoryName}}</a></h4>
+                  <p class="location"><i class="far fa-map-marker-alt"></i>{{item.stateName}}</p>
+                  <div class="price-rating d-flex justify-content-between">
+                    <p class="price">{{item.price}} $</p>
+                  </div>
+                  <a routerLink="page/{{item.id}}" class="main-btn main-btn-2 btn-style">{{ 'Main.Detail' | translate }}</a>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@
         <nav class="horizontalMenu">
           <ul class="horizontalMenu-list">
             <li class="active" aria-haspopup="false">
-              <a href="">{{ 'Menu.Home' | translate }}</a>
+              <a routerLink="/">{{ 'Menu.Home' | translate }}</a>
             </li>
             <li aria-haspopup="true"><a href="">{{ 'Menu.About' | translate }}</a>
             </li>
@@ -59,7 +59,7 @@
         </nav>
 
         <div class="horizontal-btn d-none d-lg-block">
-          <a href="#" class="main-btn">{{ 'Menu.PostAd' | translate }}</a>
+          <a routerLink="/add" class="main-btn">{{ 'Menu.PostAd' | translate }}</a>
         </div>
       </div>
     </div>

@@ -1,22 +1,24 @@
-import { User, UserCreate } from './../../models/user/user.module';
+import { User, UserCreate, UserLogin } from './../../models/user/user.module';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/services/user.service';
+import { Title } from '@angular/platform-browser';
 @Component({
-  selector: 'app-theme-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  selector: 'app-theme-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   loading = false;
   error = null;
   source: User = null;
   submitted = false;
-  user: UserCreate = { phoneNumber: '' };
+  user: UserLogin = { email: null, password: null };
 
-  constructor(public translate: TranslateService, private dataService: UserService) {
+  constructor(public translate: TranslateService, private title: Title, private dataService: UserService) {
     translate.addLangs(['en', 'fa']);
+    this.title.setTitle('ورود');
   }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class ProfileComponent implements OnInit {
   onAdd(): void {
     this.submitted = true;
     this.loading = true;
-    this.dataService.create(this.user).subscribe(
+    this.dataService.login(this.user).subscribe(
       results => {
         this.source = results.data;
         this.loading = false;

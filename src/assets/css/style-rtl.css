@@ -16,7 +16,6 @@ h6 {
 .sub-title,
 .main-title,
 .main-title a,
-.price-rating,
 .footer-link,
 .footer-contact,
 .link-list,
@@ -24,7 +23,8 @@ h6 {
 .seller-author-wrapper,
 .ads-details-content,
 .seller-about,
-.footer-copyright-text {
+.footer-copyright-text,
+.sing-in-form-area {
   direction: rtl;
   text-align: right;
 }
@@ -52,7 +52,8 @@ h6 {
 
 .horizontal-wrapper,
 .social,
-.get-search-form {
+.get-search-form,
+.tab-pane {
   direction: rtl;
 }
 
@@ -65,4 +66,90 @@ h6 {
 input {
   text-align: right;
   direction: rtl;
+}
+
+.price-rating {
+  direction: ltr;
+}
+
+.product-image {
+  height: 100%;
+}
+
+.single-ads-product {
+  height: 200px;
+}
+
+.single-ads-product .product-content .main-title a {
+  font-size: 14px;
+}
+
+.single-ads-product .product-content .sub-title {
+  font-size: 12px;
+}
+
+.btn-style {
+  height: 30px !important;
+  line-height: 30px !important;
+  font-size: 12px !important;
+}
+
+.top-select {
+  display: flex;
+}
+
+.form-complete {
+  width: 100% !important;
+}
+
+.top-select .nice-select {
+  margin-left: 5px;
+}
+
+.header-top-2 .header-top-left .header-follow .header-login li a {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.header-top-right .header-follow .header-login li a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  line-height: 35px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0 15px;
+  border-radius: 3px;
+}
+
+.header-top-right .header-follow .header-login {
+  padding-left: 0 !important;
+}
+
+.contact-btn {
+  text-align: left;
+}
+
+.sing-in-form-area form .single-form input {
+  direction: ltr;
+  text-align: left;
+  height: 45px;
+}
+
+.sing-in-form-area form .single-form label {
+  margin-bottom: 1px;;
+}
+
+.inline-block{
+  display: inline !important;
+}
+
+.form-forget{
+  float: left;
+  font-size: 12px !important;
 }

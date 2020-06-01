@@ -20,9 +20,24 @@
           <div class="sing-in-form-wrapper">
             <form (ngSubmit)="onAdd()" #form="ngForm">
               <div class="single-form mt-45">
-                <label>{{ 'Profile.Phone' | translate }}</label>
-                <input type="number" placeholder="939xxx" min="1000000000" max="99999999999"
-                  [(ngModel)]="user.phoneNumber" name="phoneNumber" id="phoneNumber" #type="ngModel" required>
+                <label>{{ 'Profile.Email' | translate }}</label>
+                <input type="email" placeholder="email"
+                  [(ngModel)]="user.email" name="phoneNumber" id="phoneNumber" #type="ngModel" required>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label class="inline-block">{{ 'Profile.Password' | translate }} </label>
+                <input type="password" placeholder="password" autocomplete="new-password"
+                  [(ngModel)]="user.password" name="password" id="password" #type="ngModel" required>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label class="inline-block">{{ 'Profile.PasswordVerify' | translate }} </label>
+                <input type="password" autocomplete="new-password" placeholder="Verify password"
+                  [(ngModel)]="user.passwordVerify"
+                  name="passwordVerify"
+                  id="password"
+                  #type="ngModel" required>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
@@ -30,6 +45,10 @@
                   [disabled]="submitted || !form.valid">{{ 'Profile.LoginOrRegister' | translate }}</button>
               </div> <!-- single-form -->
             </form>
+            <div class="new-user text-center">
+              <p class="text">{{ 'Profile.HaveAccount' | translate }} <a
+                  routerLink="/login">{{ 'Profile.Login' | translate }}</a></p>
+            </div>
           </div> <!-- sing in form wrapper -->
         </div> <!-- sing in form areasing-in-form-area -->
       </div>
