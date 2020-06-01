@@ -61,27 +61,27 @@ h4,
 h5,
 h6 {
   font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   color: #010101;
   margin: 0px; }
 
 h1 {
-  font-size: 48px; }
+  font-size: 40px; }
 
 h2 {
-  font-size: 36px; }
+  font-size: 30px; }
 
 h3 {
-  font-size: 28px; }
+  font-size: 20px; }
 
 h4 {
-  font-size: 22px; }
+  font-size: 16px; }
 
 h5 {
-  font-size: 18px; }
+  font-size: 12px; }
 
 h6 {
-  font-size: 16px; }
+  font-size: 10px; }
 
 ul, ol {
   margin: 0px;
@@ -1538,7 +1538,7 @@ body.active {
     .header-content {
       padding-top: 40px; } }
   .header-content .sub-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     font-family: "Open Sans", sans-serif;
     color: #fff; }
@@ -1550,7 +1550,7 @@ body.active {
         font-size: 20px; } }
     @media (max-width: 767px) {
       .header-content .sub-title {
-        font-size: 18px; } }
+        font-size: 14px; } }
   .header-content .main-title {
     font-size: 70px;
     font-weight: 300;
@@ -1564,9 +1564,9 @@ body.active {
         font-size: 54px; } }
     @media (max-width: 767px) {
       .header-content .main-title {
-        font-size: 32px; } }
+        font-size: 25px; } }
   .header-content p {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
     font-family: "Open Sans", sans-serif;
     color: #fff;
@@ -1631,7 +1631,7 @@ body.active {
         position: absolute;
         top: 0px;
         right: 5px;
-        font-size: 24px;
+        font-size: 20px;
         color: #fff;
         border: 0;
         background-color: #21c87a;
@@ -1859,7 +1859,7 @@ body.active {
       position: absolute;
       top: 0px;
       right: 15px;
-      font-size: 24px;
+      font-size: 20px;
       color: #fff;
       border: 0;
       background-color: #ec296b;
@@ -1973,7 +1973,7 @@ body.active {
     .header-category-2 .single-header-category-2 p {
       color: #fff;
       margin-top: 10px;
-      font-size: 18px; }
+      font-size: 14px; }
       @media (max-width: 767px) {
         .header-category-2 .single-header-category-2 p {
           font-size: 14px; } }
@@ -1982,11 +1982,11 @@ body.active {
       04.CATEGORY css
 ===========================*/
 .category-title .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600; }
   @media (max-width: 767px) {
     .category-title .title {
-      font-size: 18px; } }
+      font-size: 14px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .category-title .title {
       font-size: 20px; } }
@@ -2093,7 +2093,7 @@ body.active {
       z-index: 5; }
       .single-category-2 .category-image .ctg-title .title {
         color: #fff;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600; }
       .single-category-2 .category-image .ctg-title p {
         font-size: 14px;
@@ -2247,7 +2247,7 @@ body.active {
       color: #21c87a; }
     .single-ads-product .product-content .main-title a {
       color: #010101;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
       -webkit-transition: all 0.3s ease-out 0s;
       -moz-transition: all 0.3s ease-out 0s;
@@ -2379,7 +2379,7 @@ body.active {
     left: 0;
     width: 100%;
     bottom: 45px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     color: #fff;
     z-index: 8; }
@@ -2411,7 +2411,7 @@ body.active {
   background-color: #f5f9ff; }
 
 .brand-title .title {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 300; }
   @media (max-width: 767px) {
     .brand-title .title {
@@ -2419,7 +2419,7 @@ body.active {
 .brand-title p {
   color: #6963ff;
   margin-top: 10px;
-  font-size: 18px; }
+  font-size: 14px; }
   @media (max-width: 767px) {
     .brand-title p {
       font-size: 16px; } }
@@ -2452,7 +2452,7 @@ body.active {
   margin-top: 70px; }
   .single-brand .title {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 14px;
     color: #798795;
     margin-top: 15px; }
 
@@ -2490,7 +2490,7 @@ body.active {
   margin-top: 30px; }
   .single-brand-2 .title {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 14px;
     color: #798795;
     margin-top: 15px; }
 
@@ -2587,7 +2587,7 @@ body.active {
         .single-blog .blog-content .blog-meta li a i {
           margin-right: 4px; }
     .single-blog .blog-content .blog-title a {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
       color: #010101;
       -webkit-transition: all 0.3s ease-out 0s;
@@ -2654,7 +2654,7 @@ body.active {
   background-color: #191a1a; }
 
 .footer-top .single-visitor span {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff; }
   @media (max-width: 767px) {
@@ -2662,7 +2662,7 @@ body.active {
       font-size: 16px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .footer-top .single-visitor span {
-      font-size: 18px; } }
+      font-size: 14px; } }
 .footer-top .single-visitor p {
   margin-top: 5px; }
   @media (max-width: 767px) {
@@ -2672,7 +2672,7 @@ body.active {
     .footer-top .single-visitor p {
       font-size: 16px; } }
 .footer-top .footer-follow .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff; }
   @media (max-width: 767px) {
@@ -2682,7 +2682,7 @@ body.active {
   display: inline-block;
   margin-left: 20px; }
   .footer-top .footer-follow .social li a {
-    font-size: 18px;
+    font-size: 14px;
     color: #798795;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
@@ -2707,7 +2707,7 @@ body.active {
     margin-top: 30px; }
   .footer-widget .footer-title {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     position: relative;
     padding-bottom: 10px; }
@@ -2748,12 +2748,12 @@ body.active {
       padding-left: 5px;
       color: #21c87a; }
   .footer-widget .footer-contact .single-contact .contact-icon i {
-    font-size: 24px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.2); }
   .footer-widget .footer-contact .single-contact .contact-content {
     padding-left: 20px; }
     .footer-widget .footer-contact .single-contact .contact-content p {
-      font-size: 18px;
+      font-size: 14px;
       line-height: 30px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .footer-widget .footer-contact .single-contact .contact-content p {
@@ -3069,7 +3069,7 @@ body.active {
     background-position: left center; } }
 
 .banner-content .sub-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 300;
   color: #798795; }
   @media (max-width: 767px) {
@@ -3077,7 +3077,7 @@ body.active {
       font-size: 16px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .banner-content .sub-title {
-      font-size: 18px; } }
+      font-size: 14px; } }
 .banner-content .main-title {
   font-size: 48px;
   font-weight: 300;
@@ -3092,13 +3092,13 @@ body.active {
 .banner-content p {
   margin-top: 30px;
   font-family: "Nunito", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 3px;
   color: #ec296b;
   font-weight: 300; }
   @media (max-width: 767px) {
     .banner-content p {
-      font-size: 18px; } }
+      font-size: 14px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .banner-content p {
       font-size: 26px; } }
@@ -3134,7 +3134,7 @@ body.active {
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s; }
     .single-pricing .pricing-header .title {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
       color: #fff; }
     .single-pricing .pricing-header .price {
@@ -3144,7 +3144,7 @@ body.active {
       color: #fff;
       margin-top: 5px; }
       .single-pricing .pricing-header .price span {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 700; }
     .single-pricing .pricing-header p {
       color: rgba(255, 255, 255, 0.5);
@@ -3237,7 +3237,7 @@ body.active {
     border-radius: 3px;
     text-align: center; }
 .single-counter p {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 8px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .single-counter p {
@@ -3248,7 +3248,7 @@ body.active {
 
 .single-counter-2 .count {
   color: #fff;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 300;
   line-height: 40px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3259,7 +3259,7 @@ body.active {
       font-size: 20px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .single-counter-2 .count {
-      font-size: 32px; } }
+      font-size: 25px; } }
 @media (max-width: 767px) {
   .single-counter-2 p {
     font-size: 14px; } }
@@ -3336,7 +3336,7 @@ body.active {
       position: absolute;
       top: 0px;
       right: 15px;
-      font-size: 24px;
+      font-size: 20px;
       color: #fff;
       border: 0;
       background-color: #39ccb9;
@@ -3394,7 +3394,7 @@ body.active {
 
 /*===== Get Search 2 =====*/
 .get-search-title .title {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 300; }
   @media (max-width: 767px) {
     .get-search-title .title {
@@ -3402,7 +3402,7 @@ body.active {
 .get-search-title p {
   color: #6963ff;
   margin-top: 10px;
-  font-size: 18px; }
+  font-size: 14px; }
   @media (max-width: 767px) {
     .get-search-title p {
       font-size: 16px; } }
@@ -3470,7 +3470,7 @@ body.active {
       position: absolute;
       top: 0px;
       right: 15px;
-      font-size: 24px;
+      font-size: 20px;
       color: #fff;
       border: 0;
       background-color: #ec7424;
@@ -3564,7 +3564,7 @@ body.active {
         font-size: 40px; } }
   .page-banner-content p {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
     margin-top: 15px; }
     @media (max-width: 767px) {
@@ -3588,7 +3588,7 @@ body.active {
 .about-content {
   max-width: 510px; }
   .about-content .sub-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     font-family: "Open Sans", sans-serif;
     color: #21c87a; }
@@ -3597,16 +3597,16 @@ body.active {
         font-size: 16px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .about-content .sub-title {
-        font-size: 18px; } }
+        font-size: 14px; } }
   .about-content .main-title {
-    font-size: 32px;
+    font-size: 25px;
     margin-top: 10px; }
     @media (max-width: 767px) {
       .about-content .main-title {
-        font-size: 24px; } }
+        font-size: 20px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .about-content .main-title {
-        font-size: 32px; } }
+        font-size: 25px; } }
   .about-content p {
     margin-top: 20px; }
   .about-content .about-items {
@@ -3624,7 +3624,7 @@ body.active {
           width: 50px;
           height: 50px;
           line-height: 46px;
-          font-size: 24px; } }
+          font-size: 20px; } }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
         .about-content .about-items .about-icon i {
           width: 70px;
@@ -3635,7 +3635,7 @@ body.active {
       padding-left: 25px;
       max-width: 320px; }
       .about-content .about-items .about-items-text .title {
-        font-size: 18px; }
+        font-size: 14px; }
       .about-content .about-items .about-items-text p {
         margin-top: 10px; }
     .about-content .about-items:nth-child(2n+1) .about-icon i {
@@ -3722,9 +3722,9 @@ body.active {
 .single-work .work-icon .sub-title {
   display: inline-block;
   padding-left: 10px;
-  font-size: 18px; }
+  font-size: 14px; }
 .single-work .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   margin-top: 20px; }
   @media (max-width: 767px) {
@@ -3732,7 +3732,7 @@ body.active {
       font-size: 20px; } }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .single-work .title {
-      font-size: 24px; } }
+      font-size: 20px; } }
 .single-work p {
   margin-top: 20px; }
 
@@ -3749,7 +3749,7 @@ body.active {
       margin-right: 3px; }
 
 .ads-sidebar-title .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #010101; }
 
@@ -3926,7 +3926,7 @@ body.active {
     transition: all 0.3s ease-out 0s; }
     @media (max-width: 767px) {
       .ads-top-bar .list-grid-menu .nav li a {
-        font-size: 18px; } }
+        font-size: 14px; } }
     .ads-top-bar .list-grid-menu .nav li a.active, .ads-top-bar .list-grid-menu .nav li a:hover {
       color: #21c87a; }
 .ads-top-bar .list-grid-menu .sort-by label {
@@ -3993,7 +3993,7 @@ body.active {
       right: -10px; }
 
 .ads-details-content .title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700; }
 .ads-details-content .rating {
   margin-top: 10px; }
@@ -4014,7 +4014,7 @@ body.active {
   .ads-details-content .price-stock .price {
     color: #010101;
     font-family: "Nunito", sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     width: 50%; }
     .ads-details-content .price-stock .price del {
@@ -4082,7 +4082,7 @@ body.active {
         position: absolute;
         top: 50%;
         right: 10px;
-        font-size: 24px;
+        font-size: 20px;
         color: #fff;
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
@@ -4480,7 +4480,7 @@ body.active {
     position: absolute;
     top: 50%;
     right: 10px;
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -4508,7 +4508,7 @@ body.active {
   position: relative; }
 
 .sing-in-form-area .sing-in-title {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 700;
   font-family: "Nunito", sans-serif;
   color: #000; }
@@ -4523,7 +4523,7 @@ body.active {
 .sing-in-form-area .sing-in-form-wrapper {
   padding-top: 10px; }
   .sing-in-form-area .sing-in-form-wrapper .new-user .text {
-    font-size: 18px;
+    font-size: 14px;
     color: #21c87a; }
     .sing-in-form-area .sing-in-form-wrapper .new-user .text a {
       color: #010101;
@@ -4537,7 +4537,7 @@ body.active {
 .sing-in-form-area .single-form label {
   margin-bottom: 25px;
   display: block;
-  font-size: 18px;
+  font-size: 14px;
   color: #010101; }
 .sing-in-form-area .single-form input {
   width: 100%;
@@ -4550,9 +4550,9 @@ body.active {
   height: 65px;
   border: 0;
   color: #010101;
-  font-size: 18px; }
+  font-size: 14px; }
 .sing-in-form-area .single-form .form-checkbox span {
-  font-size: 18px;
+  font-size: 14px;
   color: #798795; }
 .sing-in-form-area .single-form .form-checkbox input[type="checkbox"] {
   display: none; }
@@ -4600,7 +4600,7 @@ body.active {
       -o-transform: scale(1);
       transform: scale(1); }
 .sing-in-form-area .single-form .form-forget a {
-  font-size: 18px;
+  font-size: 14px;
   color: #21c87a;
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
@@ -4617,7 +4617,7 @@ body.active {
   -webkit-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 7px 30px 0px rgba(0, 0, 0, 0.08);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700; }
   .sing-in-form-area .single-form .main-btn:hover {
     background-color: #6963ff;
@@ -4634,7 +4634,7 @@ body.active {
   background-color: #164aa9;
   color: #fff;
   font-weight: 700;
-  font-size: 18px; }
+  font-size: 14px; }
 .sing-in-form-area .single-form .gooogle-sing-up a {
   width: 100%;
   height: 65px;
@@ -4644,7 +4644,7 @@ body.active {
   background-color: #df3527;
   color: #fff;
   font-weight: 700;
-  font-size: 18px; }
+  font-size: 14px; }
 
 .sing-up-area {
   position: relative; }
@@ -4697,7 +4697,7 @@ body.active {
     margin-bottom: 0;
     background: none; }
     .faq-accordion .accordion .card .card-header a {
-      font-size: 18px;
+      font-size: 14px;
       font-family: "Nunito", sans-serif;
       font-weight: 700;
       color: #010101;
@@ -4712,7 +4712,7 @@ body.active {
         content: '\f068';
         font-family: "Font Awesome 5 Pro";
         font-weight: 300;
-        font-size: 18px;
+        font-size: 14px;
         top: 50%;
         right: 0px;
         -webkit-transform: translateY(-50%);
@@ -4766,17 +4766,17 @@ body.active {
       margin-right: auto;
       padding: 40px 20px; } }
   .faq-help .title {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 700;
     color: #010101; }
     @media (max-width: 767px) {
       .faq-help .title {
-        font-size: 24px; } }
+        font-size: 20px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .faq-help .title {
         font-size: 30px; } }
   .faq-help p {
-    font-size: 18px;
+    font-size: 14px;
     color: #798795;
     line-height: 28px;
     margin-top: 20px; }
@@ -4825,7 +4825,7 @@ body.active {
     border: 0;
     background-color: #21c87a;
     color: #fff;
-    font-size: 18px; }
+    font-size: 14px; }
 
 .blog-sidebar-category .blog-sidebar-category-wrapper {
   position: relative;
@@ -4849,7 +4849,7 @@ body.active {
       color: #21c87a; }
     .blog-sidebar-category .blog-sidebar-category-wrapper ul li a i {
       margin-right: 5px;
-      font-size: 18px; }
+      font-size: 14px; }
 
 .sidebar-archive .sidebar-archive-wrapper {
   position: relative;
@@ -4873,7 +4873,7 @@ body.active {
       color: #21c87a; }
     .sidebar-archive .sidebar-archive-wrapper ul li a i {
       margin-right: 5px;
-      font-size: 18px; }
+      font-size: 14px; }
 
 .sidebar-tags .sidebar-tags-wrapper {
   position: relative;
@@ -4940,7 +4940,7 @@ body.active {
       .sing-blog-post .blog-post-content .blog-meta li a:hover {
         color: #21c87a; }
   .sing-blog-post .blog-post-content .post-title a {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 700;
     color: #010101;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -5027,7 +5027,7 @@ body.active {
         .sing-blog-post.blog-quota .blog-quota-content .blog-quota-title {
           padding-left: 40px; } }
       .sing-blog-post.blog-quota .blog-quota-content .blog-quota-title .title {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 700;
         color: #010101; }
         @media (max-width: 767px) {
@@ -5136,7 +5136,7 @@ body.active {
       .blog-details-content .blockquote .quota-icon {
         width: 80px; } }
   .blog-details-content .blockquote p {
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 300;
     color: #fff;
     line-height: 48px;
@@ -5147,7 +5147,7 @@ body.active {
         line-height: 40px; } }
     @media (max-width: 767px) {
       .blog-details-content .blockquote p {
-        font-size: 18px;
+        font-size: 14px;
         line-height: 30px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .blog-details-content .blockquote p {
@@ -5184,7 +5184,7 @@ body.active {
       color: #e4405f; }
 
 .comment-title .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #010101; }
 
@@ -5295,7 +5295,7 @@ body.active {
   color: #f00; }
 
 .contact-title {
-  font-size: 24px; }
+  font-size: 20px; }
 
 .form-message {
   margin-left: 15px; }
@@ -5312,7 +5312,7 @@ body.active {
 .single-info {
   margin-top: 15px; }
   .single-info .icon i {
-    font-size: 24px;
+    font-size: 20px;
     color: #010101;
     width: 35px; }
   .single-info .content {
@@ -5325,7 +5325,7 @@ body.active {
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
   padding: 12px 20px; }
   .profile-sidebar-title .title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: #010101; }
     .profile-sidebar-title .title i {
@@ -5342,7 +5342,7 @@ body.active {
     .profile-card .profile-user .profile-author-name {
       padding-top: 10px; }
       .profile-card .profile-user .profile-author-name .name a {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 600;
         color: #010101; }
       .profile-card .profile-user .profile-author-name .sub-title {
@@ -5387,7 +5387,7 @@ body.active {
     z-index: 5; }
     .profile-dashboard-wrapper .dashboard-stat .title {
       color: #fff;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600; }
     .profile-dashboard-wrapper .dashboard-stat p {
       color: #fff;
