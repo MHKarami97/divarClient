@@ -29,8 +29,6 @@ export class PageComponent implements OnInit {
       results => {
         this.source = results.data;
         this.loading = false;
-        console.log(results);
-        console.log(this.source);
       },
       error => {
         this.error = error.message;

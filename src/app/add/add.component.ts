@@ -38,12 +38,15 @@ export class AddComponent implements OnInit {
   onAdd(): void {
     this.submitted = true;
     this.loading = true;
+
+    this.item.images = this.uploadedFiles;
+
+    console.log(this.item);
+
     this.dataService.create(this.item).subscribe(
       results => {
         this.source = results.data;
         this.loading = false;
-        console.log(results);
-        console.log(this.source);
       },
       error => {
         this.error = error.message;
@@ -66,5 +69,7 @@ export class AddComponent implements OnInit {
       lat: event.latitude,
       lng: event.longitude
     };
+
+    this.item.location = event.latitude + ',' + event.longitude;
   }
 }

@@ -1,3 +1,4 @@
+import { AuthorizeService } from './../services/other/authorize.service';
 import {
   HttpInterceptor,
   HttpRequest,
@@ -14,10 +15,9 @@ import { Setting } from './setting';
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authorizeService: AuthorizeService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log(req);
     if (!req.url.includes('i18n')) {
       const baseUrl = Setting.baseUrl + 'api/v1/';
 
@@ -26,6 +26,10 @@ export class HttpInterceptorService implements HttpInterceptor {
       req = changeUrl;
 
       req = this.addJsonHeader(req);
+
+      if (!req.url.includes('token') && req.method === 'POST') {
+        req = this.addAuthenticationToken(req);
+      }
 
       return next.handle(req).do((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse && event.status === 201) {
@@ -36,12 +40,12 @@ export class HttpInterceptorService implements HttpInterceptor {
           if (err.status === 401) {
             console.log('error');
             setTimeout(() => {
-              this.router.navigate(['auth/login']);
+              this.router.navigate(['login']);
             }, 4000);
           } else if (err.status === 400) {
             console.log('error');
             setTimeout(() => {
-              this.router.navigate(['auth/login']);
+              this.router.navigate(['login']);
             }, 4000);
           } else if (err.status === 500) {
             console.log('error');
@@ -66,7 +70,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   private addAuthenticationToken(request: HttpRequest<any>): HttpRequest<any> {
 
-    let userToken: string;
+    const userToken = this.authorizeService.getToken();
 
     return request.clone({
       headers: request.headers.append('Authorization', `Bearer ${userToken}`),

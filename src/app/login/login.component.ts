@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/services/user.service';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-theme-login',
   templateUrl: './login.component.html',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   user: UserLogin = { email: null, password: null };
 
   constructor(public translate: TranslateService, private title: Title,
-    private dataService: UserService, private authorizeService: AuthorizeService) {
+    private dataService: UserService, private authorizeService: AuthorizeService,
+    private router: Router) {
     translate.addLangs(['en', 'fa']);
     this.title.setTitle('ورود');
   }
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
           this.result = results.data;
           this.auth(results.data.access_token);
           this.loading = false;
+          this.router.navigate(['']);
         } else {
           this.error = results.message;
         }

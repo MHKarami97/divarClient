@@ -12,7 +12,7 @@ import { User, UserCreate, UserValidateCreate } from 'src/models/user/user.modul
 })
 export class UserService {
 
-  apiUrl = Setting.baseAddress + 'users/';
+  apiUrl = 'users/';
   error = new Subject<string>();
 
   constructor(private http: HttpClient) { }

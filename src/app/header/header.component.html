@@ -7,8 +7,10 @@
             <div class="header-top-right">
               <div class="header-follow d-flex align-items-center">
                 <ul class="header-login">
-                  <li><a routerLink="/login"><i
+                  <li *ngIf="!isAuth"><a routerLink="/login"><i
                         class="fal fa-sign-in-alt"></i>{{ 'Header.SignIn' | translate }}</a></li>
+
+                  <li *ngIf="isAuth"><a routerLink="">{{ email }}</a></li>
                 </ul>
                 <ul class="social">
                   <li style="margin-left: 10px;"><a href="#"><i class="fab fa-facebook-f"></i></a></li>

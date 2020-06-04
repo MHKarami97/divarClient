@@ -4,7 +4,6 @@ import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
 import { PostShort, Post, PostCreate } from 'src/models/post/post.module';
-import { Setting } from 'src/app/setting';
 
 @Injectable({
   providedIn: 'root',

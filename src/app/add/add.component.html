@@ -66,14 +66,14 @@
                 <label>{{ 'Add.Location' | translate }}</label>
                 <agm-map [latitude]='latitude' [longitude]='longitude'>
                   <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-                    (markerClick)="selectMarker($event)">
+                    (dragEnd)="selectMarker($event)">
                   </agm-marker>
                 </agm-map>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <button type="submit" class="main-btn"
-                  [disabled]="submitted || !form.valid">{{ 'Add.Add' | translate }}</button>
+                  >{{ 'Add.Add' | translate }}</button>
               </div> <!-- single-form -->
             </form>
           </div> <!-- sing in form wrapper -->

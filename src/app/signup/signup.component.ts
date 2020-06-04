@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
         this.loading = false;
 
         if (results.isSuccess) {
-          this.router.navigate(['login']);
+          this.router.navigate(['/login']);
         } else {
           this.error == results.message;
         }
