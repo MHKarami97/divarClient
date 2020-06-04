@@ -1,4 +1,5 @@
-import { User, UserCreate, UserLogin } from './../../models/user/user.module';
+import { AuthorizeService } from './../../services/other/authorize.service';
+import { UserLogin, UserLoginResult } from './../../models/user/user.module';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/services/user.service';
@@ -12,11 +13,12 @@ export class LoginComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: User = null;
+  result: UserLoginResult = null;
   submitted = false;
   user: UserLogin = { email: null, password: null };
 
-  constructor(public translate: TranslateService, private title: Title, private dataService: UserService) {
+  constructor(public translate: TranslateService, private title: Title,
+    private dataService: UserService, private authorizeService: AuthorizeService) {
     translate.addLangs(['en', 'fa']);
     this.title.setTitle('ورود');
   }
@@ -30,10 +32,13 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.dataService.login(this.user).subscribe(
       results => {
-        this.source = results.data;
-        this.loading = false;
-        console.log(results);
-        console.log(this.source);
+        if (results.isSuccess) {
+          this.result = results.data;
+          this.auth(results.data.access_token);
+          this.loading = false;
+        } else {
+          this.error = results.message;
+        }
       },
       error => {
         this.error = error.message;
@@ -45,6 +50,10 @@ export class LoginComponent implements OnInit {
 
   onError() {
     console.log(this.error);
+  }
+
+  private auth(token: string) {
+    this.authorizeService.authorizeUser(token);
   }
 
 }

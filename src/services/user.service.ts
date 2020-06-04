@@ -1,4 +1,4 @@
-import { UserLogin } from './../models/user/user.module';
+import { UserLogin, UserLoginResult } from './../models/user/user.module';
 import { Observable, throwError, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
@@ -33,10 +33,10 @@ export class UserService {
     );
   }
 
-  login(product: UserLogin): Observable<Api<User>> {
-    return this.http.post<Api<User>>(this.apiUrl + 'login', product).pipe(
+  login(product: UserLogin): Observable<Api<UserLoginResult>> {
+    return this.http.post<Api<UserLoginResult>>(this.apiUrl + 'tokenByBody', product).pipe(
       tap(),
-      catchError(this.handleError('get', new Api<User>()),
+      catchError(this.handleError('get', new Api<UserLoginResult>()),
       ));
   }
 

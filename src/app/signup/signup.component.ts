@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/services/user.service';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-theme-signup',
   templateUrl: './signup.component.html',
@@ -12,11 +13,12 @@ export class SignupComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: User = null;
+  result: User = null;
   submitted = false;
   user: UserCreate = { email: null, password: null, passwordVerify: null };
 
-  constructor(public translate: TranslateService, private title: Title, private dataService: UserService) {
+  constructor(public translate: TranslateService, private title: Title, private dataService: UserService,
+    private router: Router) {
     translate.addLangs(['en', 'fa']);
     this.title.setTitle('عضویت');
   }
@@ -30,10 +32,14 @@ export class SignupComponent implements OnInit {
     this.loading = true;
     this.dataService.create(this.user).subscribe(
       results => {
-        this.source = results.data;
+        this.result = results.data;
         this.loading = false;
-        console.log(results);
-        console.log(this.source);
+
+        if (results.isSuccess) {
+          this.router.navigate(['login']);
+        } else {
+          this.error == results.message;
+        }
       },
       error => {
         this.error = error.message;

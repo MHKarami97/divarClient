@@ -16,6 +16,7 @@
         <div class="sing-in-form-area mt-45 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
           <h4 class="sing-in-title"><i class="fal fa-sign-in-alt"></i>{{ 'Profile.Profile' | translate }}</h4>
           <p class="text">{{ 'Profile.Text' | translate }}</p>
+          <p class="text" style="color: red;" *ngIf="error">{{error}}</p>
 
           <div class="sing-in-form-wrapper">
             <form (ngSubmit)="onAdd()" #form="ngForm">

@@ -16,22 +16,23 @@
         <div class="sing-in-form-area mt-45 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
           <h4 class="sing-in-title"><i class="fal fa-sign-in-alt"></i>{{ 'Profile.Profile' | translate }}</h4>
           <p class="text">{{ 'Profile.Text' | translate }}</p>
+          <p class="text" style="color: red;" *ngIf="error">{{error}}</p>
 
           <div class="sing-in-form-wrapper">
             <form (ngSubmit)="onAdd()" #form="ngForm">
               <div class="single-form mt-45">
                 <label>{{ 'Profile.Email' | translate }}</label>
-                <input type="email" placeholder="email"
-                  [(ngModel)]="user.email" name="phoneNumber" id="phoneNumber" #type="ngModel" required>
+                <input type="email" placeholder="email" [(ngModel)]="user.email" name="phoneNumber" id="phoneNumber"
+                  #type="ngModel" required>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <label class="inline-block">{{ 'Profile.Password' | translate }} </label>
-                 <div class="form-forget mt-10 inline-block">
-                   <a href="#"> {{ 'Profile.ForgotPassword' | translate }}</a>
-                 </div>
-                <input type="password" placeholder="password"
-                  [(ngModel)]="user.password" name="password" id="password" #type="ngModel" required>
+                <div class="form-forget mt-10 inline-block">
+                  <a href="#"> {{ 'Profile.ForgotPassword' | translate }}</a>
+                </div>
+                <input type="password" placeholder="password" [(ngModel)]="user.password" name="password" id="password"
+                  #type="ngModel" required>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">

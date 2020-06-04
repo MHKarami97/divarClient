@@ -15,6 +15,11 @@ export class UserLogin {
   public password: string;
 }
 
+export class UserLoginResult {
+  public access_token: string;
+  public refresh_token: string;
+}
+
 export class UserValidateCreate {
   public phoneNumber: string;
   public verifyCode: number;
