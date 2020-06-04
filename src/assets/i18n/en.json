@@ -9,7 +9,8 @@
     "City": "Select City"
   },
   "Main": {
-    "Detail": "View Detail"
+    "Detail": "View Detail",
+    "Fast": "Fast"
   },
   "Fotter": {
     "About": "About Us",

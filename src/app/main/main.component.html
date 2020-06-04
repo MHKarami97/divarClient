@@ -13,7 +13,7 @@
                 <div class="product-image">
                   <img src="http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/ads-9.png"
                     [alt]="item.title">
-                  <!-- <p class="stacker"> txt </p> -->
+                  <p class="stacker" *ngIf="item.type==2">{{ 'Main.Fast' | translate }}</p>
                 </div>
                 <div class="product-content">
                   <h6 class="sub-title">{{item.categoryName}}</h6>
@@ -22,7 +22,8 @@
                   <div class="price-rating d-flex justify-content-between">
                     <p class="price">{{item.price}} $</p>
                   </div>
-                  <a routerLink="page/{{item.id}}" class="main-btn main-btn-2 btn-style">{{ 'Main.Detail' | translate }}</a>
+                  <a routerLink="page/{{item.id}}"
+                    class="main-btn main-btn-2 btn-style">{{ 'Main.Detail' | translate }}</a>
                 </div>
               </div>
             </div>

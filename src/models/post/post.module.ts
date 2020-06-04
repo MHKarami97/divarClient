@@ -35,4 +35,5 @@ export class PostShort {
   public time: string;
   public image: string;
   public price: number;
+  public type: number;
 }

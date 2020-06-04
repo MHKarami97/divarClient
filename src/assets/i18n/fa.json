@@ -9,7 +9,8 @@
     "City": "انتخاب شهر"
   },
   "Main": {
-    "Detail": "دیدن جزئیات"
+    "Detail": "دیدن جزئیات",
+    "Fast": "فوری"
   },
   "Fotter": {
     "About": "درباره ما",
@@ -43,21 +44,21 @@
     "Seller": "فروشنده",
     "Chat": "شروع چت",
     "AboutSeller": "درباره",
-    "NotShowPhone":"شماره تماس با فروشنده"
+    "NotShowPhone": "شماره تماس با فروشنده"
   },
   "Profile": {
     "Profile": "پروفایل",
     "Text": "شما می توانید با وارد شدن تبلیغ ارسال کنید و آن ها را مدیریت کنید",
     "Phone": "شماره موبایل",
     "LoginOrRegister": "ورود یا عضویت",
-    "Email":"ایمیل",
-    "Password":"رمز عبور",
-    "ForgotPassword":"فراموشی رمز عبور",
+    "Email": "ایمیل",
+    "Password": "رمز عبور",
+    "ForgotPassword": "فراموشی رمز عبور",
     "NewUser": "کاربر جدید هستید؟",
     "Signup": "عضویت",
     "HaveAccount": "اکانت دارید؟",
     "Login": "ورود",
-     "PasswordVerify": "تایید رمز عبور"
+    "PasswordVerify": "تایید رمز عبور"
   },
   "Add": {
     "New": "تبلیغ جدید",
@@ -66,9 +67,9 @@
     "Price": "قیمت",
     "Agreed": "توافقی",
     "Add": "ارسال",
-    "Title":"عنوان",
+    "Title": "عنوان",
     "Description": "توضیحات",
-    "Images":"عکس ها",
-    "Location":"موقعیت"
+    "Images": "عکس ها",
+    "Location": "موقعیت"
   }
 }
