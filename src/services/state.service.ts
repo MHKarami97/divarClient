@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
-import { CategoryWithSub } from 'src/models/category/category.module';
+import { StateWithSub } from 'src/models/state/state.module';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class StateService {
 
-  apiUrl = 'categories/';
+  apiUrl = 'states/';
   error = new Subject<string>();
 
   constructor(private http: HttpClient) { }
@@ -23,11 +23,11 @@ export class CategoryService {
     };
   }
 
-  getCategoryWithSub(): Observable<Api<CategoryWithSub[]>> {
-    return this.http.get<Api<CategoryWithSub[]>>(this.apiUrl + 'getCategoryWithSub')
+  getStateWithSub(): Observable<Api<StateWithSub[]>> {
+    return this.http.get<Api<StateWithSub[]>>(this.apiUrl + 'getStateWithSub')
       .pipe(
         tap(),
-        catchError(this.handleError('get', new Api<CategoryWithSub[]>()),
+        catchError(this.handleError('get', new Api<StateWithSub[]>()),
         ));
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CategoryService } from 'src/services/category.service';
-import { CategoryWithSyb } from 'src/models/category/category.module';
+import { CategoryWithSub } from 'src/models/category/category.module';
 
 @Component({
   selector: 'app-theme-menu',
@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: CategoryWithSyb[] = [];
+  source: CategoryWithSub[] = [];
 
   constructor(public translate: TranslateService, private dataService: CategoryService) {
     translate.addLangs(['en', 'fa']);

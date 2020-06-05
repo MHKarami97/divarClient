@@ -70,6 +70,8 @@
     "Title": "عنوان",
     "Description": "توضیحات",
     "Images": "عکس ها",
-    "Location": "موقعیت"
+    "Location": "لوکیشن",
+    "State": "موقعیت",
+    "Cat": "دسته بندی"
   }
 }

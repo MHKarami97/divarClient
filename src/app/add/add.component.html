@@ -33,6 +33,28 @@
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
+                <label>{{ 'Add.State' | translate }}</label>
+                <select [(ngModel)]="item.stateId" #type="ngModel" name="stateId" id="stateId" required>
+                  <option disabled selected>انتخاب موقعیت</option>
+
+                  <optgroup *ngFor="let item of states" [label]="item.name">
+                    <option *ngFor="let subItem of item.childStates" [value]="subItem.id">{{subItem.name}}</option>
+                  </optgroup>
+                </select>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label>{{ 'Add.Cat' | translate }}</label>
+                <select [(ngModel)]="item.categoryId" #type="ngModel" name="categoryId" id="categoryId" required>
+                  <option disabled selected>انتخاب دسته بندی</option>
+
+                  <optgroup *ngFor="let itemCat of cats" [label]="itemCat.name">
+                    <option *ngFor="let subItemCat of itemCat.childCategories" [value]="subItemCat.id">{{subItemCat.name}}</option>
+                  </optgroup>
+                </select>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
                 <label>{{ 'Add.Price' | translate }}</label>
                 <input *ngIf="!isChecked" type="number" placeholder="price" min="0" max="99999999999"
                   [(ngModel)]="item.price" name="price" id="price" #type="ngModel" autocomplete="off"
@@ -72,8 +94,7 @@
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
-                <button type="submit" class="main-btn"
-                  >{{ 'Add.Add' | translate }}</button>
+                <button type="submit" class="main-btn">{{ 'Add.Add' | translate }}</button>
               </div> <!-- single-form -->
             </form>
           </div> <!-- sing in form wrapper -->

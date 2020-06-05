@@ -1,12 +1,11 @@
-export class Category {
+export class State {
   public id: number;
   public name: string;
   public image: string;
 }
 
-export class CategoryWithSub {
+export class StateWithSub {
   public id: number;
   public name: string;
-  public image: string;
-  public childCategories: Category[];
+  public childStates: State[];
 }

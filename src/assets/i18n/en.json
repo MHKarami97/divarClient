@@ -70,6 +70,8 @@
     "Title": "Title",
     "Description": "Decsription",
     "Images": "Images",
-    "Location": "Location"
+    "Location": "Location",
+    "State": "State",
+    "Cat": "Category"
   }
 }

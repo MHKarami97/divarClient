@@ -44,9 +44,6 @@ export class HttpInterceptorService implements HttpInterceptor {
             }, 4000);
           } else if (err.status === 400) {
             console.log('error');
-            setTimeout(() => {
-              this.router.navigate(['login']);
-            }, 4000);
           } else if (err.status === 500) {
             console.log('error');
           } else if (err.status === 501) {
@@ -73,7 +70,9 @@ export class HttpInterceptorService implements HttpInterceptor {
     const userToken = this.authorizeService.getToken();
 
     return request.clone({
-      headers: request.headers.append('Authorization', `Bearer ${userToken}`),
+      setHeaders: {
+        Authorization: `Bearer ${userToken}`
+      }
     });
   }
 }
