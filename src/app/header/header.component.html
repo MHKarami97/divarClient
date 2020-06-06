@@ -7,7 +7,7 @@
             <div class="header-top-right">
               <div class="header-follow d-flex align-items-center">
                 <ul class="header-login">
-                  <li *ngIf="!isAuth"><a routerLink="/login"><i
+                  <li *ngIf="!isAuth"><a routerLink="/login" target="_blank"><i
                         class="fal fa-sign-in-alt"></i>{{ 'Header.SignIn' | translate }}</a></li>
 
                   <li *ngIf="isAuth"><a routerLink="">{{ email }}</a></li>
@@ -26,24 +26,12 @@
                   <option value="0" disabled selected>انتخاب موقعیت</option>
                   <option value="1">Dhaka</option>
                   <option value="2">Chittagong</option>
-                  <option value="3">Khulna</option>
-                  <option value="4">Rajshahi</option>
-                  <option value="5">Dinajpur</option>
-                  <option value="6">Rangpur</option>
-                  <option value="7">Sylhet</option>
-                  <option value="8">Sylhet</option>
                 </select>
 
                 <select>
                   <option value="0" disabled selected>انتخاب محل</option>
                   <option value="1">Dhaka</option>
                   <option value="2">Chittagong</option>
-                  <option value="3">Khulna</option>
-                  <option value="4">Rajshahi</option>
-                  <option value="5">Dinajpur</option>
-                  <option value="6">Rangpur</option>
-                  <option value="7">Sylhet</option>
-                  <option value="8">Sylhet</option>
                 </select>
 
               </div>
