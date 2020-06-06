@@ -8,38 +8,14 @@
           <div class="row">
             <div class="col-md-7">
               <div class="ads-details-image mt-30">
-                <div class="details-image">
-                  <div class="single-details-image">
-                    <img src="/assets/images/ads-1.png" alt="ads">
-                  </div>
-                  <div class="single-details-image">
-                    <img src="/assets/images/ads-2.png" alt="ads">
-                  </div>
-                  <div class="single-details-image">
-                    <img src="/assets/images/ads-3.png" alt="ads">
-                  </div>
-                  <div class="single-details-image">
-                    <img src="/assets/images/ads-4.png" alt="ads">
-                  </div>
-                  <div class="single-details-image">
-                    <img src="/assets/images/ads-5.png" alt="ads">
+                <div *ngIf="item.images" class="details-image">
+                  <div *ngFor="let img of item.images" class="single-details-image">
+                    <img [src]="img.image" [alt]="item.title">
                   </div>
                 </div>
-                <div class="details-image-thumb">
-                  <div class="single-details-image-thumb">
-                    <img src="/assets/images/ads-1.png" alt="ads">
-                  </div>
-                  <div class="single-details-image-thumb">
-                    <img src="/assets/images/ads-2.png" alt="ads">
-                  </div>
-                  <div class="single-details-image-thumb">
-                    <img src="/assets/images/ads-3.png" alt="ads">
-                  </div>
-                  <div class="single-details-image-thumb">
-                    <img src="/assets/images/ads-4.png" alt="ads">
-                  </div>
-                  <div class="single-details-image-thumb">
-                    <img src="/assets/images/ads-5.png" alt="ads">
+                <div *ngIf="item.images" class="details-image-thumb">
+                  <div *ngFor="let img of item.images" class="single-details-image-thumb">
+                    <img [src]="img.image" [alt]="item.title">
                   </div>
                 </div>
               </div>

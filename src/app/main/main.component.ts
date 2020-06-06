@@ -28,10 +28,8 @@ export class MainComponent implements OnInit {
     this.dataService.getShort().subscribe(
       results => {
         this.source = results.data;
-        console.log(results.data);
         this.source.forEach(a => a.images.length !== 0 ? a.images
           .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
-        console.log(this.source);
         this.loading = false;
       },
       error => {

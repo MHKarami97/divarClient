@@ -3,6 +3,8 @@ import { PostService } from 'src/services/post.service';
 import { Title } from '@angular/platform-browser';
 import { Post } from 'src/models/post/post.module';
 import { ActivatedRoute } from '@angular/router';
+import { Image } from './../../models/post/image.module';
+import { Setting } from '../setting';
 
 @Component({
   selector: 'app-theme-page',
@@ -14,6 +16,7 @@ export class PageComponent implements OnInit {
   loading = false;
   error = null;
   source: Post = null;
+  tempImg = new Image();
   @Input() id: string;
 
   constructor(public route: ActivatedRoute, private title: Title, private dataService: PostService) {
@@ -21,6 +24,7 @@ export class PageComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('نام سایت' + ' | ' + 'تبلیغ');
+    this.tempImg.image = '/assets/images/default.png';
 
     this.id = this.route.snapshot.paramMap.get('id');
 
@@ -28,6 +32,10 @@ export class PageComponent implements OnInit {
     this.dataService.getById(+this.id).subscribe(
       results => {
         this.source = results.data;
+
+        this.source.images.length !== 0 ? this.source.images
+          .forEach(b => b.image = Setting.baseFileUrl + b.image) : this.source.images.push(this.tempImg);
+
         this.loading = false;
       },
       error => {
