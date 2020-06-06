@@ -32,7 +32,7 @@ export class PostShort {
   public categoryName: string;
   public stateName: string;
   public time: string;
-  public image: string;
+  public images: Image[];
   public price: number;
   public type: number;
 }

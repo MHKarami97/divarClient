@@ -11,12 +11,13 @@
             <div class="col-lg-4" *ngFor="let item of source">
               <div class="single-ads-product ads-product-list d-flex flex-wrap mt-30">
                 <div class="product-image">
-                  <img src="http://webpro.themepul.com/Seylon_Classified_Ads/assets/images/ads-9.png"
+                  <img *ngIf="!item.images" src="/assets/images/default.png"
                     [alt]="item.title">
+                  <img *ngIf="item.images" [src]="item?.images[0]?.image" [alt]="item.title">
                   <p class="stacker" *ngIf="item.type==2">{{ 'Main.Fast' | translate }}</p>
                 </div>
                 <div class="product-content">
-                  <h6 class="sub-title">{{item.categoryName}}</h6>
+                  <h6 class="sub-title">{{item.title}}</h6>
                   <h4 class="main-title"><a href="#">{{item.categoryName}}</a></h4>
                   <p class="location"><i class="far fa-map-marker-alt"></i>{{item.stateName}}</p>
                   <div class="price-rating d-flex justify-content-between">

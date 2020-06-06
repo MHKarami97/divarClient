@@ -1,3 +1,3 @@
 export class Image {
-  public Name: string;
+  public image: string;
 }
