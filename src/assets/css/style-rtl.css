@@ -153,3 +153,16 @@ input {
   float: left;
   font-size: 12px !important;
 }
+
+.sing-in-area .nice-select{
+  width: 100% !important;
+}
+
+.sing-in-area .nice-select .list {
+  width: 100% !important;
+}
+
+.nice-select .list li{
+  direction: rtl;
+  text-align: right;
+}

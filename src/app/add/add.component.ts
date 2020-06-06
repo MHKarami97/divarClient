@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { PostCreate, Post } from 'src/models/post/post.module';
@@ -29,12 +30,13 @@ export class AddComponent implements OnInit {
   selectedMarker;
   public uploadedFiles: Array<File> = [];
   item: PostCreate = {
-    categoryId: 0, images: null, location: null,
-    phone: null, price: null, stateId: 0, tags: null, title: null, description: null
+    categoryId: 0, location: null, type: 1,
+    phone: null, price: null, stateId: 0, title: null, text: null
   };
 
   constructor(public translate: TranslateService, private title: Title, private dataService: PostService,
-    private dataCatService: CategoryService, private dataStateService: StateService) {
+    private dataCatService: CategoryService, private dataStateService: StateService,
+    private router: Router) {
     translate.addLangs(['en', 'fa']);
     this.title.setTitle('ثبت آگهی');
   }
@@ -45,7 +47,6 @@ export class AddComponent implements OnInit {
     this.dataCatService.getCategoryWithSub().subscribe(
       results => {
         this.cats = results.data;
-        console.log(results.data);
         this.loading = false;
       },
       error => {
@@ -72,14 +73,25 @@ export class AddComponent implements OnInit {
     this.submitted = true;
     this.loading = true;
 
-    this.item.images = this.uploadedFiles;
+    this.item.phone = this.item.phone.toString();
 
-    console.log(this.item);
+    const formData: FormData = new FormData();
 
-    this.dataService.create(this.item).subscribe(
+    for (const key in this.item) {
+      if (this.item.hasOwnProperty(key)) {
+        formData.append(key, this.item[key]);
+      }
+    }
+
+    for (let i = 0; i < this.uploadedFiles.length; i++) {
+      formData.append(this.uploadedFiles[i].name, this.uploadedFiles[i]);
+    }
+
+    this.dataService.create(formData).subscribe(
       results => {
         this.source = results.data;
         this.loading = false;
+        this.router.navigate(['/message', 1]);
       },
       error => {
         this.error = error.message;
@@ -104,6 +116,6 @@ export class AddComponent implements OnInit {
       lng: event.longitude
     };
 
-    this.item.location = event.latitude + ',' + event.longitude;
+    this.item.location = event.coords.lat + ',' + event.coords.lng;
   }
 }

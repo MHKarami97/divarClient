@@ -18,13 +18,12 @@ export class Post {
 export class PostCreate {
   public title: string;
   public categoryId: number;
-  public description: string;
+  public type: number;
+  public text: string;
   public stateId: number;
   public location: string;
   public phone: string;
   public price: number;
-  public images: Array<File>;
-  public tags: Tag[];
 }
 
 export class PostShort {

@@ -16,9 +16,10 @@
         <div class="sing-in-form-area mt-45 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
           <h4 class="sing-in-title"><i class="fal fa-sign-in-alt"></i>{{ 'Add.New' | translate }}</h4>
           <p class="text">{{ 'Add.Text' | translate }}</p>
+          <p class="text" *ngIf="error">{{ error }}</p>
 
           <div class="sing-in-form-wrapper">
-            <form (ngSubmit)="onAdd()" #form="ngForm">
+            <form (ngSubmit)="onAdd()" #form="ngForm" enctype="multipart/form-data">
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Title' | translate }}</label>
@@ -49,8 +50,17 @@
                   <option disabled selected>انتخاب دسته بندی</option>
 
                   <optgroup *ngFor="let itemCat of cats" [label]="itemCat.name">
-                    <option *ngFor="let subItemCat of itemCat.childCategories" [value]="subItemCat.id">{{subItemCat.name}}</option>
+                    <option *ngFor="let subItemCat of itemCat.childCategories" [value]="subItemCat.id">
+                      {{subItemCat.name}}</option>
                   </optgroup>
+                </select>
+              </div> <!-- single-form -->
+
+              <div class="single-form mt-45">
+                <label>{{ 'Add.Type' | translate }}</label>
+                <select [(ngModel)]="item.type" #type="ngModel" name="type" id="type" required>
+                  <option value="1" selected>عادی</option>
+                   <option value="2">ویژه</option>
                 </select>
               </div> <!-- single-form -->
 
@@ -69,7 +79,7 @@
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Description' | translate }}</label>
-                <textarea [(ngModel)]="item.description" name="description" id="description" #type="ngModel"
+                <textarea [(ngModel)]="item.text" name="text" id="text" #type="ngModel"
                   required></textarea>
               </div> <!-- single-form -->
 

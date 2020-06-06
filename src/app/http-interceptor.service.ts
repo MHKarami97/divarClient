@@ -25,7 +25,13 @@ export class HttpInterceptorService implements HttpInterceptor {
 
       req = changeUrl;
 
-      req = this.addJsonHeader(req);
+      if (!req.url.includes('posts/create')) {
+        req = this.addJsonHeader(req);
+      }
+
+      if (req.url.includes('posts/create')) {
+        req = this.addAcceptHeader(req);
+      }
 
       if (!req.url.includes('token') && req.method === 'POST') {
         req = this.addAuthenticationToken(req);
@@ -38,16 +44,16 @@ export class HttpInterceptorService implements HttpInterceptor {
       }, (err: any) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
-            console.log('error');
+            console.log(err.message);
             setTimeout(() => {
               this.router.navigate(['login']);
             }, 4000);
           } else if (err.status === 400) {
-            console.log('error');
+            console.log(err.message);
           } else if (err.status === 500) {
-            console.log('error');
+            console.log(err.message);
           } else if (err.status === 501) {
-            console.log('error');
+            console.log(err.message);
           }
         }
       });
@@ -62,6 +68,24 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     return request.clone({
       headers: request.headers.append('Content-Type', 'application/json'),
+    });
+  }
+
+  private addMultipartHeader(request: HttpRequest<any>): HttpRequest<any> {
+
+    const req = request.clone({
+      headers: request.headers.append('Content-Type', 'multipart/form-data'),
+    });
+
+    return req.clone({
+      headers: request.headers.append('Accept', 'application/json'),
+    });
+  }
+
+  private addAcceptHeader(request: HttpRequest<any>): HttpRequest<any> {
+
+    return request.clone({
+      headers: request.headers.append('Accept', 'application/json'),
     });
   }
 

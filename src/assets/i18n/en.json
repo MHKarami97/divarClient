@@ -72,6 +72,9 @@
     "Images": "Images",
     "Location": "Location",
     "State": "State",
-    "Cat": "Category"
+    "Cat": "Category",
+    "Normal": "Normal",
+    "Special": "Special",
+    "Type": "Type"
   }
 }

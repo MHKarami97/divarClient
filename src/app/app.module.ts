@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
+import { MessageComponent } from './message/message.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,6 +53,7 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     LoginComponent,
     SignupComponent,
     AddComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

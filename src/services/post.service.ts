@@ -39,7 +39,7 @@ export class PostService {
     );
   }
 
-  create(product: PostCreate): Observable<Api<Post>> {
+  create(product: FormData): Observable<Api<Post>> {
     return this.http.post<Api<Post>>(this.apiUrl + 'create', product).pipe(
       tap(),
       catchError(this.handleError('get', new Api<Post>()),
