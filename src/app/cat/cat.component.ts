@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/services/post.service';
-import { Post } from 'src/models/post/post.module';
+import { PostShort } from 'src/models/post/post.module';
 import { Image } from './../../models/post/image.module';
 import { Setting } from '../setting';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ export class CatComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: Post[] = null;
+  source: PostShort[] = null;
   tempImg = new Image();
   @Input() id: string;
 
@@ -24,10 +24,10 @@ export class CatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('نام سایت' + ' | ' + 'تبلیغ');
+    this.title.setTitle('نام سایت' + ' | ' + 'دسته بندی');
     this.tempImg.image = '/assets/images/default.png';
 
-    this.id = this.route.snapshot.paramMap.get('str');
+    this.id = this.route.snapshot.paramMap.get('id');
 
     this.loading = true;
     this.dataService.getAllByCatId(+this.id).subscribe(

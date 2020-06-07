@@ -46,7 +46,7 @@
                       <ul class="link-list" *ngFor="let item of source">
                         <li class="title">{{item.name}}</li>
                         <li *ngFor="let child of item.childCategories">
-                          <a href="">{{child.name}}</a>
+                          <a (click)="onClick(child.id)" style="cursor: pointer;">{{child.name}}</a>
                         </li>
                       </ul>
                     </div>

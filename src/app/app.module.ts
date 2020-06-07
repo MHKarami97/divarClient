@@ -1,3 +1,5 @@
+import { FindComponent } from './find/find.component';
+import { CatComponent } from './cat/cat.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddComponent } from './add/add.component';
 import { SingleComponent } from './single/single.component';
@@ -54,6 +56,8 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     SignupComponent,
     AddComponent,
     MessageComponent,
+    CatComponent,
+    FindComponent,
   ],
   imports: [
     BrowserModule,

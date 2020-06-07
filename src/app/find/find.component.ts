@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/services/post.service';
-import { Post } from 'src/models/post/post.module';
+import { PostShort } from 'src/models/post/post.module';
 import { Image } from './../../models/post/image.module';
 import { Setting } from '../setting';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ export class FindComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: Post[] = null;
+  source: PostShort[] = null;
   tempImg = new Image();
   @Input() str: string;
 
@@ -24,7 +24,7 @@ export class FindComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('نام سایت' + ' | ' + 'تبلیغ');
+    this.title.setTitle('نام سایت' + ' | ' + 'جستجو');
     this.tempImg.image = '/assets/images/default.png';
 
     this.str = this.route.snapshot.paramMap.get('str');

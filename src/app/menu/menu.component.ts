@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CategoryService } from 'src/services/category.service';
 import { CategoryWithSub } from 'src/models/category/category.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-theme-menu',
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit {
   error = null;
   source: CategoryWithSub[] = [];
 
-  constructor(public translate: TranslateService, private dataService: CategoryService) {
+  constructor(private router: Router, public translate: TranslateService, private dataService: CategoryService) {
     translate.addLangs(['en', 'fa']);
   }
 
@@ -35,5 +36,9 @@ export class MenuComponent implements OnInit {
 
   onError() {
     console.log(this.error);
+  }
+
+  onClick(value: number) {
+    this.router.navigate(['/cat', value]);
   }
 }

@@ -2,7 +2,7 @@
 
  <section class="get-search-area">
    <div class="container">
-     <form action="#">
+     <form (ngSubmit)="onAdd()" #form="ngForm">
        <div class="get-search-form search-form-bg d-flex flex-wrap">
          <!-- <div class="single-form">
            <select>
@@ -31,8 +31,9 @@
            </select>
          </div> -->
           <div class="single-form form-complete">
-              <input type="text" placeholder="{{ 'Search.Text' | translate }}">
-            <button><i class="fal fa-search"></i></button>
+              <input type="text" [(ngModel)]="txt" #type="ngModel" name="txt" id="txt"
+                placeholder="{{ 'Search.Text' | translate }}">
+            <button type="submit"><i class="fal fa-search"></i></button>
           </div>
        </div>
      </form>
