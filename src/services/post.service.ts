@@ -45,4 +45,20 @@ export class PostService {
       catchError(this.handleError('get', new Api<Post>()),
       ));
   }
+
+  search(str: string): Observable<Api<Post[]>> {
+    const url = `${this.apiUrl}search/${str}`;
+    return this.http.get<Api<Post[]>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<Post[]>>(`search str=${str}`)),
+    );
+  }
+
+  getAllByCatId(id: number): Observable<Api<Post[]>> {
+    const url = `${this.apiUrl}GetAllByCatId/${id}`;
+    return this.http.get<Api<Post[]>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<Post[]>>(`GetAllByCatId id=${id}`)),
+    );
+  }
 }
