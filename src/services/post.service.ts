@@ -47,7 +47,7 @@ export class PostService {
   }
 
   search(str: string): Observable<Api<PostShort[]>> {
-    const url = `${this.apiUrl}search/${str}`;
+    const url = `${this.apiUrl}search?str=${str}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`search str=${str}`)),

@@ -2862,7 +2862,7 @@ body.active {
     position: fixed;
     cursor: pointer;
     top: 0;
-    right: 24px;
+    left: 24px;
     color: #fff;
     background-color: #21c87a;
     z-index: 9999;
@@ -2938,7 +2938,7 @@ body.active {
       opacity: 1;
       visibility: visible;
       border-radius: 0;
-      right: 20px; }
+      left: 20px; }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .go-top-area .go-top.active {
           top: 93%; } }

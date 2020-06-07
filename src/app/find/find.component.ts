@@ -29,6 +29,8 @@ export class FindComponent implements OnInit {
 
     this.str = this.route.snapshot.paramMap.get('str');
 
+    console.log(this.str);
+
     this.loading = true;
     this.dataService.search(this.str).subscribe(
       results => {
