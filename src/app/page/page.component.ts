@@ -37,6 +37,17 @@ export class PageComponent implements OnInit {
           .forEach(b => b.image = Setting.baseFileUrl + b.image) : this.source.images.push(this.tempImg);
 
         this.loading = false;
+
+        if (document.getElementById('main.js') != null) {
+          document.getElementById('main.js').remove();
+        }
+        const node = document.createElement('script');
+        node.src = '/assets/js/' + 'main.js';
+        node.id = 'main.js';
+        node.async = false;
+        node.type = 'text/javascript';
+        document.getElementsByTagName('body')[0].appendChild(node);
+
       },
       error => {
         this.error = error.message;

@@ -5,15 +5,15 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="ads-details pt-20">
-          <div class="row">
+          <div class="row" *ngIf="item">
             <div class="col-md-7">
               <div class="ads-details-image mt-30">
-                <div *ngIf="item.images" class="details-image">
+                <div *ngIf="item?.images?.length>0" class="details-image">
                   <div *ngFor="let img of item.images" class="single-details-image">
                     <img [src]="img.image" [alt]="item.title">
                   </div>
                 </div>
-                <div *ngIf="item.images" class="details-image-thumb">
+                <div *ngIf="item?.images?.length>0" class="details-image-thumb">
                   <div *ngFor="let img of item.images" class="single-details-image-thumb">
                     <img [src]="img.image" [alt]="item.title">
                   </div>
@@ -23,13 +23,13 @@
             <div class="col-md-5">
               <div class="ads-details-content mt-30">
                 <h4 class="title">{{item.title}}</h4>
-
+                <p class="text">{{item.categoryName}}</p>
                 <div class="price-stock d-flex flex-wrap align-items-center">
                   <p class="price">{{item.price}}</p>
                   <p class="stock">{{item.time}}</p>
                 </div>
 
-                <p class="text">{{item.categoryName}}</p>
+                <p class="text">{{item.text}}</p>
 
                 <div class="ads-details-wrapper">
                   <div class="share">
@@ -61,6 +61,11 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="row" *ngIf="!item">
+            <p style="text-align: center;width: 100%;">
+              در حال لود اطلاعات
+            </p>
           </div>
         </div>
 

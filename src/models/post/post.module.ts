@@ -13,6 +13,7 @@ export class Post {
   public images: Image[];
   public tags: Tag[];
   public isFavorite: boolean;
+  public text: string;
 }
 
 export class PostCreate {

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthorizeService } from './../../services/other/authorize.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,8 +11,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
   isAuth = false;
+  isShow = true;
   email: string = null;
-  constructor(public translate: TranslateService, private authorizeService: AuthorizeService) {
+  constructor(private router: Router, public translate: TranslateService, private authorizeService: AuthorizeService) {
     translate.addLangs(['en', 'fa']);
 
   }
@@ -21,5 +23,9 @@ export class HeaderComponent implements OnInit {
       this.isAuth = true;
       this.email = 'hello';
     }
+
+    // if (this.router.url === '/' || this.router.url.includes('page')) {
+    //   this.isShow = true;
+    // }
   }
 }
