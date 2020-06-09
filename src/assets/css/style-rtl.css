@@ -168,6 +168,12 @@ input {
   text-align: right;
 }
 
+.footer-about-style {
+  direction: rtl;
+  text-align: center;
+  display: block;
+}
+
 @media screen and (max-width: 990px) {
 
   .horizontal-wrapper,
@@ -178,15 +184,15 @@ input {
   }
 
   .horizontal-wrapper,
-  .social{
+  .social {
     display: none;
   }
 
-  .header-login li a i{
+  .header-login li a i {
     display: none;
   }
 
-  .nice-select{
+  .nice-select {
     height: 30px;
     line-height: 30px;
   }

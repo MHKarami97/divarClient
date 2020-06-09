@@ -16,13 +16,13 @@ $(function () {
         if (scroll < 110) {
             $(".header-menu").removeClass("sticky");
             $(".header-menu-1 img").attr("src", "assets/images/logo.png");
-            $(".header-menu-2 img").attr("src", "assets/images/logo-4.png");
-            $(".header-menu-4 img").attr("src", "assets/images/logo-7.png");
+            $(".header-menu-2 img").attr("src", "assets/images/logo.png");
+            $(".header-menu-4 img").attr("src", "assets/images/logo.png");
         } else {
             $(".header-menu").addClass("sticky");
-            $(".header-menu-1 img").attr("src", "assets/images/logo-3.png");
-            $(".header-menu-2 img").attr("src", "assets/images/logo-5.png");
-            $(".header-menu-4 img").attr("src", "assets/images/logo-8.png");
+            $(".header-menu-1 img").attr("src", "assets/images/logo.png");
+            $(".header-menu-2 img").attr("src", "assets/images/logo.png");
+            $(".header-menu-4 img").attr("src", "assets/images/logo.png");
         }
     });
 
