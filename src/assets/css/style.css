@@ -430,7 +430,7 @@ body.active {
         padding-bottom: 0;
         margin-left: -270px;
         display: block;
-        text-align: left;
+        text-align: right;
         position: relative;
         z-index: 99999999; } }
     @media (max-width: 767px) {
@@ -442,7 +442,7 @@ body.active {
         padding-bottom: 0;
         margin-left: -270px;
         display: block;
-        text-align: left;
+        text-align: right;
         position: relative;
         z-index: 99999999; } }
     .horizontalMenu .horizontalMenu-list > li {
@@ -499,7 +499,7 @@ body.active {
           font-size: 16px;
           color: #798795;
           text-align: center;
-          float: right; }
+          float: left; }
         .horizontalMenu .horizontalMenu-list > li .horizontalMenu-click.ws-activearrow i {
           -webkit-transform: rotate(180deg);
           -moz-transform: rotate(180deg);

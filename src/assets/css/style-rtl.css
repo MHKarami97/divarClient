@@ -142,19 +142,20 @@ input {
 }
 
 .sing-in-form-area form .single-form label {
-  margin-bottom: 1px;;
+  margin-bottom: 1px;
+  ;
 }
 
-.inline-block{
+.inline-block {
   display: inline !important;
 }
 
-.form-forget{
+.form-forget {
   float: left;
   font-size: 12px !important;
 }
 
-.sing-in-area .nice-select{
+.sing-in-area .nice-select {
   width: 100% !important;
 }
 
@@ -162,7 +163,31 @@ input {
   width: 100% !important;
 }
 
-.nice-select .list li{
+.nice-select .list li {
   direction: rtl;
   text-align: right;
+}
+
+@media screen and (max-width: 990px) {
+
+  .horizontal-wrapper,
+  .social,
+  .get-search-form,
+  .tab-pane {
+    direction: ltr;
+  }
+
+  .horizontal-wrapper,
+  .social{
+    display: none;
+  }
+
+  .header-login li a i{
+    display: none;
+  }
+
+  .nice-select{
+    height: 30px;
+    line-height: 30px;
+  }
 }
