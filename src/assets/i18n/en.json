@@ -76,5 +76,22 @@
     "Normal": "Normal",
     "Special": "Special",
     "Type": "Type"
+  },
+  "Contact": {
+    "Title": "Contact Us",
+    "Text": "Text",
+    "Address": "Address",
+    "Email": "Email",
+    "Phone": "Phone"
+  },
+  "About": {
+    "Title": "",
+    "Text": "",
+    "Need": "",
+    "NeedText": "",
+    "Add": "",
+    "AddText": "",
+    "Buy": "",
+    "BuyText": ""
   }
 }

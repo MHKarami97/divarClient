@@ -28,6 +28,8 @@ import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { MessageComponent } from './message/message.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +60,8 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     MessageComponent,
     CatComponent,
     FindComponent,
+    ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

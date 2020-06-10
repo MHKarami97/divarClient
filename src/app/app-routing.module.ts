@@ -11,6 +11,8 @@ import { SignupComponent } from './signup/signup.component';
 import { MessageComponent } from './message/message.component';
 import { FindComponent } from './find/find.component';
 import { CatComponent } from './cat/cat.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'message/:id',
     component: MessageComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: 'add',

@@ -29,10 +29,11 @@
             <li class="active" aria-haspopup="false">
               <a routerLink="/">{{ 'Menu.Home' | translate }}</a>
             </li>
-            <li aria-haspopup="true"><a href="">{{ 'Menu.About' | translate }}</a>
+            <li aria-haspopup="true">
+              <a routerLink="/about">{{ 'Menu.About' | translate }} </a>
             </li>
             <li aria-haspopup="true">
-              <a href="">{{ 'Menu.Contact' | translate }}<span class="wsarrow"></span>
+              <a routerLink="/contact">{{ 'Menu.Contact' | translate }}<span class="wsarrow"></span>
               </a>
             </li>
             <li class="position-static" aria-haspopup="true" *ngIf="source.length > 0">
