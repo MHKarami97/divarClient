@@ -22,18 +22,9 @@
             </div>
             <div class="header-top-left">
               <div class="top-select" *ngIf="isShow">
-                <select>
-                  <option value="0" disabled selected>انتخاب موقعیت</option>
-                  <option value="1">Dhaka</option>
-                  <option value="2">Chittagong</option>
-                </select>
-
-                <select>
-                  <option value="0" disabled selected>انتخاب محل</option>
-                  <option value="1">Dhaka</option>
-                  <option value="2">Chittagong</option>
-                </select>
-
+                <ngx-select [allowClear]="false" [items]="states"
+                  [placeholder]="'Header.Location' | translate" optionValueField="id" optionTextField="name"
+                  optGroupLabelField="name" optGroupOptionsField="childStates" required></ngx-select>
               </div>
             </div>
           </div>

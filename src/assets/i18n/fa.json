@@ -28,7 +28,8 @@
   },
   "Header": {
     "Follow": "دنبال کردن",
-    "SignIn": "ورود"
+    "SignIn": "ورود",
+    "Location": "موقعیت"
   },
   "Menu": {
     "About": "درباره ما",

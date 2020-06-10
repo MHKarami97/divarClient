@@ -12,8 +12,7 @@ export class AppComponent implements OnInit {
     'vendor/jquery-1.12.4.min.js', 'vendor/modernizr-3.6.0.min.js',
     'ajax-contact.js', 'bootstrap.min.js',
     'jquery-ui.min.js', 'jquery.magnific-popup.min.js',
-    'jquery.nice-select.min.js', 'map-script.js',
-    'menu_horizontal.js', 'slick.min.js',
+    'map-script.js', 'menu_horizontal.js', 'slick.min.js',
     'validator.min.js',
     'popper.min.js',
     'main.js'];

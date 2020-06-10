@@ -35,33 +35,24 @@
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.State' | translate }}</label>
-                <select [(ngModel)]="item.stateId" #type="ngModel" name="stateId" id="stateId" required>
-                  <option disabled selected>انتخاب موقعیت</option>
-
-                  <optgroup *ngFor="let item of states" [label]="item.name">
-                    <option *ngFor="let subItem of item.childStates" [value]="subItem.id">{{subItem.name}}</option>
-                  </optgroup>
-                </select>
+                <ngx-select [(ngModel)]="item.stateId" #type="ngModel" [allowClear]="true" [items]="states"
+                  [placeholder]="'Add.State' | translate" optionValueField="id" optionTextField="name"
+                  optGroupLabelField="name" optGroupOptionsField="childStates" required></ngx-select>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Cat' | translate }}</label>
-                <select [(ngModel)]="item.categoryId" #type="ngModel" name="categoryId" id="categoryId" required>
-                  <option disabled selected>انتخاب دسته بندی</option>
-
-                  <optgroup *ngFor="let itemCat of cats" [label]="itemCat.name">
-                    <option *ngFor="let subItemCat of itemCat.childCategories" [value]="subItemCat.id">
-                      {{subItemCat.name}}</option>
-                  </optgroup>
-                </select>
+                <ngx-select [(ngModel)]="item.categoryId" #type="ngModel" [allowClear]="true" [items]="cats"
+                  [placeholder]="'Add.Cat' | translate" optionValueField="id" optionTextField="name"
+                  optGroupLabelField="name" optGroupOptionsField="childCategories" required>
+                </ngx-select>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Type' | translate }}</label>
-                <select [(ngModel)]="item.type" #type="ngModel" name="type" id="type" required>
-                  <option value="1" selected>عادی</option>
-                   <option value="2">ویژه</option>
-                </select>
+                <ngx-select [(ngModel)]="item.type" #type="ngModel" [allowClear]="true" [items]="types"
+                  [placeholder]="'Add.Type' | translate" optionValueField="id" optionTextField="name" required>
+                </ngx-select>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">
@@ -79,8 +70,7 @@
 
               <div class="single-form mt-45">
                 <label>{{ 'Add.Description' | translate }}</label>
-                <textarea [(ngModel)]="item.text" name="text" id="text" #type="ngModel"
-                  required></textarea>
+                <textarea [(ngModel)]="item.text" name="text" id="text" #type="ngModel" required></textarea>
               </div> <!-- single-form -->
 
               <div class="single-form mt-45">

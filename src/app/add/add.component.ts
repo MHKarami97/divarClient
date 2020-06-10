@@ -21,6 +21,16 @@ export class AddComponent implements OnInit {
   source: Post = null;
   cats: CategoryWithSub[] = null;
   states: StateWithSub[] = null;
+  types: any[] = [
+    {
+      id: 1,
+      name: 'عادی',
+    },
+    {
+      id: 2,
+      name: 'ویژه',
+    }
+  ];
 
   submitted = false;
   isChecked = false;

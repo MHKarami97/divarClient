@@ -30,6 +30,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MessageComponent } from './message/message.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -71,6 +72,7 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    NgxSelectModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fa',
       loader: {

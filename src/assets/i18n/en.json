@@ -28,7 +28,8 @@
   },
   "Header": {
     "Follow": "Follow Us",
-    "SignIn": "Sign In"
+    "SignIn": "Sign In",
+    "Location": "Location"
   },
   "Menu": {
     "About": "About Us",

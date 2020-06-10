@@ -24,6 +24,7 @@
     "@iplab/ngx-file-upload": "^2.0.4",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
+    "ngx-select-ex": "^4.0.0",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",

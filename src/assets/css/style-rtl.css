@@ -185,6 +185,11 @@ input {
   max-width: 90% !important;
 }
 
+.ngx-select__choices{
+  direction: rtl !important;
+  text-align: right !important;
+}
+
 @media screen and (max-width: 990px) {
 
   .horizontal-wrapper,
