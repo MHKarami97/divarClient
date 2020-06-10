@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   error = null;
 
   isAuth = false;
-  isShow = true;
+  isShow = false;
   email: string = null;
   states: StateWithSub[] = null;
 
@@ -43,12 +43,30 @@ export class HeaderComponent implements OnInit {
       },
     );
 
-    // if (this.router.url === '/' || this.router.url.includes('page')) {
-    //   this.isShow = true;
-    // }
+    this.getPosition().then(pos => {
+      console.log(`Positon: ${pos.lng} ${pos.lat}`);
+    });
+
+    if (this.router.url === '/' || this.router.url.includes('page')) {
+      this.isShow = true;
+    }
   }
 
   onError() {
     console.log(this.error);
+  }
+
+  getPosition(): Promise<any> {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+        resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
+      },
+        err => {
+          reject(err);
+        });
+    });
+
   }
 }
