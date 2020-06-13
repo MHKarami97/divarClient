@@ -1,18 +1,3 @@
-import { FindComponent } from './find/find.component';
-import { CatComponent } from './cat/cat.component';
-import { SignupComponent } from './signup/signup.component';
-import { AddComponent } from './add/add.component';
-import { SingleComponent } from './single/single.component';
-import { PageComponent } from './page/page.component';
-import { SearchComponent } from './search/search.component';
-import { MenuComponent } from './menu/menu.component';
-import { MainComponent } from './main/main.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { GotopComponent } from './gotop/gotop.component';
-import { FooterComponent } from './footer/footer.component';
-import { CategoryComponent } from './category/category.component';
-import { BannerComponent } from './banner/banner.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,14 +8,12 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthGuard } from './auth-guard.service';
 import { HttpInterceptorService } from './http-interceptor.service';
-import { LoginComponent } from './login/login.component';
 import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
-import { MessageComponent } from './message/message.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
-import { NgxSelectModule } from 'ngx-select-ex';
+import { ThemeModule } from './theme/theme.module';
+import { CoreModule } from './core/core.module';
+import { ToastrModule } from 'ngx-toastr';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,25 +27,6 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
 @NgModule({
   declarations: [
     AppComponent,
-    BannerComponent,
-    CategoryComponent,
-    FooterComponent,
-    GotopComponent,
-    HeaderComponent,
-    HomeComponent,
-    MainComponent,
-    MenuComponent,
-    SearchComponent,
-    PageComponent,
-    SingleComponent,
-    LoginComponent,
-    SignupComponent,
-    AddComponent,
-    MessageComponent,
-    CatComponent,
-    FindComponent,
-    ContactComponent,
-    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +36,15 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgxSelectModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      maxOpened: 5,
+      autoDismiss: true,
+      countDuplicates: true,
+      progressBar: true,
+    }),
     TranslateModule.forRoot({
       defaultLanguage: 'fa',
       loader: {
@@ -84,6 +56,8 @@ export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateH
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY'
     }),
+    ThemeModule.forRoot(),
+    CoreModule.forRoot(),
   ],
   providers: [
     AuthGuard,

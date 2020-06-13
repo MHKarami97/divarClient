@@ -1,0 +1,202 @@
+<header class="hero">
+  <div class="hero-wrapper">
+    <div class="secondary-navigation">
+      <div class="container">
+        <ul class="left">
+          <li>
+            <button type="button" class="btn btn-primary city-select-btn" data-toggle="modal"
+              data-target="#city-select-modal">
+              <i class="fa fa-map-marker" aria-hidden="true"></i> {{ 'Header.Location' | translate }} </button>
+            <!-- Modal -->
+            <div class="modal fade" id="city-select-modal" tabindex="-1" role="dialog"
+              aria-labelledby="city-select-modalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="loading">
+                    <div class="loader-show"></div>
+                  </div>
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="city-select-modalTitle">{{ 'Header.SignIn' | translate }}</h5>
+                    <ul class="all-city">
+                      <li data-city="all">{{ 'Header.All' | translate }}</li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="city-search-box">
+                      <input class="form-control" id="city_search" type="text"
+                        placeholder="{{ 'Header.Search' | translate }}">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+
+                    <ul class="city_list">
+                      <li *ngFor="let item of states" (data-city)="item.id">{{ item.name }}</li>
+                    </ul>
+                    <div class="realoading"></div>
+                    <script>
+                      jQuery(".city_list li").click(function () {
+                        jQuery(".modal-content .loading").css("display", "block"), jQuery(this).find(".selected")
+                          .text();
+                        var t = this.getAttribute("data-city");
+                        jQuery.post("/includes/set-cookies.html", {
+                          city_name: t
+                        }, function (t) {
+                          jQuery("div.realoading").html(t)
+                        })
+                      }), jQuery(".all-city li").click(function () {
+                        jQuery(".modal-content .loading").css("display", "block");
+                        var t = this.getAttribute("data-city");
+                        jQuery.post("/includes/set-cookies.html", {
+                          city_name: t
+                        }, function (t) {
+                          jQuery("div.realoading").html(t)
+                        })
+                      }), jQuery(document).ready(function () {
+                        jQuery("#city_search").on("keyup", function () {
+                          var t = jQuery(this).val().toLowerCase();
+                          jQuery(".city_list li").filter(function () {
+                            jQuery(this).toggle(jQuery(this).text().toLowerCase().indexOf(t) > -1)
+                          })
+                        })
+                      });
+
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="right">
+          <!-- <li>
+            <a href="">
+              <i class="fa fa-heart"></i> علاقه‌مندی ها </a>
+          </li> -->
+          <li>
+            <a routerlink="/login" *ngIf="!isAuth">
+              <i class="fa fa-sign-in"></i> {{ 'Header.SignIn' | translate }} </a>
+            <a *ngIf="isAuth">
+              {{ 'Header.Welcome' | translate }} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-navigation">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+          <a class="navbar-brand" routerLink="/">
+            <img src="/assets/img/logo.png" alt="logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <!--Main navigation list-->
+            <ul class="navbar-nav">
+              <li
+                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children nav-item active">
+                <a routerLink="/" data-toggle="has-child" class="nav-link">{{ 'Menu.Home' | translate }}</a>
+              </li>
+              <li
+                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item has-child">
+                <a href="#" data-toggle="has-child" class="nav-link">{{ 'Menu.Category' | translate }}</a>
+                <ul role="menu" class="child">
+                  <li *ngFor="let item of cats"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children nav-item dropdown-submenu">
+                    <a href="#" data-toggle="has-child" class="nav-link">{{item.name}}</a>
+                    <ul role="menu" class="child">
+                      <li *ngFor="let child of item.childCategories"
+                        class="menu-item menu-item-type-taxonomy menu-item-object-product_cat nav-item">
+                        <a [routerLink]="['/cat', child.id]" class="nav-link">{{child.name}}</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
+                <a routerLink="/about" class="nav-link">{{ 'Menu.About' | translate }}</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item ">
+                <a routerLink="/contact" class="nav-link">{{ 'Menu.Contact' | translate }}</a></li>
+            </ul>
+          </div>
+          <ol class="nav-btn">
+            <li class="dropdown dropdown-large top-category-btn">
+              <a href="#" class="dropdown-toggle btn btn-primary text-caps btn-rounded btn-framed"
+                data-toggle="dropdown"> <i class="fa fa-align-justify" aria-hidden="true"></i>
+                {{ 'Menu.Category' | translate }}</a>
+              <ul class="dropdown-menu dropdown-menu-large row">
+                <li class="col-sm-12">
+                  <ul>
+                    <li *ngFor="let item of cats" class="cat-item"><a href="#">{{item.name}}</a>
+                      <ul class='children'>
+                        <li *ngFor="let child of item.childCategories" class="cat-item"><a
+                            [routerLink]="['/cat', child.id]">{{child.name}}</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item submit_ad">
+              <a *ngIf="isAuth" routerLink="/add" class="btn btn-primary text-caps btn-rounded btn-framed">
+                <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.PostAd' | translate }}</a>
+              <a *ngIf="!isAuth" routerLink="/add" class="btn btn-primary text-caps btn-rounded btn-framed">
+                <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.Login' | translate }}</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- <div class="page-title">
+      <div class="container">
+        <div class="opacity-60 center">
+        </div>
+      </div>
+    </div> -->
+    <form class="hero-form form" role="search" method="get">
+      <div class="container">
+        <!--Main Form-->
+        <div class="main-search-form">
+          <div class="form-row">
+            <div class="col-md-5 col-sm-5">
+              <div class="form-group">
+                <input name="s" type="text" class="form-control" id="what" placeholder="جستجو در تمام آگهی‌ها" value="">
+                <input type="hidden" name="post_type" value="product" />
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <div class="form-group">
+                <select name='city_categories' id='city_categories' class='postform'>
+                  <option value='0'>تمام شهر‌ها</option>
+                  <option class="level-0" value="mashhad">مشهد</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <div class="form-group">
+                <select name='product_cat' id='product_cat' class='postform'>
+                  <option value='0'>همه دسته‌بندی‌ها</option>
+                  <option class="level-0" value="house-and-earth">املاک</option>
+                  <option class="level-1" value="sell-house">tt
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <button type="submit" class="btn btn-primary width-100">جستجو</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="background">
+      <div class="background-image original-size">
+        <img src="/assets/img/hero-background-icons.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</header>

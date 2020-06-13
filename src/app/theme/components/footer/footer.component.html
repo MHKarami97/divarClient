@@ -1,0 +1,81 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="brand-sec">
+          <a routerLink="/" class="brand">
+            <img src="/assets/img/logo.png" alt="logo">
+          </a>
+          <p>{{'Footer.About' | translate}}</p>
+        </div>
+      </div>
+      <!--end col-md-5-->
+      <div class="col-md-3">
+        <h2>{{'Footer.Link' | translate}}</h2>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <nav>
+              <div>
+                <ul class="list-unstyled">
+                  <li><a routerLink="/contact">{{ 'Footer.Contact' | translate }}</a></li>
+                  <li><a routerLink="/contact">{{ 'Footer.Help' | translate }}</a></li>
+                  <li><a routerLink="/contact">{{ 'Footer.Question' | translate }}</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--end col-md-3-->
+      <div class="col-md-4">
+        <h2>{{ 'Footer.Communication' | translate }}</h2>
+        <address>
+          <p><strong><i class="fa fa-phone" aria-hidden="true"></i> {{ 'Footer.Call' | translate }}: </strong>
+            {{ 'Footer.Phone' | translate }}</p>
+          <p><strong><i class="fa fa-envelope" aria-hidden="true"></i> {{ 'Footer.Message' | translate }}: </strong>
+            {{ 'Footer.Email' | translate }}</p>
+        </address>
+      </div>
+      <!--end col-md-4-->
+    </div>
+    <!--end row-->
+    <div class="row cp-footer">
+      <div class="col-lg-6 copyright">
+        <i class="fa fa-copyright" aria-hidden="true"></i>{{ 'Footer.CopyWrite' | translate }}</div>
+      <div class="col-lg-6 social text-left">
+        <ul>
+          <li><a href="#" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          </li>
+          <li><a href="#" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="background">
+    <div class="background-image original-size" style="background-image: url(/assets/img/footer-background-icons.jpg);">
+      <img src="/assets/img/footer-background-icons.jpg" alt="">
+    </div>
+    <!--end background-image-->
+  </div>
+  <!--end background-->
+</footer>
+<a href="javascript:" id="return-to-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+<script>
+  jQuery(document).ready(function ($) {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() >= 50) {
+        $('#return-to-top').fadeIn(200);
+      } else {
+        $('#return-to-top').fadeOut(200);
+      }
+    });
+    $('#return-to-top').click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 500);
+    });
+  });
+
+</script>

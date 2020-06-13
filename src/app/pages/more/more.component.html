@@ -1,0 +1,145 @@
+<div class="content" style="margin-bottom: 490px;">
+  <section class="block">
+    <div class="container">
+
+      <div *ngIf="source"
+        class="product type-product post-714 status-publish first instock product_cat-sell-buisness has-post-thumbnail downloadable virtual product-type-simple">
+        <div class="row flex-column-reverse flex-md-row">
+          <div class="col-md-8 charsoogh-content">
+            <section *ngIf="source?.images?.length>0">
+              <div *ngFor="let i = index" class=" gallery-carousel owl-carousel">
+                <img class="no-lazy" [src]="source.images[0]" [alt]="source.title" [ data-hash]="i">
+                <img class="no-lazy" src="" alt="فروش ویلا" (data-hash)="i">
+              </div>
+
+              <div class="gallery-carousel-thumbs owl-carousel">
+                <a *ngFor="let img of source.images; let i = index" [href]="'#' + i"
+                  class="owl-thumb active-thumb  background-image">
+                  <img class="no-lazy" [src]="img.image" [alt]="source.title">
+                </a>
+              </div>
+            </section>
+
+            <section>
+              <div class="short-link">
+                <span class="post-link__button" onclick="copyLinkFunction()" data-toggle="tooltip"
+                  data-placement="right" title="کپی لینک"><i class="fa fa-files-o" aria-hidden="true"></i> لینک
+                  اشتراک گذاری</span>
+                <input type="text" id="shortlink" [value]="'https://redinu.com:4002/more/' + source.id" />
+              </div>
+              <script>
+                function copyLinkFunction() {
+                  var copyText = document.getElementById("shortlink");
+                  copyText.select();
+                  document.execCommand("copy");
+                  jQuery('.post-link__button').attr("title", "کپی شد").tooltip("_fixTitle").tooltip("show").attr(
+                    "title", "کپی لینک").tooltip("_fixTitle");
+                }
+
+              </script>
+            </section>
+
+            <div class="crunchify-social">
+              <span>
+                <i class="fa fa-link" aria-hidden="true"></i>{{source.title}}</span>
+            </div>
+
+            <div class="warning_ad">
+              <h4>سایت هیچ‌گونه منفعت و مسئولیتی در قبال معامله شما ندارد.</h4>
+              با مطالعه‌ی راهنمای خرید امن، آسوده‌تر معامله کنید.
+            </div>
+          </div>
+          <!--============ Sidebar ==============-->
+          <div class="col-md-4">
+            <aside class="sidebar">
+              <section>
+                <div class="box">
+                  <div class="row contact-box">
+                    <button type="button" class="btn btn-primary info-btn col-md-5 col-sm-12 pull-right
+                      contact_info">{{'More.Contact' | translate}}</button>
+                    <script>
+                      jQuery(".contact_info").click(function () {
+                        jQuery.confirm({
+                          icon: 'fa fa-info-circle',
+                          title: 'اطلاعات تماس',
+                          bgOpacity: 0.5,
+                          backgroundDismiss: true,
+                          content: '' +
+                            '<div class="user_contact_info">' +
+                            '<dt><i class="fa fa-phone" aria-hidden="true"></i> شماره تماس:</dt><dd id="ch-phone"><a href="tel:">12345</a></dd>' +
+                            '</div>',
+                          buttons: {
+                            cancel: {
+                              btnClass: 'btn-info',
+                              text: 'متوجه شدم',
+                              action: function () {
+                                backgroundDismiss: true
+                              }
+                            }
+                          }
+                        });
+                      });
+
+                    </script>
+                  </div>
+
+                  <dl>
+                    <dt>{{'More.Category' | translate}}</dt>
+                    <dd id="ad-category"><a rel="tag">{{source.categoryName}}</a></dd>
+
+                    <dt>{{'More.Place' | translate}}</dt>
+                    <dd id="ad-city"><a href="" rel="tag">{{source.stateName}}</a></dd>
+
+                    <dt>{{'More.Time' | translate}}</dt>
+                    <dd>{{source.time}}</dd>
+
+                    <dt>{{'More.Price' | translate}}</dt>
+                    <dd *ngIf="source.price !==0 "><span class="price"><span>{{source.price}} $</span></span></dd>
+                    <dd *ngIf="source.price ===0 "><span class="price"><span>{{'More.Call' | translate}}</span></span>
+                    </dd>
+                  </dl>
+                </div>
+              </section>
+              <!--Description-->
+              <section class="box">
+                <h2 class="box-title">{{'More.Info' | translate}}</h2>
+                <div class="b-line"></div>
+                <p></p>
+              </section>
+              <!--end Description-->
+              <section class="box mapbox" style="padding: 5px;" *ngIf="source.location">
+                <div class="ribbon-featured">
+                  <div class="ribbon-start"></div>
+                  <div class="ribbon-content">{{'More.Location' | translate}}</div>
+                  <div class="ribbon-end">
+                    <figure class="ribbon-shadow"></figure>
+                  </div>
+                </div>
+                <div id='map' style='width: 100%; height: 300px;'></div>
+                <script>
+                  jQuery(document).ready(function () {
+                    var token =
+                      "pk.eyJ1IjoidGlrNCIsImEiOiJjanZvemwxOWgxYm1yNDl2bjZya3poMzlnIn0.ufNVbFymrl0nR59Yk0vrmg";
+                    var map = L.map('map').setView([32.48838870296871, 51.77900433540345], 16);
+                    var mapopup = L.popup({
+                      closeOnClick: false,
+                      autoClose: false
+                    }).setContent("اینجا");
+                    L.marker([32.48838870296871, 51.77900433540345])
+                      .addTo(map)
+                      .bindPopup(mapopup).openPopup();
+                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + token, {
+                      maxZoom: 18,
+                      id: 'mapbox.streets',
+                      accessToken: token
+                    }).addTo(map);
+                  });
+
+                </script>
+              </section>
+            </aside>
+          </div>
+          <!--============ End Sidebar =================-->
+        </div>
+      </div>
+    </div>

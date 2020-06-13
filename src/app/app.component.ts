@@ -1,39 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
+import { AnalyticsService, SeoService } from './core/utils';
 
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent implements OnInit {
-
-  staticJs = [
-    'vendor/jquery-1.12.4.min.js', 'vendor/modernizr-3.6.0.min.js',
-    'ajax-contact.js', 'bootstrap.min.js',
-    'jquery-ui.min.js', 'jquery.magnific-popup.min.js',
-    'map-script.js', 'menu_horizontal.js', 'slick.min.js',
-    'validator.min.js',
-    'popper.min.js',
-    'main.js'];
-
-  constructor(private titleService: Title, private router: Router) {
+  constructor(private titleService: Title, private analytics: AnalyticsService, private seoService: SeoService) {
   }
 
-  ngOnInit() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+  staticJs = [
+    'jquery-1.12.4.min.js', 'leaflet.js', 'bootstrap.min.js', 'leaflet-mapbox-gl.js',
+    'leaflet-search.js', 'mapbox-gl.js', 'slick.min.js', 'jquery.fancybox.min.js',
+    'theme.js', 'persian_numberc.js', 'jQuery.MultiFile.min.js', 'jquery-validate.bootstrap-tooltip.min.js'];
 
-        for (const i of this.staticJs) {
+  ngOnInit(): void {
+    this.analytics.trackPageViews();
+    this.seoService.trackCanonicalChanges();
 
-          if (document.getElementById(i) != null) {
-            document.getElementById(i).remove();
-          }
-
-          this.loadScript(i);
-        }
-      }
-    });
+    for (const i of this.staticJs) {
+      this.loadScript('/assets/js/' + i);
+    }
   }
 
   public setTitle(newTitle: string) {
@@ -42,10 +30,8 @@ export class AppComponent implements OnInit {
 
   public loadScript(url: string) {
     const node = document.createElement('script');
-    node.src = '/assets/js/' + url;
-    node.id = url;
-    node.async = false;
+    node.src = url;
     node.type = 'text/javascript';
-    document.getElementsByTagName('body')[0].appendChild(node);
+    document.getElementsByTagName('header')[0].appendChild(node);
   }
 }

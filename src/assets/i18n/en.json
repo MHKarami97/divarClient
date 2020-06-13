@@ -94,5 +94,19 @@
     "AddText": "",
     "Buy": "",
     "BuyText": ""
+  },
+  "Home": {
+    "More": "",
+    "Last": "",
+    "Special": ""
+  },
+  "More": {
+    "Category": "",
+    "Place": "",
+    "Time": "",
+    "Price": "",
+    "Call": "",
+    "Info": "",
+    "Location": ""
   }
 }

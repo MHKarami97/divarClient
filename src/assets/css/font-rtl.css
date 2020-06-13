@@ -1,9 +1,0 @@
-@font-face {
-  font-family: 'ISDN';
-  src: url('../fonts/ISDN.eot');
-  src: url('../fonts/ISDN.eot') format('embedded-opentype'),
-    url('../fonts/ISDN.woff') format('woff'),
-    url('../fonts/ISDN.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}

@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/bootstrap/bootstrap.min-rtl.css';
+@import 'assets/bootstrap/leaflet.css';
+@import 'assets/bootstrap/mapbox-gl.css';
+@import 'assets/css/rtl.css';

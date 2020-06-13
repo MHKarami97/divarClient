@@ -14,7 +14,6 @@ export class LoggingInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       tap(event => {
         if (event.type === HttpEventType.Response) {
-          // console.log('Incoming response');
           // console.log(event.body);
         }
       }),

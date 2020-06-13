@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --ssl --ssl-key D:\\cer\\generate-trusted-ssl-certificate\\server.key  --ssl-cert D:\\cer\\generate-trusted-ssl-certificate\\server.crt",
+    "start": "ng s -o ---ssl false --disableHostCheck true",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,6 +25,7 @@
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "ngx-select-ex": "^4.0.0",
+    "ngx-toastr": "^12.1.0",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
