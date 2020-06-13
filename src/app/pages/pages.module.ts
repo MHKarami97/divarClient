@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeModule } from './home/home.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { HomeModule } from './home/home.module';
     ThemeModule,
     HomeModule,
     MoreModule,
+    AuthModule
   ],
   declarations: [
     PagesComponent,

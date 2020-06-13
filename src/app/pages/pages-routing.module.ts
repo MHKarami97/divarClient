@@ -23,6 +23,11 @@ const routes: Routes = [{
       path: 'more/:id',
       component: MoreComponent,
     },
+    {
+      path: 'auth',
+      loadChildren: () => import('./auth/auth.module')
+        .then(m => m.AuthModule),
+    },
     // {
     //   path: 'find/:str',
     //   component: FindComponent,
@@ -58,7 +63,7 @@ const routes: Routes = [{
     // },
     {
       path: '**',
-      component: ErrorComponent,
+      redirectTo: '/pages/home',
     },
   ],
 }];

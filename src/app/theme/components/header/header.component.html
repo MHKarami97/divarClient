@@ -79,7 +79,7 @@
               {{ 'Header.logout' | translate }} </a>
           </li>
           <li>
-            <a routerlink="/login" *ngIf="!isAuth" style="cursor: pointer;">
+            <a routerLink="/pages/auth/login" *ngIf="!isAuth" style="cursor: pointer;">
               <i class="fa fa-sign-in"></i> {{ 'Header.SignIn' | translate }} </a>
             <a *ngIf="isAuth">
               {{ 'Header.Welcome' | translate }} </a>
