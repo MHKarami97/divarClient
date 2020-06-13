@@ -6,6 +6,7 @@ import { Post } from 'src/app/models/post/post.module';
 import { PostImage } from 'src/app/models/post/image.module';
 import { Setting } from 'src/app/setting';
 import { ErrorToast } from 'src/app/errorToast';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-more',
@@ -18,11 +19,13 @@ export class MoreComponent implements OnInit {
   error = null;
   url = '';
   source: Post = null;
+  phone = 'اطلاعات تماس';
+  isPhoneShow = false;
   tempImg = new PostImage();
   @Input() id: string;
 
   constructor(private meta: Meta, private router: Router, public route: ActivatedRoute, private title: Title,
-    private dataService: PostService, private errorToast: ErrorToast) {
+    private dataService: PostService, private errorToast: ErrorToast, private toastr: ToastrService) {
 
   }
 
@@ -66,5 +69,13 @@ export class MoreComponent implements OnInit {
         this.errorToast.showSuccess(error.message);
       },
     );
+  }
+
+  phoneBtnClick(event: any) {
+    this.phone = this.source.phone;
+    this.isPhoneShow = true;
+    event.target.disabled = true;
+
+    this.toastr.warning('سایت مسئولیتی در برابر خرید شما ندارد', 'هشدار');
   }
 }

@@ -32,7 +32,8 @@
     "Location": "موقعیت",
     "All": "همه",
     "Search": "جستجو",
-    "Welcome": "خوش آمدید"
+    "Welcome": "خوش آمدید",
+    "logout": "خروج"
   },
   "Menu": {
     "About": "درباره ما",

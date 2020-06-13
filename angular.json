@@ -29,7 +29,6 @@
             ],
             "scripts": [
               "src/assets/js/jquery-1.12.4.min.js",
-              "src/assets/js/bootstrap.min.js",
               "src/assets/js/leaflet.js",
               "src/assets/js/leaflet-mapbox-gl.js",
               "src/assets/js/leaflet-search.js",
@@ -37,7 +36,6 @@
               "src/assets/js/slick.min.js",
               "src/assets/js/jquery.fancybox.min.js",
               "src/assets/js/theme.js",
-              "src/assets/js/persian_numberc.js",
               "src/assets/js/jQuery.MultiFile.min.js",
               "src/assets/js/jquery-validate.bootstrap-tooltip.min.js"
             ]

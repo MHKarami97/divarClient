@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { StateWithSub } from 'src/app/models/state/state.module';
@@ -23,7 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cats: CategoryWithSub[] = [];
 
   constructor(private errorToast: ErrorToast, private authorizeService: AuthorizeService, private dataCatService: CategoryService,
-    private dataStateService: StateService) { }
+    private dataStateService: StateService, private router: Router) { }
 
   ngOnInit() {
 
@@ -85,5 +86,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         });
     });
 
+  }
+
+  logOut() {
+    this.authorizeService.logout();
+    this.router.navigate(['/']);
   }
 }

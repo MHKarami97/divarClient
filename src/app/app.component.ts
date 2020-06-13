@@ -1,27 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { AnalyticsService, SeoService } from './core/utils';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent implements OnInit {
-  constructor(private titleService: Title, private analytics: AnalyticsService, private seoService: SeoService) {
+  constructor(private titleService: Title, private router: Router, private analytics: AnalyticsService, private seoService: SeoService) {
   }
 
   staticJs = [
-    'jquery-1.12.4.min.js', 'leaflet.js', 'bootstrap.min.js', 'leaflet-mapbox-gl.js',
+    'jquery-1.12.4.min.js', 'leaflet.js', 'leaflet-mapbox-gl.js',
     'leaflet-search.js', 'mapbox-gl.js', 'slick.min.js', 'jquery.fancybox.min.js',
-    'theme.js', 'persian_numberc.js', 'jQuery.MultiFile.min.js', 'jquery-validate.bootstrap-tooltip.min.js'];
+    'theme.js', 'jQuery.MultiFile.min.js', 'jquery-validate.bootstrap-tooltip.min.js'];
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
     this.seoService.trackCanonicalChanges();
 
-    for (const i of this.staticJs) {
-      this.loadScript('/assets/js/' + i);
-    }
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+
+        for (const i of this.staticJs) {
+
+          if (document.getElementById(i) != null) {
+            document.getElementById(i).remove();
+          }
+
+          this.loadScript(i);
+        }
+      }
+    });
   }
 
   public setTitle(newTitle: string) {
@@ -30,8 +41,10 @@ export class AppComponent implements OnInit {
 
   public loadScript(url: string) {
     const node = document.createElement('script');
-    node.src = url;
+    node.src = '/assets/js/' + url;
+    node.id = url;
+    node.async = false;
     node.type = 'text/javascript';
-    document.getElementsByTagName('header')[0].appendChild(node);
+    document.getElementsByTagName('head')[0].appendChild(node);
   }
 }

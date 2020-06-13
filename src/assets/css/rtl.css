@@ -9777,3 +9777,9 @@ footer .cp-footer {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
+@media screen and (max-width: 910px) {
+  .hidden-in-mini {
+    display: none !important;
+  }
+}

@@ -74,8 +74,12 @@
             <a href="">
               <i class="fa fa-heart"></i> علاقه‌مندی ها </a>
           </li> -->
+          <li style="cursor: pointer;">
+            <a *ngIf="isAuth" (click)="logOut()">
+              {{ 'Header.logout' | translate }} </a>
+          </li>
           <li>
-            <a routerlink="/login" *ngIf="!isAuth">
+            <a routerlink="/login" *ngIf="!isAuth" style="cursor: pointer;">
               <i class="fa fa-sign-in"></i> {{ 'Header.SignIn' | translate }} </a>
             <a *ngIf="isAuth">
               {{ 'Header.Welcome' | translate }} </a>
@@ -100,9 +104,9 @@
                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children nav-item active">
                 <a routerLink="/" data-toggle="has-child" class="nav-link">{{ 'Menu.Home' | translate }}</a>
               </li>
-              <li
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item has-child">
-                <a href="#" data-toggle="has-child" class="nav-link">{{ 'Menu.Category' | translate }}</a>
+              <li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item
+                menu-item-69 has-child">
+                <a data-toggle="has-child" class="nav-link hidden-in-mini">{{ 'Menu.Category' | translate }}</a>
                 <ul role="menu" class="child">
                   <li *ngFor="let item of cats"
                     class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children nav-item dropdown-submenu">
@@ -194,7 +198,7 @@
       </div>
     </form>
     <div class="background">
-      <div class="background-image original-size">
+      <div class="background-image original-size" style="background-image: url(/assets/img/hero-background-icons.jpg);">
         <img src="/assets/img/hero-background-icons.jpg" alt="">
       </div>
     </div>
