@@ -8,6 +8,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component';
     MainComponent,
     SearchComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    CategoryComponent
   ],
 })
 export class MainModule { }

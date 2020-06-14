@@ -114,15 +114,15 @@
                     <ul role="menu" class="child">
                       <li *ngFor="let child of item.childCategories"
                         class="menu-item menu-item-type-taxonomy menu-item-object-product_cat nav-item">
-                        <a [routerLink]="['/cat', child.id]" class="nav-link">{{child.name}}</a></li>
+                        <a [routerLink]="['/pages/main/category', child.id]" class="nav-link">{{child.name}}</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
-                <a routerLink="/about" class="nav-link">{{ 'Menu.About' | translate }}</a></li>
+                <a routerLink="/pages/main/about" class="nav-link">{{ 'Menu.About' | translate }}</a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item ">
-                <a routerLink="/contact" class="nav-link">{{ 'Menu.Contact' | translate }}</a></li>
+                <a routerLink="//pages/main/contact" class="nav-link">{{ 'Menu.Contact' | translate }}</a></li>
             </ul>
           </div>
           <ol class="nav-btn">
@@ -136,7 +136,7 @@
                     <li *ngFor="let item of cats" class="cat-item"><a href="#">{{item.name}}</a>
                       <ul class='children'>
                         <li *ngFor="let child of item.childCategories" class="cat-item"><a
-                            [routerLink]="['/cat', child.id]">{{child.name}}</a>
+                            [routerLink]="['/pages/main/category', child.id]">{{child.name}}</a>
                         </li>
                       </ul>
                     </li>

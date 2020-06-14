@@ -1,0 +1,52 @@
+<main class="content">
+
+  <section class="block ad-list-block">
+
+    <div class="container">
+      <div class="section-title clearfix">
+        <h2>{{ 'Home.Last' | translate }}</h2>
+      </div>
+      <ul class="row items ad-listing" *ngIf="source.length>0">
+        <li *ngFor="let item of source"
+          class="item col-lg-3 col-md-3 col-sm-12 product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple">
+          <div class="wrapper">
+            <span class="ad_visit" *ngIf="item.type==2">{{ 'Home.Special' | translate }}</span>
+            <div class="image">
+              <h4 class="location">
+                <a>{{item.stateName}}</a>
+              </h4>
+              <a [routerLink]="['/pages/more', item.id]" [title]="item.title" class="title">
+                <img width="300" height="300" *ngIf="item.images" [src]="item?.images[0]?.image" [alt]="item.title"
+                  sizes="(max-width: 300px) 100vw, 300px" />
+              </a>
+            </div>
+            <span class="price">{{item.price}} $</span>
+            <div class="meta">
+              <a [routerLink]="['/pages/more', item.id]" [title]="item.title" class="title">
+                <h2>{{item.title}}</h2>
+              </a>
+              <figure>
+                <i class="fa fa-calendar-o"></i>{{item.title}}</figure>
+              <figure>
+                <i class="fa fa-folder-open-o"></i><a rel="tag">{{item.categoryName}}</a>
+              </figure>
+            </div>
+            <!--end meta-->
+            <!--end description-->
+          </div>
+        </li>
+      </ul>
+      <div class="center ad-load-more" *ngIf="source.length==0">
+        <div class="ad-loading" style="display: block;">
+          <div class="ad-loader-show">
+          </div>
+        </div>
+      </div>
+      <div class="center ad-load-more" *ngIf="source.length>0">
+        <div class="ad-loading">
+          <div class="ad-loader-show"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

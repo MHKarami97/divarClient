@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'search',
+        path: 'search/:str',
         component: SearchComponent,
       },
       {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent,
+      },
+      {
+        path: 'category/:id',
+        component: CategoryComponent,
       },
     ],
   },
