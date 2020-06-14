@@ -1,3 +1,4 @@
+import { AddModule } from './add/add.module';
 import { MainModule } from './main/main.module';
 import { MoreModule } from './more/more.module';
 import { ThemeModule } from './../theme/theme.module';
@@ -14,7 +15,8 @@ import { AuthModule } from './auth/auth.module';
     HomeModule,
     MoreModule,
     AuthModule,
-    MainModule
+    MainModule,
+    AddModule
   ],
   declarations: [
     PagesComponent,

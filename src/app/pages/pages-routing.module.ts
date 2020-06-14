@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
 import { AuthGuard } from '../auth-guard.service';
 import { MoreComponent } from './more/more.component';
+import { AddComponent } from './add/add.component';
 
 const routes: Routes = [{
   path: '',
@@ -24,6 +25,11 @@ const routes: Routes = [{
       component: MoreComponent,
     },
     {
+      path: 'add',
+      component: AddComponent,
+      canActivate: [AuthGuard]
+    },
+    {
       path: 'auth',
       loadChildren: () => import('./auth/auth.module')
         .then(m => m.AuthModule),
@@ -33,39 +39,6 @@ const routes: Routes = [{
       loadChildren: () => import('./main/main.module')
         .then(m => m.MainModule),
     },
-    // {
-    //   path: 'find/:str',
-    //   component: FindComponent,
-    // },
-    // {
-    //   path: 'cat/:id',
-    //   component: CatComponent,
-    // },
-    // {
-    //   path: 'login',
-    //   component: LoginComponent,
-    // },
-    // {
-    //   path: 'signup',
-    //   component: SignupComponent,
-    // },
-    // {
-    //   path: 'message/:id',
-    //   component: MessageComponent,
-    // },
-    // {
-    //   path: 'contact',
-    //   component: ContactComponent,
-    // },
-    // {
-    //   path: 'about',
-    //   component: AboutComponent,
-    // },
-    // {
-    //   path: 'add',
-    //   component: AddComponent,
-    //   canActivate: [AuthGuard],
-    // },
     {
       path: '**',
       redirectTo: '/pages/home',

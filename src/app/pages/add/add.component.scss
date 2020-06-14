@@ -1,0 +1,57 @@
+.form-row {
+  margin: 10px
+}
+
+.button {
+  box-shadow: 0 0.4rem 3.3rem rgba(0, 0, 0, .3);
+  cursor: pointer;
+  border-radius: 3px;
+  padding-bottom: 10px;
+}
+
+.register_btn_show {
+  padding: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+agm-map {
+  height: 300px;
+}
+
+.nice-select,
+ul .list {
+  width: 100% !important;
+}
+
+ngx-select,
+file-upload,
+agm-map {
+  width: 100% !important;
+}
+
+.ng-star-inserted,
+.ngx-select__item,
+.dropdown-item,
+.ng-star-inserted,
+.ngx-select__item_active {
+  font-size: 12px !important;
+}
+
+.nice-select .list {
+  width: 100% !important;
+}
+
+.nice-select .list li {
+  direction: rtl;
+  text-align: right;
+}

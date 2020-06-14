@@ -1,0 +1,111 @@
+<main class="content">
+  <section class="block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <article class="page-content clearfix">
+            <div class="woocommerce">
+              <div class="u-columns row" id="customer_login">
+                <div class="col-md-6 offset-md-3 col-sm-12 col-xs-12">
+                  <div class="section-title clearfix">
+                    <h2>{{ 'Add.New' | translate }}</h2>
+                  </div>
+                  <form class="register" (ngSubmit)="onAdd()" #form="ngForm" enctype="multipart/form-data">
+                    <div class="loading" style="margin: -30px;height: 80%;">
+                      <div class="loader-show"></div>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <input [(ngModel)]="item.title" #type="ngModel" type="text" class="input-text"
+                        style="margin-top: 15px;" name="title" id="title" placeholder="عنوان" autocomplete="off"
+                        required />
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <input [(ngModel)]="item.phone" #type="ngModel" type="number" class="input-text" name="phone"
+                        id="phone" placeholder="0939xxx" [disabled]="isChecked" autocomplete="off" required />
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <input [(ngModel)]="item.price" #type="ngModel" *ngIf="!isChecked" type="number"
+                        class="input-text" min="0" max="99999999999" name="price" id="price" placeholder="قیمت"
+                        autocomplete="off" required />
+                      <p class="user_error_show"></p>
+                      <div class="form-checkbox mt-10" style="margin-top: 10px;">
+                        <input type="checkbox" name="agreed" id="agreed" (change)="onCheckboxChange()">
+                        <label for="agreed"></label>
+                        <span>{{ 'Add.Agreed' | translate }}</span>
+                      </div>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <ngx-select [(ngModel)]="item.categoryId" #type="ngModel" name="categoryId" [allowClear]="true"
+                        [items]="cats" [placeholder]="'Add.Cat' | translate" optionValueField="id"
+                        optionTextField="name" optGroupLabelField="name" optGroupOptionsField="childCategories"
+                        required>
+                      </ngx-select>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <ngx-select [(ngModel)]="item.stateId" #type="ngModel" name="stateId" [allowClear]="true"
+                        [items]="states" [placeholder]="'Add.State' | translate" optionValueField="id"
+                        optionTextField="name" optGroupLabelField="name" optGroupOptionsField="childStates" required>
+                      </ngx-select>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <ngx-select [(ngModel)]="item.type" #type="ngModel" name="type" [allowClear]="true"
+                        [items]="types" [placeholder]="'Add.Type' | translate" optionValueField="id"
+                        optionTextField="name" required>
+                      </ngx-select>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <textarea [(ngModel)]="item.text" #type="ngModel" class="input-text" name="text" id="text"
+                        autocomplete="off" placeholder="متن توضیحات" required></textarea>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <file-upload [(ngModel)]="uploadedFiles" #fileInput="ngModel" name="uploadedFiles" fileslimit="4"
+                        accept=".jpg, .png, .jpeg" maxsize="7 MB" multiple="true">
+                        <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
+                          <span *ngIf="isFileDragDropAvailable">فایل خود را انتخاب یا درگ کنید</span>
+                          <span *ngIf="!isFileDragDropAvailable">فایل خود را انتخاب کنید</span>
+                        </ng-template>
+                      </file-upload>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <div class="form-row form-row-wide">
+                      <agm-map [latitude]='latitude' [longitude]='longitude'>
+                        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                          (dragEnd)="selectMarker($event)">
+                        </agm-marker>
+                      </agm-map>
+                      <p class="user_error_show"></p>
+                    </div>
+
+                    <p class="form-row register_btn_show">
+                      <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
+                        name="register">{{ 'Add.Add' | translate }}</button>
+                    </p>
+                    <div class="final-register-result"></div>
+                    <div class="alert alert-warning" style="padding:10px 10px 1px 10px;" role="alert">
+                      <p>مسئولیت تبلیغ با شما می باشد</p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

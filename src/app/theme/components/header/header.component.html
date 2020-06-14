@@ -145,9 +145,9 @@
               </ul>
             </li>
             <li class="nav-item submit_ad">
-              <a *ngIf="isAuth" routerLink="/add" class="btn btn-primary text-caps btn-rounded btn-framed">
+              <a *ngIf="isAuth" routerLink="/pages/add" class="btn btn-primary text-caps btn-rounded btn-framed">
                 <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.PostAd' | translate }}</a>
-              <a *ngIf="!isAuth" routerLink="/add" class="btn btn-primary text-caps btn-rounded btn-framed">
+              <a *ngIf="!isAuth" routerLink="/pages/auth/login" class="btn btn-primary text-caps btn-rounded btn-framed">
                 <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.Login' | translate }}</a>
             </li>
           </ol>
