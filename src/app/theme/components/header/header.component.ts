@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cats: CategoryWithSub[] = [];
 
   constructor(private errorToast: ErrorToast, private authorizeService: AuthorizeService, private dataCatService: CategoryService,
-    private dataStateService: StateService, private router: Router) { }
+    private dataStateService: StateService, private router: Router) {
+    this.updateCode();
+  }
 
   ngOnInit() {
 
@@ -96,5 +98,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSearch() {
     this.router.navigate(['/pages/main/search', this.txt]);
+  }
+
+  public updateCode() {
+    if (this.authorizeService.isAuthorize()) {
+      this.isAuth = true;
+    }
   }
 }
