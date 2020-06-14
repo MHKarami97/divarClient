@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLoginResult, UserCreate, User } from 'src/app/models/user/user.module';
+import { UserCreate, User } from 'src/app/models/user/user.module';
 import { Title } from '@angular/platform-browser';
 import { AuthorizeService } from 'src/app/services/other/authorize.service';
 import { Router } from '@angular/router';

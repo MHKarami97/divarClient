@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   error = null;
   isAuth = false;
   isShow = false;
+  txt: string;
   states: StateWithSub[] = null;
   cats: CategoryWithSub[] = [];
 
@@ -91,5 +92,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logOut() {
     this.authorizeService.logout();
     this.router.navigate(['/']);
+  }
+
+  onSearch() {
+    this.router.navigate(['/pages/main/search', this.txt]);
   }
 }

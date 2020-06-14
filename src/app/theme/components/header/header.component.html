@@ -161,15 +161,15 @@
         </div>
       </div>
     </div> -->
-    <form class="hero-form form" role="search" method="get">
+    <form class="hero-form form" (ngSubmit)="onSearch()" #form="ngForm">
       <div class="container">
         <!--Main Form-->
         <div class="main-search-form">
           <div class="form-row">
             <div class="col-md-5 col-sm-5">
               <div class="form-group">
-                <input name="s" type="text" class="form-control" id="what" placeholder="جستجو در تمام آگهی‌ها" value="">
-                <input type="hidden" name="post_type" value="product" />
+                <input [(ngModel)]="txt" #type="ngModel" autocomplete="off" name="s" type="text" class="form-control"
+                  id="what" placeholder="جستجو در تمام آگهی‌ها" value="">
               </div>
             </div>
             <div class="col-md-2 col-sm-2">

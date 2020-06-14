@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -37,6 +38,7 @@ const PIPES = [
 @NgModule({
   imports: [
     RouterModule,
+    FormsModule,
     CommonModule,
     TranslateModule
   ],

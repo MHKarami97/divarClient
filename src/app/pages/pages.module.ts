@@ -1,3 +1,4 @@
+import { MainModule } from './main/main.module';
 import { MoreModule } from './more/more.module';
 import { ThemeModule } from './../theme/theme.module';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { AuthModule } from './auth/auth.module';
     ThemeModule,
     HomeModule,
     MoreModule,
-    AuthModule
+    AuthModule,
+    MainModule
   ],
   declarations: [
     PagesComponent,
