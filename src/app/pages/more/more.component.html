@@ -14,7 +14,7 @@
 
               <div class="gallery-carousel-thumbs owl-carousel">
                 <a *ngFor="let img of source.images; let i = index" [href]="'#' + i"
-                  class="owl-thumb active-thumb  background-image">
+                  [class]="(i==0)?'owl-thumb active-thumb background-image':'owl-thumb background-image'">
                   <img class="no-lazy" [src]="img.image" [alt]="source.title">
                 </a>
               </div>
@@ -32,8 +32,8 @@
             <section>
               <div class="short-link" *ngIf="isPhoneShow">
                 <span class="post-link__button" id="post-phone__button" onclick="copyPhoneFunction()"
-                  data-toggle="tooltip"
-                  data-placement="right" title="کپی لینک"><i class="fa fa-files-o" aria-hidden="true"></i>شماره
+                  data-toggle="tooltip" data-placement="right" title="کپی لینک"><i class="fa fa-files-o"
+                    aria-hidden="true"></i>شماره
                   موبایل</span>
                 <input type="text" id="shortphone" [value]="phone" />
               </div>
@@ -79,7 +79,9 @@
               <!--Description-->
               <section class="box">
                 <h2 class="box-title">{{'More.Info' | translate}}</h2>
-                <div class="b-line">{{source.text}}</div>
+                <div class="b-line">
+                  <p>{{source.text}}</p>
+                </div>
                 <p></p>
               </section>
               <!--end Description-->
@@ -91,27 +93,10 @@
                     <figure class="ribbon-shadow"></figure>
                   </div>
                 </div>
-                <div id='map' style='width: 100%; height: 300px;'></div>
-                <script>
-                  jQuery(document).ready(function () {
-                    var token =
-                      "pk.eyJ1IjoidGlrNCIsImEiOiJjanZvemwxOWgxYm1yNDl2bjZya3poMzlnIn0.ufNVbFymrl0nR59Yk0vrmg";
-                    var map = L.map('map').setView([32.48838870296871, 51.77900433540345], 16);
-                    var mapopup = L.popup({
-                      closeOnClick: false,
-                      autoClose: false
-                    }).setContent("اینجا");
-                    L.marker([32.48838870296871, 51.77900433540345])
-                      .addTo(map)
-                      .bindPopup(mapopup).openPopup();
-                    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + token, {
-                      maxZoom: 18,
-                      id: 'mapbox.streets',
-                      accessToken: token
-                    }).addTo(map);
-                  });
-
-                </script>
+                <agm-map [latitude]='latitude' [longitude]='longitude'>
+                  <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false">
+                  </agm-marker>
+                </agm-map>
               </section>
             </aside>
           </div>

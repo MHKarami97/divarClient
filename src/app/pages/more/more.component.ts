@@ -21,13 +21,13 @@ export class MoreComponent implements OnInit {
   source: Post = null;
   phone = 'اطلاعات تماس';
   isPhoneShow = false;
+  latitude: number;
+  longitude: number;
   tempImg = new PostImage();
   @Input() id: string;
 
   constructor(private meta: Meta, private router: Router, public route: ActivatedRoute, private title: Title,
-    private dataService: PostService, private errorToast: ErrorToast, private toastr: ToastrService) {
-
-  }
+    private dataService: PostService, private errorToast: ErrorToast, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.meta.addTags([
@@ -57,6 +57,10 @@ export class MoreComponent implements OnInit {
           this.source.images.length !== 0 ? this.source.images
             .forEach(b => b.image = Setting.baseFileUrl + b.image) : this.source.images.push(this.tempImg);
 
+          this.latitude = +this.source.location.split(',')[0];
+          this.longitude = +this.source.location.split(',')[1];
+
+          this.loadScript('theme.js');
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -77,5 +81,14 @@ export class MoreComponent implements OnInit {
     event.target.disabled = true;
 
     this.toastr.warning('سایت مسئولیتی در برابر خرید شما ندارد', 'هشدار');
+  }
+
+  public loadScript(url: string) {
+    const node = document.createElement('script');
+    node.src = '/assets/js/' + url;
+    node.id = url;
+    node.async = false;
+    node.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(node);
   }
 }

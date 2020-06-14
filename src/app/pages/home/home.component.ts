@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit {
           this.source = results.data;
           this.source.forEach(a => a.images.length !== 0 ? a.images
             .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
-
         } else {
           this.errorToast.showSuccess(results.message);
         }

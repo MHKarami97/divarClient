@@ -21,7 +21,7 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
     {
-      path: 'more/:id',
+      path: 'more/:id/:str',
       component: MoreComponent,
     },
     {

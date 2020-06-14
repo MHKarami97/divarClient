@@ -6372,6 +6372,7 @@ jQuery(document).ready(function ($) {
   });
 
   if ($(".owl-carousel").length) {
+
     var galleryCarousel = $(".gallery-carousel");
 
     galleryCarousel.owlCarousel({
