@@ -8,7 +8,7 @@
               <div class="u-columns row" id="customer_login">
                 <div class="col-md-6 offset-md-3 col-sm-12 col-xs-12">
                   <div class="section-title clearfix">
-                    <h2>ورود / ثبت نام</h2>
+                    <h2>{{ 'Profile.Signup' | translate }}</h2>
                   </div>
                   <form class="register" (ngSubmit)="onAdd()" #form="ngForm">
                     <div class="loading" style="margin: -30px;height: 80%;">
@@ -20,18 +20,24 @@
                       <p class="user_error_show"></p>
                     </div>
                     <div class="form-row form-row-wide">
-                      <input [(ngModel)]="user.password" #type="ngModel" type="password" class="input-text"
-                        name="password" id="password" placeholder="رمز عبور" required />
+                      <input [(ngModel)]="user.password" #type="ngModel" autocomplete="new-password" type="password"
+                        class="input-text" name="password" id="password" placeholder="رمز عبور" required />
+                      <p class="user_error_show"></p>
+                    </div>
+                    <div class="form-row form-row-wide">
+                      <input [(ngModel)]="user.passwordVerify" #type="ngModel" autocomplete="new-password"
+                        type="password" class="input-text" name="passwordVerify" id="passwordVerify"
+                        placeholder="تایید رمز عبور" required />
                       <p class="user_error_show"></p>
                     </div>
                     <p class="form-row register_btn_show">
                       <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
-                        name="register">{{ 'Profile.Login' | translate }}</button>
+                        name="register">{{ 'Profile.Signup' | translate }}</button>
                     </p>
                     <div class="final-register-result"></div>
                     <div class="alert alert-warning" style="padding:10px 10px 1px 10px;" role="alert">
-                      <p>{{ 'Profile.NewUser' | translate }} <a
-                          routerLink="/pages/auth/register">{{ 'Profile.Signup' | translate }}</a></p>
+                      <p>{{ 'Profile.HaveAccount' | translate }} <a
+                          routerLink="/pages/auth/login">{{ 'Profile.Login' | translate }}</a></p>
                     </div>
                   </form>
                 </div>

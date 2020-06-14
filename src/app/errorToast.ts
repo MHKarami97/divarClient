@@ -9,6 +9,6 @@ export class ErrorToast {
   constructor(private toastr: ToastrService) { }
 
   showSuccess(msg: string) {
-    this.toastr.success('خطل', msg);
+    this.toastr.error(msg, 'خطا');
   }
 }
