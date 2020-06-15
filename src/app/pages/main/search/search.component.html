@@ -4,7 +4,7 @@
 
     <div class="container">
       <div class="section-title clearfix">
-        <h2>{{ 'Home.Last' | translate }}</h2>
+        <h2>{{ 'Home.Search' | translate }}</h2>
       </div>
       <ul class="row items ad-listing" *ngIf="source.length>0">
         <li *ngFor="let item of source"
@@ -36,11 +36,14 @@
           </div>
         </li>
       </ul>
-      <div class="center ad-load-more" *ngIf="source.length==0">
+      <div class="center ad-load-more" *ngIf="source.length==0 && loading">
         <div class="ad-loading" style="display: block;">
           <div class="ad-loader-show">
           </div>
         </div>
+      </div>
+      <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
+        <p>{{ 'Home.Nodata' | translate }}</p>
       </div>
       <div class="center ad-load-more" *ngIf="source.length>0">
         <div class="ad-loading">

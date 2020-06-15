@@ -15,7 +15,8 @@
               <h4 class="location">
                 <a>{{item.stateName}}</a>
               </h4>
-              <a [routerLink]="['/pages/more', item.id, item.title.replace(' ','-')]" [title]="item.title" class="title">
+              <a [routerLink]="['/pages/more', item.id, item.title.replace(' ','-')]" [title]="item.title"
+                class="title">
                 <img width="300" height="300" *ngIf="item.images" [src]="item?.images[0]?.image" [alt]="item.title"
                   sizes="(max-width: 300px) 100vw, 300px" />
               </a>
@@ -37,11 +38,14 @@
           </div>
         </li>
       </ul>
-      <div class="center ad-load-more" *ngIf="source.length==0">
+      <div class="center ad-load-more" *ngIf="source.length==0 && loading">
         <div class="ad-loading" style="display: block;">
           <div class="ad-loader-show">
           </div>
         </div>
+      </div>
+      <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
+        <p>{{ 'Home.Nodata' | translate }}</p>
       </div>
       <div class="center ad-load-more" *ngIf="source.length>0">
         <div class="ad-loading">
