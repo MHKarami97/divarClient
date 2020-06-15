@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
-import { StateWithSub } from '../models/state/state.module';
+import { StateWithSub, State } from '../models/state/state.module';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,23 @@ export class StateService {
     return this.http.get<Api<StateWithSub[]>>(this.apiUrl + 'getStateWithSub')
       .pipe(
         tap(),
-        catchError(this.handleError('get', new Api<StateWithSub[]>()),
+        catchError(this.handleError('getStateWithSub', new Api<StateWithSub[]>()),
+        ));
+  }
+
+  getSubState(): Observable<Api<State[]>> {
+    return this.http.get<Api<State[]>>(this.apiUrl + 'getSubState')
+      .pipe(
+        tap(),
+        catchError(this.handleError('getSubState', new Api<State[]>()),
+        ));
+  }
+
+  getMainState(): Observable<Api<State[]>> {
+    return this.http.get<Api<State[]>>(this.apiUrl + 'getAllMainState')
+      .pipe(
+        tap(),
+        catchError(this.handleError('getAllMainState', new Api<State[]>()),
         ));
   }
 }

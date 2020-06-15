@@ -1,12 +1,13 @@
 import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { StateWithSub } from 'src/app/models/state/state.module';
+import { State } from 'src/app/models/state/state.module';
 import { AuthorizeService } from 'src/app/services/other/authorize.service';
 import { StateService } from 'src/app/services/state.service';
 import { ErrorToast } from 'src/app/errorToast';
 import { CategoryService } from 'src/app/services/category.service';
 import { CategoryWithSub } from 'src/app/models/category/category.module';
+import { StateCheckService } from 'src/app/services/other/stateCheck.service';
 
 @Component({
   selector: 'app-header',
@@ -21,11 +22,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   isShow = false;
   txt: string;
-  states: StateWithSub[] = null;
+  states: State[] = null;
+  tempStates: State[] = null;
+  mainStates: State[] = null;
   cats: CategoryWithSub[] = [];
 
   constructor(private errorToast: ErrorToast, private authorizeService: AuthorizeService, private dataCatService: CategoryService,
-    private dataStateService: StateService, private router: Router) {
+    private dataStateService: StateService, private stateCheckService: StateCheckService, private router: Router) {
     this.updateCode();
   }
 
@@ -37,10 +40,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.loading = true;
 
-    this.dataStateService.getStateWithSub().subscribe(
+    this.dataStateService.getSubState().subscribe(
       results => {
         if (results.isSuccess) {
           this.states = results.data;
+          this.tempStates = this.states;
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+
+    this.dataStateService.getMainState().subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.mainStates = results.data;
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -100,7 +121,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/pages/main/search', this.txt]);
   }
 
-  public updateCode() {
+  onSearchState(stateName: string) {
+    if (stateName !== '') {
+      this.tempStates = this.states.filter(a => a.name.includes(stateName));
+    } else {
+      this.tempStates = this.states;
+    }
+  }
+
+  onStateClick(id: number) {
+    this.stateCheckService.storeState(id.toString());
+  }
+
+  onSubStateClick(id: number) {
+    this.stateCheckService.storeSubState(id.toString());
+  }
+
+  onAllStateClick() {
+    this.stateCheckService.removeSate();
+  }
+
+  updateCode() {
     if (this.authorizeService.isAuthorize()) {
       this.isAuth = true;
     }

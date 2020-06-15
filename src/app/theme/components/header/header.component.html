@@ -18,7 +18,7 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="city-select-modalTitle">{{ 'Header.SignIn' | translate }}</h5>
                     <ul class="all-city">
-                      <li data-city="all">{{ 'Header.All' | translate }}</li>
+                      <li data-city="all" (click)="onAllStateClick()">{{ 'Header.All' | translate }}</li>
                     </ul>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -27,42 +27,22 @@
                   <div class="modal-body">
                     <div class="city-search-box">
                       <input class="form-control" id="city_search" type="text"
-                        placeholder="{{ 'Header.Search' | translate }}">
+                        (keyup)="onSearchState($event.target.value)" ng-model="st"
+                        placeholder="{{ 'Header.Search' | translate }}" autocomplete="off">
                       <i class="fa fa-search" aria-hidden="true"></i>
                     </div>
-
                     <ul class="city_list">
-                      <li *ngFor="let item of states" (data-city)="item.id">{{ item.name }}</li>
+                      <li *ngFor="let item of mainStates" (data-city)="item.id" (click)="onSubStateClick(item.id)">
+                        {{ item.name }}
+                      </li>
+                    </ul>
+                    <br>
+                    <ul class="city_list">
+                      <li *ngFor="let item of tempStates" (data-city)="item.id" (click)="onStateClick(item.id)">
+                        {{ item.name }}
+                      </li>
                     </ul>
                     <div class="realoading"></div>
-                    <script>
-                      jQuery(".city_list li").click(function () {
-                        jQuery(".modal-content .loading").css("display", "block"), jQuery(this).find(".selected")
-                          .text();
-                        var t = this.getAttribute("data-city");
-                        jQuery.post("/includes/set-cookies.html", {
-                          city_name: t
-                        }, function (t) {
-                          jQuery("div.realoading").html(t)
-                        })
-                      }), jQuery(".all-city li").click(function () {
-                        jQuery(".modal-content .loading").css("display", "block");
-                        var t = this.getAttribute("data-city");
-                        jQuery.post("/includes/set-cookies.html", {
-                          city_name: t
-                        }, function (t) {
-                          jQuery("div.realoading").html(t)
-                        })
-                      }), jQuery(document).ready(function () {
-                        jQuery("#city_search").on("keyup", function () {
-                          var t = jQuery(this).val().toLowerCase();
-                          jQuery(".city_list li").filter(function () {
-                            jQuery(this).toggle(jQuery(this).text().toLowerCase().indexOf(t) > -1)
-                          })
-                        })
-                      });
-
-                    </script>
                   </div>
                 </div>
               </div>
@@ -147,7 +127,8 @@
             <li class="nav-item submit_ad">
               <a *ngIf="isAuth" routerLink="/pages/add" class="btn btn-primary text-caps btn-rounded btn-framed">
                 <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.PostAd' | translate }}</a>
-              <a *ngIf="!isAuth" routerLink="/pages/auth/login" class="btn btn-primary text-caps btn-rounded btn-framed">
+              <a *ngIf="!isAuth" routerLink="/pages/auth/login"
+                class="btn btn-primary text-caps btn-rounded btn-framed">
                 <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.Login' | translate }}</a>
             </li>
           </ol>

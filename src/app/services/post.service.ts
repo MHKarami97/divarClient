@@ -39,6 +39,22 @@ export class PostService {
     );
   }
 
+  getByStateId(id: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}getByStateId/${id}`;
+    return this.http.get<Api<PostShort[]>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<PostShort[]>>(`getByStateId id=${id}`)),
+    );
+  }
+
+  getBySubStateId(id: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}getBySubStateId/${id}`;
+    return this.http.get<Api<PostShort[]>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<PostShort[]>>(`getBySubStateId id=${id}`)),
+    );
+  }
+
   create(product: FormData): Observable<Api<Post>> {
     return this.http.post<Api<Post>>(this.apiUrl + 'create', product).pipe(
       tap(),
