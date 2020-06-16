@@ -115,6 +115,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logOut() {
     this.authorizeService.logout();
     this.router.navigate(['/']);
+    window.location.reload();
   }
 
   onSearch() {
