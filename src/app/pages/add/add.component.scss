@@ -24,6 +24,16 @@ input[type=number] {
   /* Firefox */
 }
 
+button:disabled {
+  background-color: #eee !important;
+  color: #b3040b !important;
+  cursor: wait;
+}
+
+.er-style {
+  text-align: center;
+}
+
 agm-map {
   height: 300px;
 }

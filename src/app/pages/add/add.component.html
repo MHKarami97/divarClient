@@ -33,8 +33,9 @@
                         class="input-text" min="0" max="99999999999" name="price" id="price" placeholder="قیمت"
                         autocomplete="off" required />
                       <p class="user_error_show"></p>
-                      <div class="form-checkbox mt-10" style="margin-top: 10px;">
-                        <input type="checkbox" name="agreed" id="agreed" (change)="onCheckboxChange()">
+                      <div class="form-row form-row-wide form-checkbox mt-10" style="margin-top: 10px;">
+                        <input type="checkbox" name="agreed" id="agreed" [(ngModel)]="isChecked"
+                          (change)="onCheckboxChange()">
                         <label for="agreed"></label>
                         <span>{{ 'Add.Agreed' | translate }}</span>
                       </div>
@@ -95,6 +96,9 @@
                       <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
                         name="register">{{ 'Add.Add' | translate }}</button>
                     </p>
+                    <p *ngIf="submitted || !form.valid"
+                     class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل کنید تا دکمه ارسال فعال شود</p>
+
                     <div class="final-register-result"></div>
                     <div class="alert alert-warning" style="padding:10px 10px 1px 10px;" role="alert">
                       <p>مسئولیت تبلیغ با شما می باشد</p>

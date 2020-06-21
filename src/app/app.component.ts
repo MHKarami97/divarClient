@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   staticJs = [
     'jquery-1.12.4.min.js', 'leaflet.js', 'leaflet-mapbox-gl.js',
     'leaflet-search.js', 'mapbox-gl.js', 'slick.min.js', 'jquery.fancybox.min.js',
-    'theme.js', 'jQuery.MultiFile.min.js', 'jquery-validate.bootstrap-tooltip.min.js'];
+    'theme.js', 'jQuery.MultiFile.min.js', 'jquery-validate.bootstrap-tooltip.min.js', 'strCheck.js'];
 
   ngOnInit(): void {
     this.analytics.trackPageViews();

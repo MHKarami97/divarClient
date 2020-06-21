@@ -37,7 +37,8 @@
               "src/assets/js/jquery.fancybox.min.js",
               "src/assets/js/theme.js",
               "src/assets/js/jQuery.MultiFile.min.js",
-              "src/assets/js/jquery-validate.bootstrap-tooltip.min.js"
+              "src/assets/js/jquery-validate.bootstrap-tooltip.min.js",
+              "src/assets/js/strCheck.js"
             ]
           },
           "configurations": {

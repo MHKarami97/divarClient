@@ -6033,7 +6033,6 @@ textarea.form-control.small {
   background-color: #fff;
   transition: .2s ease;
   cursor: pointer;
-  position: relative;
   display: inline-block;
   height: 2rem;
   margin-right: 0;
@@ -6048,9 +6047,8 @@ textarea.form-control.small {
   font-family: 'fontawesome';
   color: #fff;
   content: "\f00c";
-  position: absolute;
   line-height: 1.8rem;
-  font-size: 1rem;
+  font-size: 1.8rem;
   left: .5rem;
 }
 
