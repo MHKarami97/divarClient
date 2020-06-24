@@ -10,7 +10,8 @@
         <li *ngFor="let item of source"
           class="item col-lg-3 col-md-3 col-sm-12 product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple">
           <div class="wrapper">
-            <span class="ad_visit" *ngIf="item.type==2">{{ 'Home.Special' | translate }}</span>
+            <span class="ad_visit" style="background-color: red;"
+              *ngIf="item.type==2">{{ 'Home.Special' | translate }}</span>
             <div class="image">
               <h4 class="location">
                 <a>{{item.stateName}}</a>
