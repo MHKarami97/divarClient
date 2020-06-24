@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   isShow = false;
   txt: string;
+  locationName = 'موقعیت';
   states: State[] = null;
   tempStates: State[] = null;
   mainStates: State[] = null;
@@ -62,6 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       results => {
         if (results.isSuccess) {
           this.mainStates = results.data;
+          this.locationCheck();
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -96,6 +98,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  locationCheck() {
+    const location = this.stateCheckService.getState();
+    const subLocation = this.stateCheckService.getSubState();
+
+    if (location != null) {
+      this.locationName = this.mainStates.find(a => a.id === +location).name;
+    }
+    if (subLocation != null) {
+      this.locationName = this.mainStates.find(a => a.id === +subLocation).name;
+    }
   }
 
   getPosition(): Promise<any> {

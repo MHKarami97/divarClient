@@ -46,11 +46,7 @@ export class AddComponent implements OnInit {
   };
 
   constructor(private errorToast: ErrorToast, private title: Title, private dataService: PostService,
-              private dataCatService: CategoryService, private dataStateService: StateService,
-              private router: Router, private toastr: ToastrService) {
-
-  }
-
+    private dataCatService: CategoryService, private dataStateService: StateService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.title.setTitle('ثبت آگهی');
@@ -103,10 +99,14 @@ export class AddComponent implements OnInit {
       }
     }
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.uploadedFiles.length; i++) {
-      formData.append(this.uploadedFiles[i].name, this.uploadedFiles[i]);
+    if (this.uploadedFiles != null && this.uploadedFiles.length > 0) {
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < this.uploadedFiles.length; i++) {
+        formData.append(this.uploadedFiles[i].name, this.uploadedFiles[i]);
+      }
     }
+
+    console.log(formData);
 
     this.dataService.create(formData).subscribe(
       results => {

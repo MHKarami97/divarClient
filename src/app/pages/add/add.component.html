@@ -19,23 +19,27 @@
                       <input [(ngModel)]="item.title" #type="ngModel" type="text" class="input-text"
                         style="margin-top: 15px;" name="title" id="title" placeholder="عنوان" autocomplete="off"
                         required />
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
-                      <input [(ngModel)]="item.phone" #type="ngModel" type="number" class="input-text" name="phone"
+                      <input [(ngModel)]="item.phone" #phone="ngModel" type="number" class="input-text" name="phone"
                         id="phone" placeholder="0939xxx" [disabled]="isChecked" autocomplete="off" required />
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
                       <input [(ngModel)]="item.price" #type="ngModel" *ngIf="!isChecked" type="number"
                         class="input-text" min="0" max="99999999999" name="price" id="price" placeholder="قیمت"
-                        autocomplete="off" required />
+                        autocomplete="off" />
                       <p class="user_error_show"></p>
-                      <div class="form-row form-row-wide form-checkbox mt-10" style="margin-top: 10px;">
+                      <div class="form-row form-row-wide mt-10" style="margin-top: 10px;">
                         <input type="checkbox" name="agreed" id="agreed" [(ngModel)]="isChecked"
-                          (change)="onCheckboxChange()">
+                          (click)="onCheckboxChange()" />
                         <label for="agreed"></label>
                         <span>{{ 'Add.Agreed' | translate }}</span>
                       </div>
@@ -47,7 +51,9 @@
                         optionTextField="name" optGroupLabelField="name" optGroupOptionsField="childCategories"
                         required>
                       </ngx-select>
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
@@ -55,7 +61,9 @@
                         [items]="states" [placeholder]="'Add.State' | translate" optionValueField="id"
                         optionTextField="name" optGroupLabelField="name" optGroupOptionsField="childStates" required>
                       </ngx-select>
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
@@ -63,24 +71,39 @@
                         [items]="types" [placeholder]="'Add.Type' | translate" optionValueField="id"
                         optionTextField="name" required>
                       </ngx-select>
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
                       <textarea [(ngModel)]="item.text" #type="ngModel" class="input-text" name="text" id="text"
                         autocomplete="off" placeholder="متن توضیحات" required></textarea>
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
+                        وارد کردن این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
                       <file-upload [(ngModel)]="uploadedFiles" #fileInput="ngModel" name="uploadedFiles" fileslimit="4"
-                        accept=".jpg, .png, .jpeg" maxsize="7 MB" multiple="true">
+                        accept="image/*" maxsize="7 MB" multiple="true">
                         <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
                           <span *ngIf="isFileDragDropAvailable">فایل خود را انتخاب یا درگ کنید</span>
                           <span *ngIf="!isFileDragDropAvailable">فایل خود را انتخاب کنید</span>
                         </ng-template>
                       </file-upload>
-                      <p class="user_error_show"></p>
+                      <p class="user_error_show" *ngIf="fileInput.errors?.filesLimit">
+                        حداکثر تعداد فایل 4 عدد می باشد
+                      </p>
+                      <p class="user_error_show" *ngIf="fileInput.errors?.fileTypes">
+                        نوع فایل ارسال شده اشتباه است،فقط عکس ارسال کنید
+                      </p>
+                      <p class="user_error_show" *ngIf="fileInput.errors?.sizeRange">
+                        حجم فایل های ارسال شده نامعتبر است
+                      </p>
+                      <p class="user_error_show" *ngIf="fileInput.errors?.required">
+                        این آیتم اجباری است
+                      </p>
                     </div>
 
                     <div class="form-row form-row-wide">
@@ -96,8 +119,8 @@
                       <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
                         name="register">{{ 'Add.Add' | translate }}</button>
                     </p>
-                    <p *ngIf="submitted || !form.valid"
-                     class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل کنید تا دکمه ارسال فعال شود</p>
+                    <p *ngIf="submitted || !form.valid" class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل
+                      کنید تا دکمه ارسال فعال شود</p>
 
                     <div class="final-register-result"></div>
                     <div class="alert alert-warning" style="padding:10px 10px 1px 10px;" role="alert">

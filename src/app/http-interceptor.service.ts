@@ -1,3 +1,4 @@
+import { AuthorizeService } from './services/other/authorize.service';
 import {
   HttpInterceptor,
   HttpRequest,
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private router: Router, private toastr: ToastrService) { }
+  constructor(private router: Router, private toastr: ToastrService, private auth: AuthorizeService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
@@ -26,7 +27,14 @@ export class HttpInterceptorService implements HttpInterceptor {
 
       req = changeUrl;
 
-      req = this.addJsonHeader(req);
+      if (!req.url.includes('/posts/create')) {
+        req = this.addJsonHeader(req);
+      }
+
+      if (req.url.includes('/posts/create')) {
+        req = this.addAuthenticationToken(req);
+        console.log(req);
+      }
 
       return next.handle(req).do((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse && event.status === 201) {
@@ -37,10 +45,10 @@ export class HttpInterceptorService implements HttpInterceptor {
           if (err.status === 401) {
             this.toastr.warning('خطا', err.message);
             setTimeout(() => {
-              this.router.navigate(['auth/login']);
+              this.router.navigate(['/pages/auth/login']);
             }, 4000);
           } else if (err.status === 400) {
-            this.toastr.warning('خطا', err.message);
+            //this.toastr.warning('خطا', err.message);
           } else if (err.status === 500) {
             this.toastr.warning('خطا', err.message);
           } else if (err.status === 501) {
@@ -64,7 +72,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   private addAuthenticationToken(request: HttpRequest<any>): HttpRequest<any> {
 
-    let userToken: string;
+    const userToken = this.auth.getToken();
 
     return request.clone({
       headers: request.headers.append('Authorization', `Bearer ${userToken}`),
