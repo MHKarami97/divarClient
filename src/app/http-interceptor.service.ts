@@ -31,7 +31,8 @@ export class HttpInterceptorService implements HttpInterceptor {
         req = this.addJsonHeader(req);
       }
 
-      if (req.url.includes('/posts/create') || req.url.includes('/posts/getUserPosts')) {
+      if (req.url.includes('/posts/create') || req.url.includes('/posts/getUserPosts') ||
+        req.url.includes('/posts/deactive')) {
         req = this.addAuthenticationToken(req);
       }
 
