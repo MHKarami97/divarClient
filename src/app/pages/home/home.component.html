@@ -49,13 +49,10 @@
       <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
         <p>{{ 'Home.Nodata' | translate }}</p>
       </div>
-      <div class="center ad-load-more" *ngIf="source.length>0">
-        <div class="ad-loading">
-          <div class="ad-loader-show"></div>
-        </div>
-        <!-- <div class="btn btn-primary btn-framed btn-rounded loadmore">
-          {{ 'Home.More' | translate }}</div> -->
-      </div>
+      <!-- <div class="center ad-load-more" *ngIf="source.length>0">
+        <div class="btn btn-primary btn-framed btn-rounded loadmore">
+          {{ 'Home.More' | translate }}</div>
+      </div> -->
     </div>
   </section>
 </main>
