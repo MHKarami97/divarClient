@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './register/register.component';
+import { ControllComponent } from './controll/controll.component';
+import { AuthGuard } from 'src/app/auth-guard.service';
+import { SingleComponent } from './controll/single/single.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,16 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'controll',
+        canActivate: [AuthGuard],
+        component: ControllComponent,
+      },
+      {
+        path: 'single/:id',
+        canActivate: [AuthGuard],
+        component: SingleComponent,
       },
     ],
   },

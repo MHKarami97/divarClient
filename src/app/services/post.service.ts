@@ -39,11 +39,27 @@ export class PostService {
     );
   }
 
+  deactive(id: number): Observable<Api<Post>> {
+    const url = `${this.apiUrl}deactive/${id}`;
+    return this.http.get<Api<Post>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<Post>>(`getById id=${id}`)),
+    );
+  }
+
   getByStateId(id: number): Observable<Api<PostShort[]>> {
     const url = `${this.apiUrl}getByStateId/${id}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`getByStateId id=${id}`)),
+    );
+  }
+
+  getUserPosts(): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}getUserPosts`;
+    return this.http.get<Api<PostShort[]>>(url).pipe(
+      tap(),
+      catchError(this.handleError<Api<PostShort[]>>(`getUserPosts`)),
     );
   }
 
