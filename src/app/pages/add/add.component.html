@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-row form-row-wide">
-                      <input [(ngModel)]="item.phone" #phone="ngModel" type="number" class="input-text" name="phone"
+                      <input [(ngModel)]="item.phone" #phone="ngModel" type="tel" class="input-text" name="phone"
                         id="phone" placeholder="0939xxx" [disabled]="isChecked" autocomplete="off" required />
                       <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
                         وارد کردن این آیتم اجباری است
