@@ -26,7 +26,7 @@ const routes: Routes = [
         component: ControllComponent,
       },
       {
-        path: 'single/:id',
+        path: 'single/:id/:str',
         canActivate: [AuthGuard],
         component: SingleComponent,
       },
