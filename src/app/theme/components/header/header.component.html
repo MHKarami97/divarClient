@@ -61,8 +61,8 @@
           <li>
             <a routerLink="/pages/auth/login" *ngIf="!isAuth" style="cursor: pointer;">
               <i class="fa fa-sign-in"></i> {{ 'Header.SignIn' | translate }} </a>
-            <a *ngIf="isAuth">
-              {{ 'Header.Welcome' | translate }} </a>
+            <a *ngIf="isAuth" routerLink="/pages/auth/controll">
+              {{ 'Header.Controll' | translate }} </a>
           </li>
         </ul>
       </div>
