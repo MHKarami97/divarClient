@@ -8,6 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ControllComponent } from './controll/controll.component';
+import { SingleComponent } from './controll/single/single.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -15,13 +17,17 @@ import { ControllComponent } from './controll/controll.component';
     RouterModule,
     CommonModule,
     TranslateModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY'
+    }),
   ],
   declarations: [
     AuthComponent,
     LoginComponent,
     RegisterComponent,
     ControllComponent,
+    SingleComponent,
   ],
 })
 export class AuthModule { }
