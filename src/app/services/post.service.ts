@@ -39,11 +39,11 @@ export class PostService {
     );
   }
 
-  deactive(id: number): Observable<Api<Post>> {
-    const url = `${this.apiUrl}deactive/${id}`;
+  deActive(id: number): Observable<Api<Post>> {
+    const url = `${this.apiUrl}deActive/${id}`;
     return this.http.get<Api<Post>>(url).pipe(
       tap(),
-      catchError(this.handleError<Api<Post>>(`getById id=${id}`)),
+      catchError(this.handleError<Api<Post>>(`deactive id=${id}`)),
     );
   }
 

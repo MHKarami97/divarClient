@@ -32,9 +32,11 @@ export class HttpInterceptorService implements HttpInterceptor {
       }
 
       if (req.url.includes('/posts/create') || req.url.includes('/posts/getUserPosts') ||
-        req.url.includes('/posts/deactive')) {
+        req.url.includes('/posts/deActive')) {
         req = this.addAuthenticationToken(req);
       }
+
+      console.log(req);
 
       return next.handle(req).do((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse && event.status === 201) {

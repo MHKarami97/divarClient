@@ -74,10 +74,13 @@ export class SingleComponent implements OnInit {
   diactiveClick(id: number) {
     this.isClick = true;
     this.loading = true;
-    this.dataService.deactive(id).subscribe(
+    this.dataService.deActive(id).subscribe(
       results => {
         if (results.isSuccess) {
           this.toastr.success(results.message);
+          setTimeout(() => {
+            this.router.navigate(['/pages/auth/controll']);
+          }, 4000);
         } else {
           this.errorToast.showSuccess(results.message);
         }
