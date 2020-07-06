@@ -1,0 +1,46 @@
+<section *ngIf="source.length>0"
+  class="elementor-element elementor-element-4dea1477 elementor-column elementor-col-50 elementor-top-column"
+  data-id="4dea1477" data-element_type="column">
+  <div class="elementor-column-wrap  elementor-element-populated">
+    <div class="elementor-widget-wrap">
+      <div
+        class="elementor-element elementor-element-5092bb34 charsoogh-heading-align-center charsoogh-heading-fill-color elementor-widget elementor-widget-charsoogh_heading"
+        data-id="5092bb34" data-element_type="widget" data-widget_type="charsoogh_heading.default">
+        <div class="elementor-widget-container">
+          <div class="charsoogh-module-content charsoogh-heading-wrapper ">
+
+            <div class="charsoogh-module-content charsoogh-separator-parent ">
+              <div class="charsoogh-separator-wrap">
+                <div class="charsoogh-separator-line charsoogh-side-left">
+                  <span></span>
+                </div>
+                <div class="charsoogh-separator-line charsoogh-side-right">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="elementor-element elementor-element-55cdf830 elementor-widget elementor-widget-charsoogh_Ad_Carousel"
+        data-id="55cdf830" data-element_type="widget" data-widget_type="charsoogh_Ad_Carousel.default">
+        <div class="elementor-widget-container">
+          <div
+            class="items featured-carousel elementor-post-slider owl-theme owl-carousel featured-carousel-1037869639">
+            <li *ngFor="let item of source"
+              class="item featured-4row product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple li-width">
+              <div class="wrapper">
+                <div class="image">
+                  <a [href]="item.address" class="title">
+                    <img [src]="item.image" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                      alt="image" />
+                  </a>
+                </div>
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

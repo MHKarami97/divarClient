@@ -21,9 +21,7 @@ export class HomeComponent implements OnInit {
   tempImg = new PostImage();
 
   constructor(private meta: Meta, private dataService: PostService, private stateCheckService: StateCheckService,
-    private errorToast: ErrorToast) {
-
-  }
+    private errorToast: ErrorToast) { }
 
   ngOnInit(): void {
     this.meta.addTags([

@@ -36,7 +36,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         req = this.addAuthenticationToken(req);
       }
 
-      console.log(req);
+      //console.log(req);
 
       return next.handle(req).do((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse && event.status === 201) {

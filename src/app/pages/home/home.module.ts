@@ -1,9 +1,9 @@
 import { HomeComponent } from './home.component';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   imports: [
@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     HomeComponent,
+    BannerComponent
   ],
   providers: [
   ],
