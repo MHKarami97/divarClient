@@ -1,0 +1,91 @@
+<div class="content" style="margin-bottom: 20px;">
+  <section class="block">
+    <div class="container">
+
+      <div *ngIf="source"
+        class="product type-product post-714 status-publish first instock product_cat-sell-buisness has-post-thumbnail downloadable virtual product-type-simple">
+        <div class="row flex-column-reverse flex-md-row">
+          <div class="col-md-8 charsoogh-content">
+            <section *ngIf="source?.images?.length>0">
+              <div class="gallery-carousel owl-carousel">
+                <img *ngFor="let item of source.images;let i = index" class="no-lazy" [src]="item.image"
+                  [alt]="source.title" attr.data-hash="{{i}}">
+              </div>
+            </section>
+
+            <div class="crunchify-social">
+              <span style="font-size: 18px;">
+                <i class="fa fa-link" aria-hidden="true"></i>{{source.title}}</span>
+            </div>
+
+            <div class="warning_ad">
+              <h4>سایت هیچ‌گونه منفعت و مسئولیتی در قبال معامله شما ندارد.</h4>
+              با مطالعه‌ی راهنمای خرید امن، آسوده‌تر معامله کنید.
+            </div>
+          </div>
+          <!--============ Sidebar ==============-->
+          <div class="col-md-4">
+            <aside class="sidebar">
+              <section>
+                <div class="box">
+                  <div class="row contact-box">
+                    <button (click)="diactiveClick(source.id)" [disabled]="isClick" type="button" class="btn btn-warning info-btn col-md-12 col-sm-12 pull-right
+                      contact_info">{{'More.diactive' | translate}}</button>
+                  </div>
+                  <br /><br />
+                  <div class="row contact-box">
+                    <button type="button" class="btn btn-primary info-btn col-md-12 col-sm-12 pull-right
+                      contact_info">{{source.phone}}</button>
+                  </div>
+                  <dl>
+                    <dt>{{'More.Category' | translate}}</dt>
+                    <dd id="ad-category"><a rel="tag">{{source.categoryName}}</a></dd>
+
+                    <dt>{{'More.Place' | translate}}</dt>
+                    <dd id="ad-city"><a href="" rel="tag">{{source.stateName}}</a></dd>
+
+                    <dt>{{'More.Time' | translate}}</dt>
+                    <dd>{{source.time}}</dd>
+
+                    <dt>{{'More.Price' | translate}}</dt>
+                    <dd *ngIf="source.price !==0 "><span class="price"><span>{{source.price}} $</span></span></dd>
+                    <dd *ngIf="source.price ===0 "><span class="price"><span>{{'More.Call' | translate}}</span></span>
+                    </dd>
+                  </dl>
+                </div>
+              </section>
+              <!--Description-->
+              <section class="box">
+                <h2 class="box-title">{{'More.Info' | translate}}</h2>
+                <div class="b-line">
+                  <p>{{source.text}}</p>
+                </div>
+                <p></p>
+              </section>
+              <!--end Description-->
+              <section class="box mapbox" style="padding: 5px;" *ngIf="source.location">
+                <div class="ribbon-featured">
+                  <div class="ribbon-start"></div>
+                  <div class="ribbon-content">{{'More.Location' | translate}}</div>
+                  <div class="ribbon-end">
+                    <figure class="ribbon-shadow"></figure>
+                  </div>
+                </div>
+                <agm-map [latitude]='latitude' [longitude]='longitude'>
+                  <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false">
+                  </agm-marker>
+                </agm-map>
+              </section>
+            </aside>
+          </div>
+          <!--============ End Sidebar =================-->
+        </div>
+      </div>
+
+      <div class="center ad-load-more" *ngIf="!source">
+        <div class="ad-loading" style="display: block;">
+          <div class="ad-loader-show">
+          </div>
+        </div>
+      </div>
+    </div>

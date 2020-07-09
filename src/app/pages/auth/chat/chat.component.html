@@ -1,0 +1,35 @@
+<main class="content">
+
+  <section class="block ad-list-block">
+
+    <div class="container">
+      <div class="section-title clearfix">
+        <h2>{{ 'Auth.MyChat' | translate }}</h2>
+      </div>
+      <ul class="row items ad-listing" *ngIf="source.length>0">
+        <li *ngFor="let item of source"
+          class="item col-lg-3 col-md-3 col-sm-12 product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple">
+          <div class="wrapper">
+            <div class="meta">
+              <i class="fa fa-calendar-o"></i>
+              <a [routerLink]="['/pages/auth/chat/single', item.postId]" [title]="item.postTitle" class="title">
+                <h2>{{item.postTitle}}</h2>
+              </a>
+            </div>
+            <!--end meta-->
+            <!--end description-->
+          </div>
+        </li>
+      </ul>
+      <div class="center ad-load-more" *ngIf="source.length==0 && loading">
+        <div class="ad-loading" style="display: block;">
+          <div class="ad-loader-show">
+          </div>
+        </div>
+      </div>
+      <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
+        <p>{{ 'Home.Nodata' | translate }}</p>
+      </div>
+    </div>
+  </section>
+</main>
