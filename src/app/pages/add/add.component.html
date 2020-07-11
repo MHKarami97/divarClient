@@ -25,8 +25,9 @@
                     </div>
 
                     <div class="form-row form-row-wide">
-                      <input [(ngModel)]="item.phone" #phone="ngModel" type="tel" class="input-text" name="phone"
-                        id="phone" placeholder="0939xxx" [disabled]="isChecked" autocomplete="off" required />
+                      <input [(ngModel)]="item.phone" #phone="ngModel" type="tel" class="input-text"
+                        style="text-align: left;direction: ltr;" name="phone" id="phone" placeholder="43xxx"
+                        [disabled]="isChecked" autocomplete="off" required />
                       <p class="user_error_show" *ngIf="phone.invalid && phone.touched && phone.errors?.required">
                         وارد کردن این آیتم اجباری است
                       </p>
@@ -119,8 +120,12 @@
                       <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
                         name="register">{{ 'Add.Add' | translate }}</button>
                     </p>
-                    <p *ngIf="submitted || !form.valid" class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل
-                      کنید تا دکمه ارسال فعال شود</p>
+                    <p *ngIf="!form.valid" class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل
+                      کنید یا ارورهای
+                      گفته شده را برطرف کنید تا دکمه ارسال فعال شود</p>
+
+                    <p *ngIf="submitted" class="user_error_show er-style">شما تبلیغ را ارسال کرده اید، صبر کنید تا پیام
+                      تایید نمایش داده شود</p>
 
                     <div class="final-register-result"></div>
                     <div class="alert alert-warning" style="padding:10px 10px 1px 10px;" role="alert">

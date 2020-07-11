@@ -11,13 +11,6 @@
                 <img *ngFor="let item of source.images;let i = index" class="no-lazy" [src]="item.image"
                   [alt]="source.title" attr.data-hash="{{i}}">
               </div>
-
-              <!-- <div class="gallery-carousel-thumbs owl-carousel">
-                <a *ngFor="let img of source.images; let i = index" target="_self"
-                  [class]="(i==0)?'owl-thumb active-thumb background-image':'owl-thumb background-image'">
-                  <img class="no-lazy" [src]="img.image" [alt]="source.title">
-                </a>
-              </div> -->
             </section>
 
             <section>
@@ -70,7 +63,7 @@
                     <dd>{{source.time}}</dd>
 
                     <dt>{{'More.Price' | translate}}</dt>
-                    <dd *ngIf="source.price !==0 "><span class="price"><span>{{source.price}} $</span></span></dd>
+                    <dd *ngIf="source.price !==0 "><span class="price"><span>{{source.price}} €</span></span></dd>
                     <dd *ngIf="source.price ===0 "><span class="price"><span>{{'More.Call' | translate}}</span></span>
                     </dd>
                   </dl>

@@ -27,7 +27,7 @@ input[type=number] {
 button:disabled {
   background-color: #eee !important;
   color: #b3040b !important;
-  cursor: wait;
+  cursor: default;
 }
 
 .er-style {
