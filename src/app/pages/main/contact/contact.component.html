@@ -7,17 +7,15 @@
             <div
               style="background-color: #fffde4; border: 1px solid #f6e8a1; color: #a37731; font-size: 13px; padding: 10px;">
               <i class="fa fa-check" style="margin-left: 5px;"></i><strong>{{ 'Contact.Title' | translate }}</strong>
-            </div>
-            <p [innerHTML]="'Contact.Text' | translate"></p>
+            </div><br><br>
+            <p style="text-align: left;direction: ltr;" [innerHTML]="'Contact.Text' | translate"></p>
 
             <p>&nbsp;</p>
-            <p>آدرس : {{ 'Contact.Address' | translate }}</p>
+            <p style="text-align: left;direction: ltr;">Address : {{ 'Contact.Address' | translate }}</p>
 
             <p>&nbsp;</p>
-            <p>ایمیل : {{ 'Contact.Email' | translate }}</p>
-
-            <p>&nbsp;</p>
-            <p> تلفن تماس : {{ 'Contact.Phone' | translate }}</p>
+            <p style="text-align: left;direction: ltr;">Email : {{ 'Contact.Email' | translate }}</p>
+            <p style="height: 200px;"></p>
           </article>
         </div>
       </div>
