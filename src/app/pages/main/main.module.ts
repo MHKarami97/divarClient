@@ -9,6 +9,7 @@ import { MainComponent } from './main.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { CategoryComponent } from './category/category.component';
+import { LawComponent } from './law/law.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { CategoryComponent } from './category/category.component';
     SearchComponent,
     AboutComponent,
     ContactComponent,
-    CategoryComponent
+    CategoryComponent,
+    LawComponent
   ],
 })
 export class MainModule { }

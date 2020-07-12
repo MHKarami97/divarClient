@@ -89,8 +89,8 @@
                       <file-upload [(ngModel)]="uploadedFiles" #fileInput="ngModel" name="uploadedFiles" fileslimit="4"
                         accept="image/*" maxsize="7 MB" multiple="true">
                         <ng-template let-isFileDragDropAvailable="isFileDragDropAvailable" #placeholder>
-                          <span *ngIf="isFileDragDropAvailable">فایل خود را انتخاب یا درگ کنید</span>
-                          <span *ngIf="!isFileDragDropAvailable">فایل خود را انتخاب کنید</span>
+                          <span *ngIf="isFileDragDropAvailable">برای افزودن کلیک کنید (+)</span>
+                          <span *ngIf="!isFileDragDropAvailable">برای افزودن کلیک کنید (+)</span>
                         </ng-template>
                       </file-upload>
                       <p class="user_error_show" *ngIf="fileInput.errors?.filesLimit">
@@ -117,7 +117,7 @@
                     </div>
 
                     <p class="form-row register_btn_show">
-                      <button [disabled]="submitted || !form.valid" type="submit" class="button charsoogh_register"
+                      <button [disabled]="submitted || !form.valid" type="submit" class="button myTheme_register"
                         name="register">{{ 'Add.Add' | translate }}</button>
                     </p>
                     <p *ngIf="!form.valid" class="user_error_show er-style">لطفا موارد خواسته شده را تکمیل

@@ -8,9 +8,9 @@ import { Router, NavigationEnd } from '@angular/router';
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent implements OnInit {
-  constructor(private titleService: Title, private router: Router, private analytics: AnalyticsService, private seoService: SeoService) {
+  constructor(private titleService: Title, private router: Router,
+    private analytics: AnalyticsService, private seoService: SeoService) {
   }
-
   staticJs = [
     'jquery-1.12.4.min.js', 'leaflet.js', 'leaflet-mapbox-gl.js',
     'leaflet-search.js', 'mapbox-gl.js', 'slick.min.js', 'jquery.fancybox.min.js',
@@ -33,6 +33,26 @@ export class AppComponent implements OnInit {
         }
       }
     });
+
+    let cc = window as any;
+       cc.cookieconsent.initialise({
+         palette: {
+           popup: {
+             background: "#164969"
+           },
+           button: {
+             background: "#ffe000",
+             text: "#164969"
+           }
+         },
+         theme: "classic",
+         content: {
+           message: 'این سایت از کوکی ها استفاده می کند تا به شما امکانات بهتری ارائه کند',
+           dismiss: 'اجازه دادن',
+           link: 'بیشتر',
+           href: '/pages/main/law'
+         }
+       });
   }
 
   public setTitle(newTitle: string) {

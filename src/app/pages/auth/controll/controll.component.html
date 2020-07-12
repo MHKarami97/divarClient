@@ -3,8 +3,11 @@
   <section class="block ad-list-block">
 
     <div class="container">
-      <div class="section-title clearfix">
+      <div class="section-title clearfix" style="padding-bottom: 4px;">
         <h2>{{ 'Home.My' | translate }}</h2>
+      </div>
+      <div class="section-title clearfix">
+        <h2 style="font-size: 12px;">دقت کنید که تبلیغات شما در صورت تایید در این صفحه نشان داده خواهند شد</h2>
       </div>
       <ul class="row items ad-listing" *ngIf="source.length>0">
         <li *ngFor="let item of source"

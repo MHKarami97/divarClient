@@ -25,6 +25,7 @@
             ],
             "styles": [
               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/cookieconsent/build/cookieconsent.min.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -38,7 +39,8 @@
               "src/assets/js/theme.js",
               "src/assets/js/jQuery.MultiFile.min.js",
               "src/assets/js/jquery-validate.bootstrap-tooltip.min.js",
-              "src/assets/js/strCheck.js"
+              "src/assets/js/strCheck.js",
+              "node_modules/cookieconsent/build/cookieconsent.min.js"
             ]
           },
           "configurations": {

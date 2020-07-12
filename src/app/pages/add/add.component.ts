@@ -46,7 +46,7 @@ export class AddComponent implements OnInit {
   };
 
   constructor(private errorToast: ErrorToast, private title: Title, private dataService: PostService,
-    private dataCatService: CategoryService, private dataStateService: StateService, private toastr: ToastrService) { }
+    private dataCatService: CategoryService, private dataStateService: StateService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.title.setTitle('ثبت آگهی');
@@ -114,6 +114,12 @@ export class AddComponent implements OnInit {
           this.source = results.data;
 
           this.toastr.success('هورا', 'تبلیغ با موفقیت اضافه شد');
+
+          setTimeout(() => {
+            this.router.navigate(['/pages/auth/controll']);
+            window.location.reload();
+          }, 2000);
+
         } else {
           this.errorToast.showSuccess(results.message);
         }
