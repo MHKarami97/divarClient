@@ -32,22 +32,22 @@ export class ChatComponent implements OnInit {
 
     this.loading = true;
 
-    this.dataService.getByUser().subscribe(
-      results => {
-        if (results.isSuccess) {
-          this.source = results.data;
-        } else {
-          this.errorToast.showSuccess(results.message);
-        }
+    // this.dataService.getByUser().subscribe(
+    //   results => {
+    //     if (results.isSuccess) {
+    //       this.source = results.data;
+    //     } else {
+    //       this.errorToast.showSuccess(results.message);
+    //     }
 
-        this.loading = false;
-      },
-      error => {
-        this.loading = false;
-        this.error = error.message;
-        this.errorToast.showSuccess(error.message);
-      },
-    );
+    //     this.loading = false;
+    //   },
+    //   error => {
+    //     this.loading = false;
+    //     this.error = error.message;
+    //     this.errorToast.showSuccess(error.message);
+    //   },
+    // );
   }
 
 }
