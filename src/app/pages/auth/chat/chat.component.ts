@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
   source: ChatShort[] = [];
   source1: ChatShort[] = [];
   single: ChatPost = null;
-  create: ChatCreate = null;
+  create: ChatCreate = { id: 0, creatorId: 0, from: 0, postId: 0, text: null };
 
   constructor(private title: Title, private dataService: ChatService, private errorToast: ErrorToast,
     private toastr: ToastrService) { }
@@ -73,6 +73,7 @@ export class ChatComponent implements OnInit {
   onAdd() {
     this.loading = true;
 
+    this.create.from = 1;
     this.create.postId = this.single.postId;
     this.create.creatorId = this.source.find(a => a.postId === this.single.postId).creatorId;
 
@@ -80,6 +81,7 @@ export class ChatComponent implements OnInit {
       results => {
         if (results.isSuccess) {
           this.toastr.success('هورا', 'پیام با موفقیت ارسال شد');
+          this.onClick(this.create.postId, this.create.creatorId);
         } else {
           this.errorToast.showSuccess(results.message);
         }

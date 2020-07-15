@@ -12,8 +12,8 @@
 
     <div class="chat-message clearfix">
       <form (ngSubmit)="onAdd()" #form="ngForm">
-        <textarea [(ngModel)]="create.text" #type="ngModel" name="message-to-send" id="message-to-send"
-          placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
+        <textarea [(ngModel)]="text" #type="ngModel" name="message-to-send" id="message-to-send"
+          placeholder="پیام خود را تایپ کنید" rows="3" required></textarea>
 
         <button class="btn btn-primary width-100">ارسال پیام</button>
       </form>
