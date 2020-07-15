@@ -5,12 +5,12 @@
 <div class="container-chat clearfix">
   <div class="people-list" id="people-list">
     <div class="search">
-      <input type="text" placeholder="search" />
+      <input type="text" placeholder="جستجو" (keyup)="onSearchChat($event.target.value)" />
     </div>
     <ul class="list" *ngIf="source.length>0">
 
-      <li class="clearfix" *ngFor="let item of source" (click)="onClick(item.postId)">
-        <img src="/assets/img/chat.png" alt="image" />
+      <li class="clearfix" *ngFor="let item of source" (click)="onClick(item.postId,item.creatorId)">
+        <img src="/assets/img/chat.png" width="50" alt="image" />
         <div class="about">
           <div class="name">{{item.postTitle}}</div>
         </div>
@@ -21,7 +21,7 @@
     <ul class="list" *ngIf="source.length===0">
 
       <li class="clearfix">
-        <img src="/assets/img/chat.png" alt="image" />
+        <img src="/assets/img/chat.png" width="50" alt="image" />
         <div class="about">
           <div class="name">بدون چت</div>
         </div>
@@ -33,7 +33,7 @@
 
   <div class="chat">
     <div class="chat-header clearfix">
-      <img src="/assets/img/chat1.png" alt="avatar" />
+      <img src="/assets/img/chat.png" width="50" alt="avatar" />
 
       <div class="chat-about">
         <div class="chat-with" *ngIf="single">{{single.postTitle}}</div>
@@ -45,7 +45,7 @@
       <ul *ngIf="single">
 
         <li class="clearfix" *ngFor="let singleItem of single.comment">
-          <div [class]="singleItem.answererId===single.userId ?
+          <div [class]="singleItem.witch===1 ?
             'message other-message float-right':
             'message my-message'">
             {{singleItem.text}}
@@ -57,9 +57,17 @@
     </div> <!-- end chat-history -->
 
     <div class="chat-message clearfix" *ngIf="single">
-      <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
+      <textarea name="message-to-send" id="message-to-send" placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
 
       <button class="btn btn-primary width-100">ارسال پیام</button>
+
+    </div> <!-- end chat-message -->
+
+    <div class="chat-message clearfix" *ngIf="!single">
+      <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"
+        disabled></textarea>
+
+      <button class="btn btn-primary width-100" disabled>برای ارسال پیام لطفا یک چت را انتخاب کنید</button>
 
     </div> <!-- end chat-message -->
 

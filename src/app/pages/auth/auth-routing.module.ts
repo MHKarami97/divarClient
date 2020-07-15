@@ -7,7 +7,6 @@ import { ControllComponent } from './controll/controll.component';
 import { AuthGuard } from 'src/app/auth-guard.service';
 import { SingleComponent } from './controll/single/single.component';
 import { ChatComponent } from './chat/chat.component';
-import { SingleChatComponent } from './chat/single/single.component';
 
 const routes: Routes = [
   {
@@ -36,11 +35,6 @@ const routes: Routes = [
         path: 'single/:id/:str',
         canActivate: [AuthGuard],
         component: SingleComponent,
-      },
-      {
-        path: 'chat/single/:id',
-        canActivate: [AuthGuard],
-        component: SingleChatComponent,
       },
     ],
   },

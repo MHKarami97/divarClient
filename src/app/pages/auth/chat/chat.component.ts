@@ -14,6 +14,7 @@ export class ChatComponent implements OnInit {
   error = null;
   isData = false;
   source: ChatShort[] = [];
+  source1: ChatShort[] = [];
   single: ChatPost = null;
 
   constructor(private title: Title, private dataService: ChatService, private errorToast: ErrorToast) { }
@@ -28,6 +29,7 @@ export class ChatComponent implements OnInit {
       results => {
         if (results.isSuccess) {
           this.source = results.data;
+          this.source1 = this.source;
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -42,15 +44,15 @@ export class ChatComponent implements OnInit {
     );
   }
 
-  onClick(id: number) {
+  onClick(id: number, creatorId: number) {
     this.loading = true;
-    this.single.postId = id;
-    this.single.postTitle = this.source.find(a => a.postId === id).postTitle;
 
-    this.dataService.getByPost(id).subscribe(
+    this.dataService.getByPost(id, creatorId).subscribe(
       results => {
         if (results.isSuccess) {
           this.single = results.data;
+          this.single.postId = id;
+          this.single.postTitle = this.source.find(a => a.postId === id).postTitle;
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -65,4 +67,11 @@ export class ChatComponent implements OnInit {
     );
   }
 
+  onSearchChat(input: string) {
+    if (input !== '') {
+      this.source = this.source1.filter(a => a.postTitle.includes(input));
+    } else {
+      this.source = this.source1;
+    }
+  }
 }

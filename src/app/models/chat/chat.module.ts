@@ -3,7 +3,7 @@ export class Chat {
   public text: string;
   public time: string;
   public creatorId: number;
-  public answererId: number;
+  public witch: number;
 }
 
 export class ChatCreate {
@@ -15,6 +15,7 @@ export class ChatCreate {
 export class ChatShort {
   public id: number;
   public postId: number;
+  public creatorId: number;
   public postTitle: string;
 }
 

@@ -32,8 +32,8 @@ export class ChatService {
         ));
   }
 
-  getByPost(id: number): Observable<Api<ChatPost>> {
-    const url = `${this.apiUrl}getByPost/${id}`;
+  getByPost(id: number, creatorId: number): Observable<Api<ChatPost>> {
+    const url = `${this.apiUrl}getByPost/${id}?creatorId=${creatorId}`;
     return this.http.get<Api<ChatPost>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<ChatPost>>(`getByPost id=${id}`)),
