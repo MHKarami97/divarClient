@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorToast } from 'src/app/errorToast';
 import { Title } from '@angular/platform-browser';
-import { ChatShort, ChatPost } from 'src/app/models/chat/chat.module';
+import { ChatShort, ChatPost, ChatCreate } from 'src/app/models/chat/chat.module';
 import { ChatService } from 'src/app/services/chat.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-chat',
@@ -16,8 +17,10 @@ export class ChatComponent implements OnInit {
   source: ChatShort[] = [];
   source1: ChatShort[] = [];
   single: ChatPost = null;
+  create: ChatCreate = null;
 
-  constructor(private title: Title, private dataService: ChatService, private errorToast: ErrorToast) { }
+  constructor(private title: Title, private dataService: ChatService, private errorToast: ErrorToast,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -53,6 +56,30 @@ export class ChatComponent implements OnInit {
           this.single = results.data;
           this.single.postId = id;
           this.single.postTitle = this.source.find(a => a.postId === id).postTitle;
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+  }
+
+  onAdd() {
+    this.loading = true;
+
+    this.create.postId = this.single.postId;
+    this.create.creatorId = this.source.find(a => a.postId === this.single.postId).creatorId;
+
+    this.dataService.create(this.create).subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.toastr.success('هورا', 'پیام با موفقیت ارسال شد');
         } else {
           this.errorToast.showSuccess(results.message);
         }

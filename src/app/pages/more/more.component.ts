@@ -83,6 +83,10 @@ export class MoreComponent implements OnInit {
     this.toastr.warning('سایت مسئولیتی در برابر خرید شما ندارد', 'هشدار');
   }
 
+  startChat() {
+    this.router.navigate(['/pages/auth/chat/start/' + this.source.id]);
+  }
+
   public loadScript(url: string) {
     const node = document.createElement('script');
     node.src = '/assets/js/' + url;

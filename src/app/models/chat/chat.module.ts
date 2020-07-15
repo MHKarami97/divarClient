@@ -9,6 +9,7 @@ export class Chat {
 export class ChatCreate {
   public id: number;
   public postId: number;
+  public creatorId: number;
   public text: string;
 }
 

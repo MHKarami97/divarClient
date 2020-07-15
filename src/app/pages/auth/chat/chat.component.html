@@ -57,10 +57,11 @@
     </div> <!-- end chat-history -->
 
     <div class="chat-message clearfix" *ngIf="single">
-      <textarea name="message-to-send" id="message-to-send" placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
+      <form (ngSubmit)="onAdd()" #form="ngForm">
+        <textarea [(ngModel)]="create.text" #type="ngModel" name="message-to-send" id="message-to-send" placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
 
-      <button class="btn btn-primary width-100">ارسال پیام</button>
-
+        <button class="btn btn-primary width-100">ارسال پیام</button>
+      </form>     
     </div> <!-- end chat-message -->
 
     <div class="chat-message clearfix" *ngIf="!single">
