@@ -13,6 +13,6 @@ export class AboutComponent implements OnInit {
   constructor(private title: Title) { }
 
   ngOnInit(): void {
-    this.title.setTitle('درباره');
+    this.title.setTitle('درباره ما');
   }
 }

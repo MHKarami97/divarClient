@@ -4,7 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Api } from '../models/base/api.model';
 import { PostShort, Post } from '../models/post/post.module';
-import { ChatShort, Chat, ChatCreate } from '../models/chat/chat.module';
+import { ChatShort, Chat, ChatCreate, ChatPost } from '../models/chat/chat.module';
 
 @Injectable({
   providedIn: 'root',
@@ -32,11 +32,11 @@ export class ChatService {
         ));
   }
 
-  getByPost(id: number): Observable<Api<Chat[]>> {
+  getByPost(id: number): Observable<Api<ChatPost>> {
     const url = `${this.apiUrl}getByPost/${id}`;
-    return this.http.get<Api<Chat[]>>(url).pipe(
+    return this.http.get<Api<ChatPost>>(url).pipe(
       tap(),
-      catchError(this.handleError<Api<Chat[]>>(`getByPost id=${id}`)),
+      catchError(this.handleError<Api<ChatPost>>(`getByPost id=${id}`)),
     );
   }
 

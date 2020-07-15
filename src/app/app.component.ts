@@ -35,28 +35,28 @@ export class AppComponent implements OnInit {
     });
 
     let cc = window as any;
-       cc.cookieconsent.initialise({
-         palette: {
-           popup: {
-             background: "#164969"
-           },
-           button: {
-             background: "#ffe000",
-             text: "#164969"
-           }
-         },
-         theme: "classic",
-         content: {
-           message: 'این سایت از کوکی ها استفاده می کند تا به شما امکانات بهتری ارائه کند',
-           dismiss: 'اجازه دادن',
-           link: 'بیشتر',
-           href: '/pages/main/law'
-         }
-       });
+    cc.cookieconsent.initialise({
+      palette: {
+        popup: {
+          background: "#164969"
+        },
+        button: {
+          background: "#ffe000",
+          text: "#164969"
+        }
+      },
+      theme: "classic",
+      content: {
+        message: 'این سایت از کوکی ها استفاده می کند تا به شما امکانات بهتری ارائه کند',
+        dismiss: 'اجازه دادن',
+        link: 'بیشتر',
+        href: '/pages/main/law'
+      }
+    });
   }
 
   public setTitle(newTitle: string) {
-    this.titleService.setTitle('سایت | ' + newTitle);
+    this.titleService.setTitle('نیازمندی ها | ' + newTitle);
   }
 
   public loadScript(url: string) {

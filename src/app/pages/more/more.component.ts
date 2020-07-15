@@ -30,18 +30,6 @@ export class MoreComponent implements OnInit {
     private dataService: PostService, private errorToast: ErrorToast, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.meta.addTags([
-      { name: 'description', content: 'my site is here' },
-      { name: 'author', content: 'mhkarami' },
-      { name: 'keywords', content: 'Angular, cms, site, ' },
-      { name: 'googlebot', content: 'index,follow' },
-      { name: 'robots', content: 'ALL' },
-      { name: 'theme-color', content: '#b3e6ff' },
-      { name: 'author', content: 'mhkarami' },
-    ], true);
-
-    this.title.setTitle('نام سایت' + ' | ' + 'تبلیغ');
-
     this.tempImg.image = '/assets/img/default.png';
 
     this.id = this.route.snapshot.paramMap.get('id');
@@ -73,6 +61,18 @@ export class MoreComponent implements OnInit {
         this.errorToast.showSuccess(error.message);
       },
     );
+
+    this.title.setTitle(this.source.title);
+
+    let tags = this.source.title.split(' ');
+
+    this.meta.addTags([
+      { name: 'description', content: this.source.text },
+      { name: 'keywords', content: tags.join(",") },
+      { name: 'googlebot', content: 'index,follow' },
+      { name: 'robots', content: 'ALL' },
+      { name: 'theme-color', content: '#b3e6ff' },
+    ], true);
   }
 
   phoneBtnClick(event: any) {

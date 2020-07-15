@@ -26,7 +26,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('دسته بندی');
+    this.title.setTitle('دسته بندی مطالب سایت');
+
     this.tempImg.image = '/assets/img/default.png';
 
     this.id = this.route.snapshot.paramMap.get('id');

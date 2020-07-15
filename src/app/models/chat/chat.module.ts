@@ -1,9 +1,9 @@
 export class Chat {
   public id: number;
-  public postId: number;
-  public postTitle: string;
   public text: string;
   public time: string;
+  public creatorId: number;
+  public answererId: number;
 }
 
 export class ChatCreate {
@@ -16,4 +16,11 @@ export class ChatShort {
   public id: number;
   public postId: number;
   public postTitle: string;
+}
+
+export class ChatPost {
+  public userId: number;
+  public postId: number;
+  public postTitle: string;
+  public comment: Chat[];
 }

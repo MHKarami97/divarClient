@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorToast } from 'src/app/errorToast';
-import { Meta } from '@angular/platform-browser';
-import { ChatShort } from 'src/app/models/chat/chat.module';
+import { Title } from '@angular/platform-browser';
+import { ChatShort, ChatPost } from 'src/app/models/chat/chat.module';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -14,40 +14,55 @@ export class ChatComponent implements OnInit {
   error = null;
   isData = false;
   source: ChatShort[] = [];
+  single: ChatPost = null;
 
-  constructor(private meta: Meta, private dataService: ChatService, private errorToast: ErrorToast) {
-
-  }
+  constructor(private title: Title, private dataService: ChatService, private errorToast: ErrorToast) { }
 
   ngOnInit(): void {
-    this.meta.addTags([
-      { name: 'description', content: 'my site is here' },
-      { name: 'author', content: 'mhkarami' },
-      { name: 'keywords', content: 'Angular, cms, site, ' },
-      { name: 'googlebot', content: 'index,follow' },
-      { name: 'robots', content: 'ALL' },
-      { name: 'theme-color', content: '#b3e6ff' },
-      { name: 'author', content: 'mhkarami' },
-    ], true);
+
+    this.title.setTitle('پنل مدیریت شما');
 
     this.loading = true;
 
-    // this.dataService.getByUser().subscribe(
-    //   results => {
-    //     if (results.isSuccess) {
-    //       this.source = results.data;
-    //     } else {
-    //       this.errorToast.showSuccess(results.message);
-    //     }
+    this.dataService.getByUser().subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.source = results.data;
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
 
-    //     this.loading = false;
-    //   },
-    //   error => {
-    //     this.loading = false;
-    //     this.error = error.message;
-    //     this.errorToast.showSuccess(error.message);
-    //   },
-    // );
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+  }
+
+  onClick(id: number) {
+    this.loading = true;
+    this.single.postId = id;
+    this.single.postTitle = this.source.find(a => a.postId === id).postTitle;
+
+    this.dataService.getByPost(id).subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.single = results.data;
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
   }
 
 }

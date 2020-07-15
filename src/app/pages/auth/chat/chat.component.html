@@ -1,38 +1,3 @@
-<!-- <main class="content">
-
-  <section class="block ad-list-block">
-
-    <div class="container">
-      <div class="section-title clearfix">
-        <h2>{{ 'Auth.MyChat' | translate }}</h2>
-      </div>
-      <ul class="row items ad-listing" *ngIf="source.length>0">
-        <li *ngFor="let item of source"
-          class="item col-lg-3 col-md-3 col-sm-12 product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple">
-          <div class="wrapper">
-            <div class="meta">
-              <i class="fa fa-calendar-o"></i>
-              <a [routerLink]="['/pages/auth/chat/single', item.postId]" [title]="item.postTitle" class="title">
-                <h2>{{item.postTitle}}</h2>
-              </a>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <div class="center ad-load-more" *ngIf="source.length==0 && loading">
-        <div class="ad-loading" style="display: block;">
-          <div class="ad-loader-show">
-          </div>
-        </div>
-      </div>
-      <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
-        <p>{{ 'Home.Nodata' | translate }}</p>
-      </div>
-    </div>
-  </section>
-</main> -->
-
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 <link rel="stylesheet" href="/assets/css/style-chat.css">
 
@@ -42,70 +7,59 @@
     <div class="search">
       <input type="text" placeholder="search" />
     </div>
-    <ul class="list">
-      
-      <li class="clearfix">          
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
-        <div class="about">
-          <div class="name">Vincent Porter</div>            
-        </div>
-      </li>
+    <ul class="list" *ngIf="source.length>0">
 
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
+      <li class="clearfix" *ngFor="let item of source" (click)="onClick(item.postId)">
+        <img src="/assets/img/chat.png" alt="image" />
         <div class="about">
-          <div class="name">Aiden Chavez</div>
+          <div class="name">{{item.postTitle}}</div>
         </div>
       </li>
 
     </ul>
+
+    <ul class="list" *ngIf="source.length===0">
+
+      <li class="clearfix">
+        <img src="/assets/img/chat.png" alt="image" />
+        <div class="about">
+          <div class="name">بدون چت</div>
+        </div>
+      </li>
+
+    </ul>
+
   </div>
 
   <div class="chat">
     <div class="chat-header clearfix">
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+      <img src="/assets/img/chat1.png" alt="avatar" />
 
       <div class="chat-about">
-        <div class="chat-with">post</div>
-        <div class="chat-num-messages">text</div>
+        <div class="chat-with" *ngIf="single">{{single.postTitle}}</div>
+        <div class="chat-with" *ngIf="!single">شما چت فعالی ندارید</div>
       </div>
     </div> <!-- end chat-header -->
 
     <div class="chat-history">
-      <ul>
-        <li class="clearfix">
-          <div class="message other-message float-right">
-            Hi Vincent, how are you? How is the project coming along?
+      <ul *ngIf="single">
+
+        <li class="clearfix" *ngFor="let singleItem of single.comment">
+          <div [class]="singleItem.answererId===single.userId ?
+            'message other-message float-right':
+            'message my-message'">
+            {{singleItem.text}}
           </div>
         </li>
-
-        <li>
-          <div class="message my-message">
-            Are we meeting today? Project has been already finished and I have results to show you.
-          </div>
-        </li>
-
-        <li>
-          <div class="message my-message">
-            Are we meeting today? Project has been already finished and I have results to show you.
-          </div>
-        </li>
-
-        <li class="clearfix">
-          <div class="message other-message float-right">
-            Hi Vincent, how are you? How is the project coming along?
-          </div>
-        </li>
-
 
       </ul>
 
     </div> <!-- end chat-history -->
 
-    <div class="chat-message clearfix">
+    <div class="chat-message clearfix" *ngIf="single">
       <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"></textarea>
 
-      <button class="btn btn-primary width-100">Send</button>
+      <button class="btn btn-primary width-100">ارسال پیام</button>
 
     </div> <!-- end chat-message -->
 

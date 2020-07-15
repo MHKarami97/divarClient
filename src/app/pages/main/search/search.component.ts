@@ -26,7 +26,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('جستجو');
+    this.title.setTitle('نتیجه جستجو برای تبلیغ');
+
     this.tempImg.image = '/assets/img/default.png';
 
     this.str = this.route.snapshot.paramMap.get('str');

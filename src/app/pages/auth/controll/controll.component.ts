@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorToast } from 'src/app/errorToast';
-import { Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { PostShort } from 'src/app/models/post/post.module';
 import { PostImage } from 'src/app/models/post/image.module';
 import { PostService } from 'src/app/services/post.service';
@@ -18,20 +18,12 @@ export class ControllComponent implements OnInit {
   source: PostShort[] = [];
   tempImg = new PostImage();
 
-  constructor(private meta: Meta, private dataService: PostService, private errorToast: ErrorToast) {
+  constructor(private title: Title, private dataService: PostService, private errorToast: ErrorToast) {
 
   }
 
   ngOnInit(): void {
-    this.meta.addTags([
-      { name: 'description', content: 'my site is here' },
-      { name: 'author', content: 'mhkarami' },
-      { name: 'keywords', content: 'Angular, cms, site, ' },
-      { name: 'googlebot', content: 'index,follow' },
-      { name: 'robots', content: 'ALL' },
-      { name: 'theme-color', content: '#b3e6ff' },
-      { name: 'author', content: 'mhkarami' },
-    ], true);
+    this.title.setTitle('پنل مدیریت شما');
 
     this.tempImg.image = '/assets/img/default.png';
 

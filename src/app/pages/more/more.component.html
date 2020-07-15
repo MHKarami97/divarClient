@@ -63,7 +63,7 @@
                     <dd>{{source.time}}</dd>
 
                     <dt>{{'More.Price' | translate}}</dt>
-                    <dd *ngIf="source.price !==0 "><span class="price"><span>{{source.price}} €</span></span></dd>
+                    <dd *ngIf="source.price !==0 "><span class="price"><span>€ {{source.price}}</span></span></dd>
                     <dd *ngIf="source.price ===0 "><span class="price"><span>{{'More.Call' | translate}}</span></span>
                     </dd>
                   </dl>

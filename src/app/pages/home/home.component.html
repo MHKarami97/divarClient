@@ -1,4 +1,4 @@
-<!-- <app-banner></app-banner> -->
+<app-banner></app-banner>
 
 <main class="content">
 
@@ -24,11 +24,11 @@
                   sizes="(max-width: 300px) 100vw, 300px" />
               </a>
             </div>
-            <span class="price" *ngIf="item.price!==0">{{item.price}} €</span>
+            <span class="price" *ngIf="item.price!==0">€ {{item.price}}</span>
             <span class="price" *ngIf="item.price===0">توافقی</span>
             <div class="meta">
-              <a [routerLink]="['/pages/more', item.id, item.title.replace(' ','-')]" [title]="item.title"
-                class="title">
+              <a [routerLink]="['/pages/more', item.id, item.title.replace('/\s+/g','-').toLowerCase()]"
+                [title]="item.title" class="title">
                 <h2>{{item.title}}</h2>
               </a>
               <figure>
