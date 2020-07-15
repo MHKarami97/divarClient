@@ -9,7 +9,8 @@
     </div>
     <ul class="list" *ngIf="source.length>0">
 
-      <li class="clearfix" *ngFor="let item of source" (click)="onClick(item.postId,item.creatorId)">
+      <li class="clearfix" *ngFor="let item of source" (click)="onClick(item.postId,item.creatorId)"
+        style="cursor: pointer;">
         <img src="/assets/img/chat.png" width="50" alt="image" />
         <div class="about">
           <div class="name">{{item.postTitle}}</div>
@@ -58,10 +59,11 @@
 
     <div class="chat-message clearfix" *ngIf="single">
       <form (ngSubmit)="onAdd()" #form="ngForm">
-        <textarea [(ngModel)]="create.text" #type="ngModel" name="message-to-send" id="message-to-send" placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
+        <textarea [(ngModel)]="create.text" #type="ngModel" name="message-to-send" id="message-to-send"
+          placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
 
         <button class="btn btn-primary width-100">ارسال پیام</button>
-      </form>     
+      </form>
     </div> <!-- end chat-message -->
 
     <div class="chat-message clearfix" *ngIf="!single">

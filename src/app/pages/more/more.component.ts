@@ -49,6 +49,19 @@ export class MoreComponent implements OnInit {
           this.longitude = +this.source.location.split(',')[1];
 
           this.loadScript('theme.js');
+
+          this.title.setTitle(this.source.title);
+
+          let tags = this.source.title.split(' ');
+
+          this.meta.addTags([
+            { name: 'description', content: this.source.text },
+            { name: 'keywords', content: tags.join(",") },
+            { name: 'googlebot', content: 'index,follow' },
+            { name: 'robots', content: 'ALL' },
+            { name: 'theme-color', content: '#b3e6ff' },
+          ], true);
+
         } else {
           this.errorToast.showSuccess(results.message);
         }
@@ -61,18 +74,6 @@ export class MoreComponent implements OnInit {
         this.errorToast.showSuccess(error.message);
       },
     );
-
-    this.title.setTitle(this.source.title);
-
-    let tags = this.source.title.split(' ');
-
-    this.meta.addTags([
-      { name: 'description', content: this.source.text },
-      { name: 'keywords', content: tags.join(",") },
-      { name: 'googlebot', content: 'index,follow' },
-      { name: 'robots', content: 'ALL' },
-      { name: 'theme-color', content: '#b3e6ff' },
-    ], true);
   }
 
   phoneBtnClick(event: any) {

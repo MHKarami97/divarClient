@@ -19,7 +19,7 @@ export class ChatStartComponent implements OnInit {
   create: ChatCreate = { id: 0, creatorId: 0, from: 0, postId: 0, text: null };
   @Input() id: string;
 
-  constructor(private title: Title,private router : Router, public route: ActivatedRoute, private auth: AuthorizeService, private dataService: ChatService, private errorToast: ErrorToast,
+  constructor(private title: Title, private router: Router, public route: ActivatedRoute, private auth: AuthorizeService, private dataService: ChatService, private errorToast: ErrorToast,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -44,8 +44,7 @@ export class ChatStartComponent implements OnInit {
 
           setTimeout(() => {
             this.router.navigate(['/pages/auth/chat']);
-            window.location.reload();
-          }, 2000);
+          }, 1000);
         } else {
           this.errorToast.showSuccess(results.message);
         }
