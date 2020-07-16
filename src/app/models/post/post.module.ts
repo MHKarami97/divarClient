@@ -15,6 +15,7 @@ export class Post {
   public tags: Tag[];
   public isFavorite: boolean;
   public text: string;
+  public view: number;
 }
 
 export class PostCreate {

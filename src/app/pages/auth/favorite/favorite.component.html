@@ -1,0 +1,54 @@
+<main class="content">
+
+  <section class="block ad-list-block">
+
+    <div class="container">
+      <div class="section-title clearfix" style="padding-bottom: 4px;">
+        <h2>{{ 'Home.Favorite' | translate }}</h2>
+      </div>
+      <ul class="row items ad-listing" *ngIf="source.length>0">
+        <li *ngFor="let item of source"
+          class="item col-lg-3 col-md-3 col-sm-12 product type-product post-509 status-publish first instock product_cat-sell-house has-post-thumbnail downloadable virtual product-type-simple">
+          <div class="wrapper">
+            <span class="ad_visit" style="background-color: red;"
+              *ngIf="item.postType==2">{{ 'Home.Special' | translate }}</span>
+            <div class="image">
+              <h4 class="location">
+                <a>{{item.postStateName}}</a>
+              </h4>
+              <a [routerLink]="['/pages/more', item.postId, item.postTitle.split(' ').join('-').toLowerCase()]"
+                [title]="item.postTitle" class="title">
+                <img width="300" height="300" *ngIf="item.postImages" [src]="item?.postImages[0]?.image"
+                  [alt]="item.postTitle" sizes="(max-width: 300px) 100vw, 300px" />
+              </a>
+            </div>
+            <span class="price" *ngIf="item.postPrice!==0">{{item.postPrice}} $</span>
+            <span class="price" *ngIf="item.price===0">توافقی</span>
+            <div class="meta">
+              <a [routerLink]="['/pages/more', item.postId, item.postTitle.split(' ').join('-').toLowerCase()]"
+                [title]="item.postTitle" class="title">
+                <h2>{{item.postTitle}}</h2>
+              </a>
+              <figure>
+                <i class="fa fa-calendar-o"></i>{{item.postTitle}}</figure>
+              <figure>
+                <i class="fa fa-folder-open-o"></i><a rel="tag">{{item.postCategoryName}}</a>
+              </figure>
+            </div>
+            <!--end meta-->
+            <!--end description-->
+          </div>
+        </li>
+      </ul>
+      <div class="center ad-load-more" *ngIf="source.length==0 && loading">
+        <div class="ad-loading" style="display: block;">
+          <div class="ad-loader-show">
+          </div>
+        </div>
+      </div>
+      <div class="center ad-load-more" *ngIf="source.length==0 && !loading">
+        <p>{{ 'Home.Nodata' | translate }}</p>
+      </div>
+    </div>
+  </section>
+</main>

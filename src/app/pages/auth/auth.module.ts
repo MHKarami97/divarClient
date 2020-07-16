@@ -12,6 +12,7 @@ import { SingleComponent } from './controll/single/single.component';
 import { AgmCoreModule } from '@agm/core';
 import { ChatComponent } from './chat/chat.component';
 import { ChatStartComponent } from './chat/start/start.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { ChatStartComponent } from './chat/start/start.component';
     ControllComponent,
     SingleComponent,
     ChatComponent,
-    ChatStartComponent
+    ChatStartComponent,
+    FavoriteComponent
   ],
 })
 export class AuthModule { }

@@ -14,15 +14,29 @@
             </section>
 
             <section>
-              <div class="short-link">
-                <span class="post-link__button" onclick="copyLinkFunction()" data-toggle="tooltip"
-                  data-placement="right" title="کپی لینک"><i class="fa fa-files-o" aria-hidden="true"></i> لینک
-                  اشتراک گذاری</span>
-                <input type="text" id="shortlink" [value]="'https://redinu.com:4002/more/' + source.id" />
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <button (click)="addFavorite(source.id)" type="button"
+                      [title]="source.isFavorite?'افزودن به علاقه مندی':'پاک کردن از علاقه مندی'"
+                      class="btn info-btn btn-primary btn-framed pull-left" style="width: 100%;"><i
+                        class="fa fa-bookmark" style="font-size: 20px;"></i></button>
+                  </div>
+                  <div class="col-9">
+                    <div class="short-link">
+                      <span class="post-link__button" style="right: 20px;" onclick="copyLinkFunction()"
+                        data-toggle="tooltip" data-placement="right" title="کپی لینک"><i class="fa fa-files-o"
+                          aria-hidden="true"></i>
+                        اشتراک گذاری</span>
+                      <input type="text" id="shortlink" [value]="'https://redinu.com:4002/more/' + source.id" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section>
+
               <div class="short-link" *ngIf="isPhoneShow">
                 <span class="post-link__button" id="post-phone__button" onclick="copyPhoneFunction()"
                   data-toggle="tooltip" data-placement="right" title="کپی لینک"><i class="fa fa-files-o"
@@ -57,6 +71,9 @@
                   </div>
 
                   <dl>
+                    <dt>{{'More.View' | translate}}</dt>
+                    <dd id="ad-view"><a rel="tag">{{source.view}}</a></dd>
+
                     <dt>{{'More.Category' | translate}}</dt>
                     <dd id="ad-category"><a rel="tag">{{source.categoryName}}</a></dd>
 

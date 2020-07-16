@@ -32,7 +32,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       }
 
       if (req.url.includes('/posts/create') || req.url.includes('/posts/getUserPosts') ||
-        req.url.includes('/posts/deActive') || req.url.includes('/comments')) {
+        req.url.includes('/posts/deActive') || req.url.includes('/comments') ||  req.url.includes('/favorites')) {
         req = this.addAuthenticationToken(req);
       }
 

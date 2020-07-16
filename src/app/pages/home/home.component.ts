@@ -6,6 +6,9 @@ import { PostImage } from 'src/app/models/post/image.module';
 import { Setting } from 'src/app/setting';
 import { ErrorToast } from 'src/app/errorToast';
 import { StateCheckService } from 'src/app/services/other/stateCheck.service';
+import { FavoriteCreate } from 'src/app/models/favorite/favorite.module';
+import { FavoriteService } from 'src/app/services/favorite.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +23,8 @@ export class HomeComponent implements OnInit {
   source: PostShort[] = [];
   tempImg = new PostImage();
 
-  constructor(private meta: Meta, private dataService: PostService, private stateCheckService: StateCheckService,
-    private errorToast: ErrorToast) { }
+  constructor(private meta: Meta, private dataService: PostService, private favoriteService: FavoriteService, private stateCheckService: StateCheckService,
+    private errorToast: ErrorToast, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.meta.addTags([
@@ -102,4 +105,28 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  addFavorite(id: number) {
+    this.loading = true;
+
+    let input = new FavoriteCreate();
+    input.id = 0;
+    input.postId = id;
+
+    this.favoriteService.create(input).subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.toastr.success('عملیات با موفقیت انجام شد', 'هورا');
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+  }
 }
