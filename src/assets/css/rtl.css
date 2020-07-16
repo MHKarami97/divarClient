@@ -1,6 +1,10 @@
 @import "../bootstrap/bootstrap.min-rtl.css";
 @import "../fonts/font-awesome.css";
 
+.base-color{
+  color: #d81b60 !important;
+}
+
 .owl-carousel,
 .owl-carousel .owl-item {
   -webkit-tap-highlight-color: transparent;
