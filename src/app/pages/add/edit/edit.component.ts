@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Post, PostCreate } from 'src/app/models/post/post.module';
 import { PostService } from 'src/app/services/post.service';
@@ -7,15 +7,17 @@ import { CategoryWithSub } from 'src/app/models/category/category.module';
 import { StateWithSub } from 'src/app/models/state/state.module';
 import { StateService } from 'src/app/services/state.service';
 import { CategoryService } from 'src/app/services/category.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Setting } from 'src/app/setting';
+import { PostImage } from 'src/app/models/post/image.module';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'],
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss'],
 })
-export class AddComponent implements OnInit {
+export class EditComponent implements OnInit {
 
   loading = false;
   error = null;
@@ -38,6 +40,7 @@ export class AddComponent implements OnInit {
   latitude = 35.6964895;
   longitude = 51.0696315;
   mapType = 'satellite';
+  tempImg = new PostImage();
   selectedMarker;
   public uploadedFiles: Array<File> = [];
   item: PostCreate = {
@@ -45,13 +48,43 @@ export class AddComponent implements OnInit {
     phone: null, price: null, stateId: 0, title: null, text: null
   };
 
-  constructor(private errorToast: ErrorToast, private title: Title, private dataService: PostService,
+  @Input() id: string;
+
+  constructor(private errorToast: ErrorToast, public route: ActivatedRoute, private title: Title, private dataService: PostService,
     private dataCatService: CategoryService, private dataStateService: StateService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.title.setTitle('ثبت آگهی');
+    this.title.setTitle('ویرایش آگهی');
+
+    this.id = this.route.snapshot.paramMap.get('id');
+
+    this.tempImg.image = '/assets/img/default.png';
 
     this.loading = true;
+
+    this.dataService.getById(+this.id).subscribe(
+      results => {
+        if (results.isSuccess) {
+          this.source = results.data;
+
+          this.source.images.length !== 0 ? this.source.images
+            .forEach(b => b.image = Setting.baseFileUrl + b.image) : this.source.images.push(this.tempImg);
+
+          this.latitude = +this.source.location.split(',')[0];
+          this.longitude = +this.source.location.split(',')[1];
+        } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+
     this.dataCatService.getCategoryWithSub().subscribe(
       results => {
         if (results.isSuccess) {
@@ -106,12 +139,12 @@ export class AddComponent implements OnInit {
       }
     }
 
-    this.dataService.create(formData).subscribe(
+    this.dataService.update(+this.id, formData).subscribe(
       results => {
         if (results.isSuccess) {
           this.source = results.data;
 
-          this.toastr.success('هورا', 'تبلیغ با موفقیت اضافه شد');
+          this.toastr.success('هورا', 'تبلیغ با موفقیت ویرایش شد، منتظر تایید آن باشید');
 
           setTimeout(() => {
             this.router.navigate(['/pages/auth/controll']);

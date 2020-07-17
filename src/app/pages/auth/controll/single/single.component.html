@@ -32,6 +32,11 @@
                     <button (click)="diactiveClick(source.id)" [disabled]="isClick" type="button" class="btn btn-warning info-btn col-md-12 col-sm-12 pull-right
                       contact_info">{{'More.diactive' | translate}}</button>
                   </div>
+                  <br />
+                  <div class="row contact-box">
+                    <button (click)="edit(source.id)" type="button" class="btn btn-warning info-btn col-md-12 col-sm-12 pull-right
+                      contact_info">{{'More.Edit' | translate}}</button>
+                  </div>
                   <br /><br />
                   <div class="row contact-box">
                     <button type="button" class="btn btn-primary info-btn col-md-12 col-sm-12 pull-right

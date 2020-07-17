@@ -78,6 +78,14 @@ export class PostService {
       ));
   }
 
+  update(id: number, product: FormData): Observable<Api<Post>> {
+    const url = `${this.apiUrl}update/${id}`;
+    return this.http.put<Api<Post>>(url, product).pipe(
+      tap(),
+      catchError(this.handleError<Api<Post>>('update')),
+    );
+  }
+
   search(str: string): Observable<Api<PostShort[]>> {
     const url = `${this.apiUrl}search?str=${str}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(

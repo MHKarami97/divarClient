@@ -103,4 +103,7 @@ export class SingleComponent implements OnInit {
     node.type = 'text/javascript';
     document.getElementsByTagName('head')[0].appendChild(node);
   }
+  edit(id: number) {
+    this.router.navigate(['/pages/edit/' + id]);
+  }
 }

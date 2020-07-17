@@ -1,11 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
 import { AuthGuard } from '../auth-guard.service';
 import { MoreComponent } from './more/more.component';
 import { AddComponent } from './add/add.component';
+import { EditComponent } from './add/edit/edit.component';
 
 const routes: Routes = [{
   path: '',
@@ -27,6 +27,11 @@ const routes: Routes = [{
     {
       path: 'add',
       component: AddComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: 'edit/:id',
+      component: EditComponent,
       canActivate: [AuthGuard]
     },
     {

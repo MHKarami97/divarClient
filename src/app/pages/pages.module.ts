@@ -7,6 +7,7 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
+import { EditModule } from './add/edit/edit.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { AuthModule } from './auth/auth.module';
     MoreModule,
     AuthModule,
     MainModule,
-    AddModule
+    AddModule,
+    EditModule
   ],
   declarations: [
     PagesComponent,
