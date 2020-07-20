@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Post, PostCreate } from 'src/app/models/post/post.module';
+import { Post, PostCreate, PostSelectEdit } from 'src/app/models/post/post.module';
 import { PostService } from 'src/app/services/post.service';
 import { ErrorToast } from 'src/app/errorToast';
 import { CategoryWithSub } from 'src/app/models/category/category.module';
@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
 
   loading = false;
   error = null;
-  source: Post = null;
+  source: PostSelectEdit = null;
   cats: CategoryWithSub[] = null;
   states: StateWithSub[] = null;
   types: any[] = [
@@ -62,7 +62,7 @@ export class EditComponent implements OnInit {
 
     this.loading = true;
 
-    this.dataService.getById(+this.id).subscribe(
+    this.dataService.getByIdForEdit(+this.id).subscribe(
       results => {
         if (results.isSuccess) {
           this.source = results.data;
@@ -72,11 +72,17 @@ export class EditComponent implements OnInit {
 
           this.latitude = +this.source.location.split(',')[0];
           this.longitude = +this.source.location.split(',')[1];
+
+          this.item.categoryId = this.source.categoryId;
+          this.item.stateId = this.source.stateId;
+          this.item.phone = this.source.phone;
+          this.item.price = this.source.price;
+          this.item.title = this.source.title;
+          this.item.text = this.source.text;
+          this.item.type = this.source.type;
         } else {
           this.errorToast.showSuccess(results.message);
         }
-
-        this.loading = false;
       },
       error => {
         this.loading = false;
@@ -94,7 +100,6 @@ export class EditComponent implements OnInit {
         }
       },
       error => {
-        this.loading = false;
         this.error = error.message;
         this.errorToast.showSuccess(error.message);
       },
@@ -111,7 +116,6 @@ export class EditComponent implements OnInit {
         this.loading = false;
       },
       error => {
-        this.loading = false;
         this.error = error.message;
         this.errorToast.showSuccess(error.message);
       },
@@ -124,26 +128,9 @@ export class EditComponent implements OnInit {
 
     this.item.phone = this.item.phone.toString();
 
-    const formData: FormData = new FormData();
-
-    for (const key in this.item) {
-      if (this.item.hasOwnProperty(key)) {
-        formData.append(key, this.item[key]);
-      }
-    }
-
-    if (this.uploadedFiles != null && this.uploadedFiles.length > 0) {
-      // tslint:disable-next-line: prefer-for-of
-      for (let i = 0; i < this.uploadedFiles.length; i++) {
-        formData.append(this.uploadedFiles[i].name, this.uploadedFiles[i]);
-      }
-    }
-
-    this.dataService.update(+this.id, formData).subscribe(
+    this.dataService.update(+this.id, this.item).subscribe(
       results => {
         if (results.isSuccess) {
-          this.source = results.data;
-
           this.toastr.success('هورا', 'تبلیغ با موفقیت ویرایش شد، منتظر تایید آن باشید');
 
           setTimeout(() => {

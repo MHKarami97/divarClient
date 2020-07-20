@@ -10,7 +10,7 @@
                   <div class="section-title clearfix">
                     <h2>{{ 'Add.New' | translate }}</h2>
                   </div>
-                  <form class="register" (ngSubmit)="onAdd()" #form="ngForm" enctype="multipart/form-data">
+                  <form *ngIf="source" class="register" (ngSubmit)="onAdd()" #form="ngForm" enctype="multipart/form-data">
                     <div class="loading" style="margin: -30px;height: 80%;">
                       <div class="loader-show"></div>
                     </div>
@@ -132,6 +132,12 @@
                       <p>مسئولیت تبلیغ با شما می باشد</p>
                     </div>
                   </form>
+                  <div class="center ad-load-more" *ngIf="!source && loading">
+                    <div class="ad-loading" style="display: block;">
+                      <div class="ad-loader-show">
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -18,6 +18,21 @@ export class Post {
   public view: number;
 }
 
+export class PostSelectEdit {
+  public id: number;
+  public title: string;
+  public categoryName: string;
+  public stateName: string;
+  public categoryId: number;
+  public stateId: number;
+  public location: string;
+  public phone: string;
+  public text: string;
+  public price: number;
+  public type: number;
+  public images: PostImage[];
+}
+
 export class PostCreate {
   public title: string;
   public categoryId: number;
