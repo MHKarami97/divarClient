@@ -152,7 +152,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSubStateClick(id: number) {
     this.stateCheckService.storeSubState(id.toString());
-
+ 
     window.location.reload();
   }
 

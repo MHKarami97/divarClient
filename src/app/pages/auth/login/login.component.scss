@@ -12,3 +12,9 @@
 .register_btn_show {
   padding: 15px;
 }
+
+button:disabled {
+  background-color: #eee !important;
+  color: #b3040b !important;
+  cursor: default;
+}

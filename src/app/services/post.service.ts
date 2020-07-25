@@ -23,8 +23,8 @@ export class PostService {
     };
   }
 
-  getShort(): Observable<Api<PostShort[]>> {
-    return this.http.get<Api<PostShort[]>>(this.apiUrl + 'getShort')
+  getShort(page: number): Observable<Api<PostShort[]>> {
+    return this.http.get<Api<PostShort[]>>(this.apiUrl + 'getShort' + '?page=' + page)
       .pipe(
         tap(),
         catchError(this.handleError('get', new Api<PostShort[]>()),
@@ -55,8 +55,8 @@ export class PostService {
     );
   }
 
-  getByStateId(id: number): Observable<Api<PostShort[]>> {
-    const url = `${this.apiUrl}getByStateId/${id}`;
+  getByStateId(id: number, page: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}getByStateId/${id}?page=${page}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`getByStateId id=${id}`)),
@@ -71,8 +71,8 @@ export class PostService {
     );
   }
 
-  getBySubStateId(id: number): Observable<Api<PostShort[]>> {
-    const url = `${this.apiUrl}getBySubStateId/${id}`;
+  getBySubStateId(id: number, page: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}getBySubStateId/${id}?page=${page}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`getBySubStateId id=${id}`)),
@@ -94,16 +94,16 @@ export class PostService {
     );
   }
 
-  search(str: string): Observable<Api<PostShort[]>> {
-    const url = `${this.apiUrl}search?str=${str}`;
+  search(str: string, page: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}search?str=${str}&page=${page}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`search str=${str}`)),
     );
   }
 
-  getAllByCatId(id: number): Observable<Api<PostShort[]>> {
-    const url = `${this.apiUrl}GetAllByCatId/${id}`;
+  getAllByCatId(id: number, page: number): Observable<Api<PostShort[]>> {
+    const url = `${this.apiUrl}GetAllByCatId/${id}?page=${page}`;
     return this.http.get<Api<PostShort[]>>(url).pipe(
       tap(),
       catchError(this.handleError<Api<PostShort[]>>(`GetAllByCatId id=${id}`)),

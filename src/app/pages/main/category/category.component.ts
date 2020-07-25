@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ErrorToast } from 'src/app/errorToast';
 import { PostShort } from 'src/app/models/post/post.module';
 import { PostImage } from 'src/app/models/post/image.module';
 import { PostService } from 'src/app/services/post.service';
 import { Setting } from 'src/app/setting';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category',
@@ -16,12 +17,13 @@ export class CategoryComponent implements OnInit {
 
   loading = false;
   error = null;
+  page: number = 1;
   source: PostShort[] = [];
   tempImg = new PostImage();
   @Input() id: string;
 
-  constructor(private title: Title, public route: ActivatedRoute, private router: Router,
-    private errorToast: ErrorToast, private dataService: PostService) {
+  constructor(private title: Title, public route: ActivatedRoute,
+    private errorToast: ErrorToast, private dataService: PostService, private toastr: ToastrService) {
 
   }
 
@@ -33,7 +35,7 @@ export class CategoryComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
 
     this.loading = true;
-    this.dataService.getAllByCatId(+this.id).subscribe(
+    this.dataService.getAllByCatId(+this.id, this.page).subscribe(
       results => {
         if (results.isSuccess) {
           this.source = results.data;
@@ -41,6 +43,36 @@ export class CategoryComponent implements OnInit {
             .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
 
         } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+  }
+
+  loadMore() {
+    this.loading = true;
+    this.page += 1;
+
+    this.dataService.getAllByCatId(+this.id, this.page).subscribe(
+      results => {
+        if (results.isSuccess && results.data.length > 0) {
+          results.data.forEach(a => a.images.length !== 0 ? a.images
+            .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
+
+          this.source = this.source.concat(results.data);
+
+        }
+        else if (results.data.length == 0) {
+          this.toastr.warning('اطلاعات دیگری موجود نمی باشد');
+        }
+        else {
           this.errorToast.showSuccess(results.message);
         }
 

@@ -48,13 +48,13 @@ export class HttpInterceptorService implements HttpInterceptor {
             this.toastr.warning('خطا', err.message);
             setTimeout(() => {
               this.router.navigate(['/pages/auth/login']);
-            }, 4000);
+            }, 2500);
           } else if (err.status === 400) {
             //this.toastr.warning('خطا', err.message);
           } else if (err.status === 500) {
-            this.toastr.warning('خطا', err.message);
+            //this.toastr.warning('خطا', err.message);
           } else if (err.status === 501) {
-            this.toastr.warning('خطا', err.message);
+            //this.toastr.warning('خطا', err.message);
           }
         }
       });

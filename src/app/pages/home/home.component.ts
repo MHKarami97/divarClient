@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   loading = false;
   error = null;
   isData = false;
+  page: number = 1;
+  witch: number = 1;
+  stateId: string;
   source: PostShort[] = [];
   tempImg = new PostImage();
 
@@ -42,9 +45,10 @@ export class HomeComponent implements OnInit {
     this.loading = true;
 
     if (this.stateCheckService.isStateValid()) {
-      const stateId = this.stateCheckService.getState();
+      this.witch = 2;
+      this.stateId = this.stateCheckService.getState();
 
-      this.dataService.getByStateId(+stateId).subscribe(
+      this.dataService.getByStateId(+this.stateId, this.page).subscribe(
         results => {
           if (results.isSuccess) {
             this.source = results.data;
@@ -63,9 +67,10 @@ export class HomeComponent implements OnInit {
         },
       );
     } else if (this.stateCheckService.isSubStateValid()) {
-      const stateId = this.stateCheckService.getSubState();
+      this.witch = 3;
+      this.stateId = this.stateCheckService.getSubState();
 
-      this.dataService.getBySubStateId(+stateId).subscribe(
+      this.dataService.getBySubStateId(+this.stateId, this.page).subscribe(
         results => {
           if (results.isSuccess) {
             this.source = results.data;
@@ -84,7 +89,8 @@ export class HomeComponent implements OnInit {
         },
       );
     } else {
-      this.dataService.getShort().subscribe(
+      this.witch = 1;
+      this.dataService.getShort(this.page).subscribe(
         results => {
           if (results.isSuccess) {
             this.source = results.data;
@@ -117,6 +123,118 @@ export class HomeComponent implements OnInit {
         if (results.isSuccess) {
           this.toastr.success('عملیات با موفقیت انجام شد', 'هورا');
         } else {
+          this.errorToast.showSuccess(results.message);
+        }
+
+        this.loading = false;
+      },
+      error => {
+        this.loading = false;
+        this.error = error.message;
+        this.errorToast.showSuccess(error.message);
+      },
+    );
+  }
+
+  loadMore() {
+    this.loading = true;
+    this.page += 1;
+
+    switch (this.witch) {
+      case 1:
+        this.dataService.getShort(this.page).subscribe(
+          results => {
+            if (results.isSuccess && results.data.length > 0) {
+              results.data.forEach(a => a.images.length !== 0 ? a.images
+                .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
+
+              this.source = this.source.concat(results.data);
+
+            }
+            else if (results.data.length == 0) {
+              this.toastr.warning('اطلاعات دیگری موجود نمی باشد');
+            }
+            else {
+              this.errorToast.showSuccess(results.message);
+            }
+
+            this.loading = false;
+          },
+          error => {
+            this.loading = false;
+            this.error = error.message;
+            this.errorToast.showSuccess(error.message);
+          },
+        );
+        break;
+
+      case 2:
+        this.dataService.getByStateId(+this.stateId, this.page).subscribe(
+          results => {
+            if (results.isSuccess && results.data.length > 0) {
+              results.data.forEach(a => a.images.length !== 0 ? a.images
+                .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
+
+              this.source = this.source.concat(results.data);
+
+            }
+            else if (results.data.length == 0) {
+              this.toastr.warning('اطلاعات دیگری موجود نمی باشد');
+            }
+            else {
+              this.errorToast.showSuccess(results.message);
+            }
+
+            this.loading = false;
+          },
+          error => {
+            this.loading = false;
+            this.error = error.message;
+            this.errorToast.showSuccess(error.message);
+          },
+        );
+        break;
+
+      case 3:
+        this.dataService.getBySubStateId(+this.stateId, this.page).subscribe(
+          results => {
+            if (results.isSuccess && results.data.length > 0) {
+              results.data.forEach(a => a.images.length !== 0 ? a.images
+                .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
+
+              this.source = this.source.concat(results.data);
+
+            }
+            else if (results.data.length == 0) {
+              this.toastr.warning('اطلاعات دیگری موجود نمی باشد');
+            }
+            else {
+              this.errorToast.showSuccess(results.message);
+            }
+
+            this.loading = false;
+          },
+          error => {
+            this.loading = false;
+            this.error = error.message;
+            this.errorToast.showSuccess(error.message);
+          },
+        );
+        break;
+    }
+
+    this.dataService.getShort(this.page).subscribe(
+      results => {
+        if (results.isSuccess && results.data.length > 0) {
+          results.data.forEach(a => a.images.length !== 0 ? a.images
+            .forEach(b => b.image = Setting.baseFileUrl + b.image) : a.images.push(this.tempImg));
+
+          this.source = this.source.concat(results.data);
+        }
+        else if (results.data.length == 0) {
+          this.toastr.warning('اطلاعات دگیری موجود نمی باشد', 'چی شده؟!!');
+        }
+        else {
           this.errorToast.showSuccess(results.message);
         }
 

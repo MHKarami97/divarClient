@@ -42,13 +42,12 @@ export class LoginComponent implements OnInit {
           this.loading = false;
 
           this.toastr.success('با موفقیت وارد شدید', 'هورا', {
-            timeOut: 2000
+            timeOut: 1000
           });
 
           setTimeout(() => {
-            this.router.navigate(['/pages/home']);
             window.location.reload();
-          }, 2000);
+          }, 500);
 
           this.router.navigate(['']);
         } else {

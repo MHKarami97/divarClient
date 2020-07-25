@@ -1,7 +1,7 @@
 @import "../bootstrap/bootstrap.min-rtl.css";
 @import "../fonts/font-awesome.css";
 
-.base-color{
+.base-color {
   color: #d81b60 !important;
 }
 
@@ -9787,4 +9787,10 @@ footer .cp-footer {
   .hidden-in-mini {
     display: none !important;
   }
+}
+
+button:disabled {
+  background-color: #eee !important;
+  color: #b3040b !important;
+  cursor: default;
 }

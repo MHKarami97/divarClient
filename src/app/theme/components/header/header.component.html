@@ -32,13 +32,13 @@
                       <i class="fa fa-search" aria-hidden="true"></i>
                     </div>
                     <ul class="city_list">
-                      <li *ngFor="let item of mainStates" (data-city)="item.id" (click)="onSubStateClick(item.id)">
+                      <li *ngFor="let item of mainStates" (data-city)="item.id" (click)="onStateClick(item.id)">
                         {{ item.name }}
                       </li>
                     </ul>
                     <br>
                     <ul class="city_list">
-                      <li *ngFor="let item of tempStates" (data-city)="item.id" (click)="onStateClick(item.id)">
+                      <li *ngFor="let item of tempStates" (data-city)="item.id" (click)="onSubStateClick(item.id)">
                         {{ item.name }}
                       </li>
                     </ul>
@@ -139,10 +139,10 @@
             </li>
             <li class="nav-item submit_ad">
               <a *ngIf="isAuth" routerLink="/pages/add" class="btn btn-primary text-caps btn-rounded btn-framed">
-                <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.PostAd' | translate }}</a>
+                <i class="fa fa-plus" aria-hidden="true"></i> {{ 'Menu.PostAd' | translate }}</a>
               <a *ngIf="!isAuth" routerLink="/pages/auth/login"
                 class="btn btn-primary text-caps btn-rounded btn-framed">
-                <i class="fa fa-plus" aria-hidden="true"></i>{{ 'Menu.PostAd' | translate }}</a>
+                <i class="fa fa-plus" aria-hidden="true"></i> {{ 'Menu.PostAd' | translate }}</a>
             </li>
           </ol>
         </nav>
