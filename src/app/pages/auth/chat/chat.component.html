@@ -1,11 +1,10 @@
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 <link rel="stylesheet" href="/assets/css/style-chat.css">
 
 <!-- partial:index.partial.html -->
 <div class="container-chat clearfix">
   <div class="people-list" id="people-list">
     <div class="search">
-      <input type="text" placeholder="جستجو" (keyup)="onSearchChat($event.target.value)" />
+      <input type="text" [placeholder]="'Chat.Search' | translate" (keyup)="onSearchChat($event.target.value)" />
     </div>
     <ul class="list" *ngIf="source.length>0">
 
@@ -24,7 +23,7 @@
       <li class="clearfix">
         <img src="/assets/img/chat.png" width="50" alt="image" />
         <div class="about">
-          <div class="name">بدون چت</div>
+          <div class="name">{{'Chat.NoChat' | translate}}</div>
         </div>
       </li>
 
@@ -38,7 +37,7 @@
 
       <div class="chat-about">
         <div class="chat-with" *ngIf="single">{{single.postTitle}}</div>
-        <div class="chat-with" *ngIf="!single">شما چت فعالی ندارید</div>
+        <div class="chat-with" *ngIf="!single">{{'Chat.NotActive' | translate}}</div>
       </div>
     </div> <!-- end chat-header -->
 
@@ -60,9 +59,9 @@
     <div class="chat-message clearfix" *ngIf="single">
       <form (ngSubmit)="onAdd()" #form="ngForm">
         <textarea [(ngModel)]="create.text" #type="ngModel" name="message-to-send" id="message-to-send"
-          placeholder="پیام خود را تایپ کنید" rows="3"></textarea>
+          [placeholder]="'Chat.WriteMessage' | translate" rows="3"></textarea>
 
-        <button class="btn btn-primary width-100">ارسال پیام</button>
+        <button class="btn btn-primary width-100">{{'Chat.Send' | translate}}</button>
       </form>
     </div> <!-- end chat-message -->
 
@@ -70,7 +69,7 @@
       <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3"
         disabled></textarea>
 
-      <button class="btn btn-primary width-100" disabled>برای ارسال پیام لطفا یک چت را انتخاب کنید</button>
+      <button class="btn btn-primary width-100" disabled>{{'Chat.SelectChat' | translate}}</button>
 
     </div> <!-- end chat-message -->
 

@@ -8,6 +8,8 @@ import { ErrorToast } from 'src/app/errorToast';
 import { CategoryService } from 'src/app/services/category.service';
 import { CategoryWithSub } from 'src/app/models/category/category.module';
 import { StateCheckService } from 'src/app/services/other/stateCheck.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LangService } from 'src/app/services/other/lang.service';
 
 @Component({
   selector: 'app-header',
@@ -22,18 +24,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   isShow = false;
   txt: string;
-  locationName = 'موقعیت';
+  locationName = '';
+  currectLang = 'fa';
   states: State[] = null;
   tempStates: State[] = null;
   mainStates: State[] = null;
   cats: CategoryWithSub[] = [];
 
   constructor(private errorToast: ErrorToast, private authorizeService: AuthorizeService, private dataCatService: CategoryService,
-    private dataStateService: StateService, private stateCheckService: StateCheckService, private router: Router) {
+    private dataStateService: StateService, private stateCheckService: StateCheckService, private router: Router,
+    public translate: TranslateService, private langService: LangService) {
     this.updateCode();
   }
 
-  ngOnInit() {
+  ngOnInit() {   
+
+    if (this.langService.isLang()) {
+      this.currectLang = this.langService.getlang();
+      this.translate.use(this.currectLang);
+    }
+
+    this.translate.get('Header.Location', { value: 'world' }).subscribe((res: string) => {
+      this.locationName = res;
+    });
 
     if (this.authorizeService.isAuthorize()) {
       this.isAuth = true;
@@ -152,7 +165,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSubStateClick(id: number) {
     this.stateCheckService.storeSubState(id.toString());
- 
+
     window.location.reload();
   }
 
@@ -166,5 +179,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.authorizeService.isAuthorize()) {
       this.isAuth = true;
     }
+  }
+
+  langChange(lang: string) {
+    this.langService.addLang(lang);
+    this.translate.use(lang);
   }
 }

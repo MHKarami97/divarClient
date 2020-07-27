@@ -9,6 +9,7 @@ import { StateService } from 'src/app/services/state.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add',
@@ -20,18 +21,11 @@ export class AddComponent implements OnInit {
   loading = false;
   error = null;
   source: Post = null;
+  special = '';
+  normal = '';
   cats: CategoryWithSub[] = null;
   states: StateWithSub[] = null;
-  types: any[] = [
-    {
-      id: 1,
-      name: 'عادی',
-    },
-    {
-      id: 2,
-      name: 'ویژه',
-    }
-  ];
+  types: any[];
 
   submitted = false;
   isChecked = false;
@@ -46,9 +40,29 @@ export class AddComponent implements OnInit {
   };
 
   constructor(private errorToast: ErrorToast, private title: Title, private dataService: PostService,
-    private dataCatService: CategoryService, private dataStateService: StateService, private router: Router, private toastr: ToastrService) { }
+    private dataCatService: CategoryService, private dataStateService: StateService, private router: Router, private toastr: ToastrService,
+    public translate: TranslateService) { }
 
   ngOnInit(): void {
+    this.translate.get('Add.Special', { value: 'world' }).subscribe((res: string) => {
+      this.special = res;
+    });
+
+    this.translate.get('Add.Normal', { value: 'world' }).subscribe((res: string) => {
+      this.normal = res;
+
+      this.types = [
+        {
+          id: 1,
+          name: this.normal,
+        },
+        {
+          id: 2,
+          name: this.special,
+        }
+      ];
+    });
+
     this.title.setTitle('ثبت آگهی');
 
     this.loading = true;

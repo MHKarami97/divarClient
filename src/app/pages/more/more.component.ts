@@ -9,6 +9,7 @@ import { ErrorToast } from 'src/app/errorToast';
 import { ToastrService } from 'ngx-toastr';
 import { FavoriteCreate } from 'src/app/models/favorite/favorite.module';
 import { FavoriteService } from 'src/app/services/favorite.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-more',
@@ -21,7 +22,9 @@ export class MoreComponent implements OnInit {
   error = null;
   url = '';
   source: Post = null;
-  phone = 'اطلاعات تماس';
+  phone = '';
+  RemoveFavoriteStr = '';
+  AddFavoriteStr = '';
   isPhoneShow = false;
   latitude: number;
   longitude: number;
@@ -29,9 +32,21 @@ export class MoreComponent implements OnInit {
   @Input() id: string;
 
   constructor(private meta: Meta, private router: Router, public route: ActivatedRoute, private title: Title,
-    private dataService: PostService, private favoriteService: FavoriteService, private errorToast: ErrorToast, private toastr: ToastrService) { }
+    private dataService: PostService, private favoriteService: FavoriteService, private errorToast: ErrorToast, private toastr: ToastrService,
+    public translate: TranslateService) { }
 
   ngOnInit(): void {
+
+    this.translate.get('More.Phone', { value: 'world' }).subscribe((res: string) => {
+      this.phone = res;
+    });
+    this.translate.get('More.RemoveFavorite', { value: 'world' }).subscribe((res: string) => {
+      this.RemoveFavoriteStr = res;
+    });
+    this.translate.get('More.AddFavorite', { value: 'world' }).subscribe((res: string) => {
+      this.AddFavoriteStr = res;
+    });
+
     this.tempImg.image = '/assets/img/default.png';
 
     this.id = this.route.snapshot.paramMap.get('id');

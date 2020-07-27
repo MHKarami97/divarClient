@@ -7,6 +7,13 @@
             <button type="button" class="btn btn-primary city-select-btn" data-toggle="modal"
               data-target="#city-select-modal">
               <i class="fa fa-map-marker" aria-hidden="true"></i> {{ locationName }} </button>
+            <select class="btn btn-primary city-select-btn lang-select" #langSelect
+              (change)="langChange(langSelect.value)">
+              <option value="fa" selected disabled *ngIf="currectLang==='fa'">FA</option>
+              <option value="en" selected disabled *ngIf="currectLang==='en'">EN</option>
+              <option value="fa" *ngIf="currectLang==='en'">FA</option>
+              <option value="en" *ngIf="currectLang==='fa'">EN</option>              
+            </select>
             <!-- Modal -->
             <div class="modal fade" id="city-select-modal" tabindex="-1" role="dialog"
               aria-labelledby="city-select-modalTitle" aria-hidden="true">
@@ -163,11 +170,11 @@
             <div class="col-md-10 col-sm-5">
               <div class="form-group">
                 <input [(ngModel)]="txt" #type="ngModel" autocomplete="off" name="s" type="text" class="form-control"
-                  id="what" placeholder="جستجو در تمام آگهی‌ها" value="">
+                  id="what" [placeholder]="'Header.SearchInAll' | translate" value="">
               </div>
             </div>
             <div class="col-md-2 col-sm-2">
-              <button type="submit" class="btn btn-primary width-100">جستجو</button>
+              <button type="submit" class="btn btn-primary width-100">{{ 'Header.Search' | translate }}</button>
             </div>
           </div>
         </div>

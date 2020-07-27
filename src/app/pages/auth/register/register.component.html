@@ -16,18 +16,18 @@
                     </div>
                     <div class="form-row form-row-wide">
                       <input [(ngModel)]="user.email" #type="ngModel" type="email" class="input-text"
-                        style="margin-top: 15px;" name="email" id="email" placeholder="ایمیل" required />
+                        style="margin-top: 15px;" name="email" id="email" [placeholder]="'Auth.Email' | translate" required />
                       <p class="user_error_show"></p>
                     </div>
                     <div class="form-row form-row-wide">
                       <input [(ngModel)]="user.password" #type="ngModel" autocomplete="new-password" type="password"
-                        class="input-text" name="password" id="password" placeholder="رمز عبور" required />
+                        class="input-text" name="password" id="password" [placeholder]="'Auth.Password' | translate" required />
                       <p class="user_error_show"></p>
                     </div>
                     <div class="form-row form-row-wide">
                       <input [(ngModel)]="user.passwordVerify" #type="ngModel" autocomplete="new-password"
                         type="password" class="input-text" name="passwordVerify" id="passwordVerify"
-                        placeholder="تایید رمز عبور" required />
+                        [placeholder]="'Auth.ConfirmPassword' | translate" required />
                       <p class="user_error_show"></p>
                     </div>
                     <p class="form-row register_btn_show">

@@ -12,7 +12,7 @@
     "Detail": "View Detail",
     "Fast": "Fast"
   },
-  "Fotter": {
+  "Footer": {
     "About": "About Us",
     "Link": "Links",
     "Contact": "Contact Us",
@@ -29,7 +29,15 @@
   "Header": {
     "Follow": "Follow Us",
     "SignIn": "Sign In",
-    "Location": "Location"
+    "Location": "Location",
+    "All": "All",
+    "Search": "Search",
+    "Welcome": "Welcome",
+    "logout": "logout",
+    "Controll": "Controll",
+    "Chat": "Chat",
+    "Favorite": "Favorite",
+    "SearchInAll": "Search In All Ads"
   },
   "Menu": {
     "About": "About Us",
@@ -76,7 +84,17 @@
     "Cat": "Category",
     "Normal": "Normal",
     "Special": "Special",
-    "Type": "Type"
+    "Type": "Type",
+    "Edit": "Edit",
+    "required": "This Item Is Required",
+    "Des": "Description",
+    "AddNewIMage": "Click here to add image",
+    "MaxImage": "You can select max 4 images",
+    "ImageFormat": "You can just select image",
+    "ImageSize": "Image size is more than 7 MB",
+    "FormNotValid": "Please complete the requested items Or errors Fix what was said to activate the submit button",
+    "Wait": "You Click Add Button, please wait",
+    "Alert": "Advertising is your responsibility"
   },
   "Contact": {
     "Title": "Contact Us",
@@ -86,7 +104,7 @@
     "Phone": "Phone"
   },
   "About": {
-    "Title": "",
+    "Title": "Title",
     "Text": "",
     "Need": "",
     "NeedText": "",
@@ -96,17 +114,51 @@
     "BuyText": ""
   },
   "Home": {
-    "More": "",
-    "Last": "",
-    "Special": ""
+    "More": "Load More",
+    "Last": "Last Ads",
+    "Special": "Special Ads",
+    "Favorite": "Favorites List",
+    "Nodata": "No Data To Show, Please Change Location",
+    "NodataOther": "No Data To Show",
+    "Search": "Search Result",
+    "Cat": "Categories Result",
+    "My": "My Ads",
+    "MyInfo": "Note that your ads will be displayed on this page if approved"
   },
   "More": {
-    "Category": "",
-    "Place": "",
-    "Time": "",
-    "Price": "",
-    "Call": "",
-    "Info": "",
-    "Location": ""
+    "Category": "Category",
+    "Place": "Place",
+    "Time": "Time",
+    "Price": "Price",
+    "Call": "Call",
+    "Info": "Info",
+    "Location": "Location",
+    "StartChat": "Start Chat",
+    "Diactive": "DiActive",
+    "View": "View",
+    "Edit": "Edit",
+    "Contact": "Contact Info",
+    "Phone": "Phone Number",
+    "Share": "Share",
+    "Copy": "Copy",
+    "Warn": "The site has no interest or responsibility for your transaction",
+    "WarnInfo": "Trade more easily by reading the Safe Shopping Guide",
+    "RemoveFavorite": "Remove From Favorite",
+    "AddFavorite": "Add To Favorite"
+  },
+  "Auth": {
+    "MyChat": "My Chats",
+    "Login": "Login",
+    "Email": "Email",
+    "Password": "Password",
+    "ConfirmPassword": "Confirm Password"
+  },
+  "Chat": {
+    "Search": "Search",
+    "NoChat": "No Data To Show",
+    "NotActive": "No Active Chat",
+    "WriteMessage": "Write Your Message",
+    "SelectChat": "Please Select Chat",
+    "Send": "Send"
   }
 }

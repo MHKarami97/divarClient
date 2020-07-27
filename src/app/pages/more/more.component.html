@@ -18,16 +18,15 @@
                 <div class="row">
                   <div class="col-3">
                     <button (click)="addFavorite(source.id)" type="button"
-                      [title]="source.isFavorite?'افزودن به علاقه مندی':'پاک کردن از علاقه مندی'"
+                      [title]="source.isFavorite? RemoveFavoriteStr : AddFavoriteStr "
                       class="btn info-btn btn-primary btn-framed pull-left" style="width: 100%;"><i
                         class="fa fa-bookmark" style="font-size: 20px;"></i></button>
                   </div>
                   <div class="col-9">
                     <div class="short-link">
                       <span class="post-link__button" style="right: 20px;" onclick="copyLinkFunction()"
-                        data-toggle="tooltip" data-placement="right" title="کپی لینک"><i class="fa fa-files-o"
-                          aria-hidden="true"></i>
-                        اشتراک گذاری</span>
+                        data-toggle="tooltip" data-placement="right" [title]="'More.Copy' | translate"><i class="fa fa-files-o"
+                          aria-hidden="true"></i>{{'More.Share' | translate}}</span>
                       <input type="text" id="shortlink" [value]="'https://redinu.com:4002/more/' + source.id" />
                     </div>
                   </div>
@@ -39,9 +38,8 @@
 
               <div class="short-link" *ngIf="isPhoneShow">
                 <span class="post-link__button" id="post-phone__button" onclick="copyPhoneFunction()"
-                  data-toggle="tooltip" data-placement="right" title="کپی لینک"><i class="fa fa-files-o"
-                    aria-hidden="true"></i>شماره
-                  موبایل</span>
+                  data-toggle="tooltip" data-placement="right" [title]="'More.Copy'| translate"><i class="fa fa-files-o"
+                    aria-hidden="true"></i>{{'More.Phone' | translate}}</span>
                 <input type="text" id="shortphone" [value]="phone" />
               </div>
             </section>
@@ -52,8 +50,8 @@
             </div>
 
             <div class="warning_ad">
-              <h4>سایت هیچ‌گونه منفعت و مسئولیتی در قبال معامله شما ندارد.</h4>
-              با مطالعه‌ی راهنمای خرید امن، آسوده‌تر معامله کنید.
+              <h4>{{'More.Warn' | translate}}</h4>
+              {{'More.WarnInfo' | translate}}
             </div>
           </div>
           <!--============ Sidebar ==============-->
@@ -67,7 +65,7 @@
                   </div>
                   <div class="row contact-box">
                     <button (click)="startChat()" type="button" class="btn btn-primary info-btn col-md-12 col-sm-12 pull-right
-                      contact_info">شروع چت</button>
+                      contact_info">{{'More.StartChat' | translate}}</button>
                   </div>
 
                   <dl>
